@@ -1,0 +1,273 @@
+.vehiclePage {
+  margin: 0 auto;
+  width: 100%;
+  font-family: var(--font-slim);
+}
+
+.commonKeyValue {
+  display: flex;
+  font-variant-numeric: tabular-nums;
+}
+
+.commonKeyValue>svg:first-child {
+  width: 1rem;
+  margin-right: .5rem;
+}
+
+.commonKeyValue>div:first-of-type {
+  flex-grow: 1;
+}
+
+.commonKeyValue>div:last-of-type {
+  font-weight: 600;
+}
+
+/*/////////////////////////*/
+
+.hero {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-geom);
+  font-variant-numeric: normal;
+}
+
+.manuIcon {
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+  height: 300px;
+  fill: var(--color-bg-1);
+}
+
+.shipImage {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  height: min(500px, 50vh);
+  align-self: center;
+  z-index: 0;
+  filter: drop-shadow(0 3rem 1rem #000000a0);
+}
+
+
+.onGround {
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - 5rem);
+  top: calc(100% - 5rem);
+
+  display: inline-block;
+  transform-origin: left top;
+  /* isometric-ish tilt placing the text on the ground */
+  transform: rotateX(-54.74deg) rotateZ(-45deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+.manufacturer {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.vehicleName {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.vehicleManuNameOriginal {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--color-text-2);
+}
+
+.designedBy {
+  position: absolute;
+  bottom: 0rem;
+  right: 0;
+  font-size: .75rem;
+  color: var(--color-text-2);
+}
+
+/*/////////////////////////*/
+
+.trading {
+  margin-top: var(--gap);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+  height: 6.25rem;
+}
+
+.rsiStore {
+  padding: .5rem 1rem;
+  border-radius: var(--rad);
+  background-color: var(--color-bg-1);
+  grid-column-start: span 2;
+  position: relative;
+}
+
+.releaseStatus {
+  background-color: var(--color-bg-2);
+  border-radius: 100rem;
+  width: calc(100% + 1rem);
+  position: relative;
+  margin-left: -.5rem;
+  padding: 0 .5rem;
+  /* font-family: var(--font-geom); */
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.rsiStorePrice {
+  text-align: right;
+  color: var(--color-orange);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  position: absolute;
+  right: 1rem;
+  bottom: .5rem;
+}
+
+.rsiStorePriceLabel {
+  margin-top: .25rem;
+}
+
+.inGameBuy {
+  padding: .5rem 1rem;
+  border-radius: var(--rad);
+  background-color: var(--color-bg-1);
+  grid-column-start: span 2;
+  position: relative;
+}
+
+.inGameBuy > .commonKeyValue>div:last-of-type {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-light-blue);
+}
+
+.heroBuyingOption>div:last-of-type {
+  text-align: right;
+  color: var(--color-light-blue);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  position: absolute;
+  right: 1rem;
+  bottom: .5rem;
+}
+
+/*/////////////////////////*/
+
+.components {
+  margin-top: var(--gap);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.component {
+  position: relative;
+  padding: .5rem 1rem;
+  border-radius: var(--rad);
+  background-color: var(--color-bg-1);
+  border-width: .125rem;
+  border-style: solid;
+  border-color: transparent;
+  overflow: hidden;
+}
+
+.component.invalid {
+  background-color: var(--color-bg);
+  border-color: var(--color-bg-2);
+}
+
+.componentTypeAndIcon {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.iconSizeNumWrapper {
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+}
+
+.iconSizeNum {
+  display: inline-block;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  height: 1.25rem;
+  padding: .125rem;
+  border-radius: .25rem;
+}
+
+.iconSizeNum:not(:last-child) {
+  margin-right: .25rem;
+}
+
+.name {
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.nameOriginal {
+  font-size: .8rem;
+  color: var(--color-text-1);
+}
+
+.componentGrade {
+  font-weight: 600;
+  position: absolute;
+  bottom: .5rem;
+  right: 1rem;
+}
+
+/*/////////////////////////*/
+
+.twoColumn {
+  margin-top: var(--gap);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/*/////////////////////////*/
+
+.miscellaneous {
+  padding: .5rem 1rem;
+  border-radius: var(--rad);
+  background-color: var(--color-bg-1);
+}
+
+
+.insurance {
+  padding: .5rem 1rem;
+  border-radius: var(--rad);
+  background-color: var(--color-bg-1);
+}

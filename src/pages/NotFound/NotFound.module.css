@@ -1,0 +1,12 @@
+.root {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #333;
+}
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+.desc {
+  color: #666;
+}

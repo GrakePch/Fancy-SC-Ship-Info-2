@@ -1,0 +1,190 @@
+.SimpleWeaponGroup-container {
+    background-color: var(--color-bg-1);
+    border-radius: var(--rad);
+    padding: .5rem .5rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.SimpleWeaponGroup-container p {
+    margin: 0;
+}
+
+.SimpleWeaponGroup-title {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: .5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.SimpleWeaponGroup-title>svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.SimpleWeaponGroup-title>p {
+    flex-grow: 1;
+}
+
+.SimpleWeaponGroup-legend {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: normal;
+}
+
+.SimpleWeaponGroup-legend>div {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.SimpleWeapon-container {
+    height: 2.3rem;
+    margin-top: .25rem;
+    background-color: var(--color-bg-3);
+    border-radius: .5rem;
+    padding: .25rem .5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.SimpleWeapon-container.non-leaf {
+    height: 1.5rem;
+    box-shadow: none;
+}
+
+.SimpleWeapon-container.uneditable {
+    background-color: var(--color-bg-2);
+}
+
+.SimpleWeapon-head-icon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: center;
+    margin-right: .5rem;
+}
+
+.SimpleWeapon-names {
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
+}
+
+.SimpleWeapon-name {
+    line-height: 100%;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.SimpleWeapon-subname {
+    line-height: 100%;
+    font-weight: 500;
+    font-size: .8rem;
+    color: var(--color-text-1);
+    word-break: break-word;
+}
+
+.SimpleWeapon-container.uneditable .SimpleWeapon-name {
+    color: var(--color-text-1);
+}
+
+.SimpleWeapon-container.uneditable .SimpleWeapon-subname {
+    color: var(--color-text-2);
+}
+
+.SimpleWeapon-tail-icons {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.SimpleWeapon-tail-icons>p {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+    padding: 1px .5rem;
+    padding-left: .375rem;
+    font-weight: 500;
+    border-radius: 100rem;
+    gap: .25rem;
+}
+
+.SimpleWeapon-tail-icons>p>svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.SimpleWeapon-tail-icons>svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.SimpleWeapon-tail-icons>* {
+    flex-shrink: 0;
+}
+
+.SimpleWeapon-type-tag {
+    border-width: 2px;
+    border-style: solid;
+}
+
+.SimpleWeapon-size-icon {
+    display: inline-block;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-slim);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    height: 1.25rem;
+    padding: .125rem;
+    border-radius: .25rem;
+}
+
+.SimpleWeapon-size-icon.void {
+    background-color: transparent;
+    color: transparent;
+}
+
+
+.SimpleWeapon-number {
+    width: 1.5rem;
+    text-align: right;
+}
+
+.SimpleWeapon-subWeapon-container {
+    padding-left: 2rem;
+}
+
+.SimpleInfo-nodata {
+    width: 100%;
+    height: 18.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    position: relative;
+}
+
+.SimpleInfo-nodata>.bg {
+    position: absolute;
+    top: 0;
+    border-radius: 2rem;
+    filter: invert(.5);
+    z-index: 0;
+    transform: scale(.95);
+    /* opacity: .5; */
+}
+
+.SimpleInfo-nodata>p {
+    font-size: 2rem;
+    background-color: var(--color-bg);
+    padding: 2rem 5rem;
+    z-index: 1;
+}

@@ -1,0 +1,92 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.group {
+  margin-top: 2rem;
+}
+
+.groupTitle {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.item {
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(12, 22, 40, 0.03);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  height: 5rem;
+  overflow: hidden;
+  background-color: var(--color-bg-1);
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  right: 1rem;
+  width: 8rem;
+  pointer-events: none;
+  background-image: var(--item-bg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  filter: drop-shadow(0 .25rem .99rem #00000080)
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(12, 22, 40, 0.08);
+}
+
+.link {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.name {
+}
+
+.nameOriginal {
+  font-size: .75rem;
+  color: var(--color-text-1);
+}
+
+.priceRSI {
+  color: var(--color-orange);
+  font-family: var(--font-slim);
+  font-variant-numeric: tabular-nums;
+}
+
+.priceRSI>span {
+  font-size: .75rem;
+  opacity: .5;
+}
+
+.priceRSINull {
+  color: var(--color-text-2);
+  font-family: var(--font-slim);
+  font-variant-numeric: tabular-nums;
+  margin-top: .25rem;
+  font-size: .75rem;
+}
+
+@media (max-width: 720px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

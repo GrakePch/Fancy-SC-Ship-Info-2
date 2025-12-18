@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "Google Sans Flex";
+  src: url("./assets/fonts/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('./assets/fonts/Barlow-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('./assets/fonts/Barlow-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('./assets/fonts/Barlow-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('./assets/fonts/Barlow-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('./assets/fonts/Barlow-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  font-family: var(--font-geom);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-bg: #101010;
+  --color-bg-1: #202020;
+  --color-bg-2: #303030;
+  --color-bg-2a: #30303080;
+  --color-bg-3: #404040;
+  --color-bg-3a: #40404080;
+  --color-text: #f0f0f0;
+  --color-text-1: #b0b0b0;
+  --color-text-2: #808080;
+
+  --color-red: #ee4444;
+  --color-nav-mode: hsla(200, 60%, 60%);
+  --color-orange: #ff8000;
+  --color-light-blue: #39c;
+
+  --gap: 1rem;
+  --rad: .5rem;
+
+  --font-geom: "Google Sans Flex", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-slim: 'Barlow', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --color-military: #367d39;
+  --color-stealth: #439193;
+  --color-civilian: #c1af3e;
+  --color-industrial: #cf762e;
+  --color-competition: #d14949;
+
+  --color-electromagnetic: #4d7bd1;
+  --color-infrared: #d14949;
+  --color-crossSection: #c1a03e;
+
+  --color-physical: #c1af3e;
+  --color-energy: #d14949;
+  --color-distortion: #439193;
+  --color-stun: #7642ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Removed automatic light-mode overrides to keep the app in a fixed dark theme */
