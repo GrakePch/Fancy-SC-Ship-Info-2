@@ -55,22 +55,11 @@ for (const className of classNames) {
       { timeout: 30000 }
     );
 
-    // Get full page height from document
-    const pageHeight = await page.evaluate(
-      () => document.documentElement.offsetHeight
-    );
-
-    // Resize viewport to match full page height before screenshot
-    await page.setViewportSize({ width: 1280, height: pageHeight });
-
     const outputPath = join(outputDir, `${className}.png`);
     await page.screenshot({
       path: outputPath,
-      fullPage: false,
+      fullPage: true,
     });
-
-    // Reset viewport for next page
-    await page.setViewportSize({ width: 1280, height: 900 });
 
     console.log(`  ✓ Saved: vehicle/${className}.png`);
     successCount++;
