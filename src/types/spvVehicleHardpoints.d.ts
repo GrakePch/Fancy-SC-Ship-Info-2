@@ -18,8 +18,8 @@ interface SpvVehicleHardpoints {
         EMP?: SpvHardpoints;
         QED?: SpvHardpoints;
       };
-      MiningHardpoints: SpvHardpoints;
-      SalvageHardpoints: SpvHardpoints;
+      MiningHardpoints: { PilotControlled?: SpvHardpoints; CrewControlled?: SpvHardpoints };
+      SalvageHardpoints: { PilotControlled?: SpvHardpoints; CrewControlled?: SpvHardpoints };
       UtilityHardpoints: SpvHardpoints;
       UtilityTurrets: SpvHardpoints;
     };
@@ -266,6 +266,8 @@ interface SpvPort {
   PortName: string;
   MinSize: number;
   MaxSize: number;
+  Size?: number;
+  _Quantity?: number;
   Loadout: string;
   BaseLoadout: SpvLoadout;
   Types: string[];

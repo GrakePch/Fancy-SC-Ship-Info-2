@@ -1,12 +1,9 @@
 import styles from "./QuantumTravel.module.css";
 import { useTranslation } from "react-i18next";
-import vehicleItemListRaw from "../../data/vehicle-item-list.json";
 import qtTime from "../../utils/qtTimeCalculator";
 import formatTime from "../../utils/formatTime";
 import Icon from "@mdi/react";
 import icons from "../../assets/icons";
-
-const vehicleItemList = vehicleItemListRaw as unknown as any[];
 
 type QuantumTravelProps = {
   fuelCapacity: number;

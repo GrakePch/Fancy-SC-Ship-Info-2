@@ -85,8 +85,6 @@ type SimpleWeaponProps = {
 };
 
 const SimpleWeapon = ({ item, num = 1 }: SimpleWeaponProps) => {
-  const { t } = useTranslation();
-
   const { t: tvi } = useTranslation("vehicle_item");
 
   const baseLoadout = item.BaseLoadout;

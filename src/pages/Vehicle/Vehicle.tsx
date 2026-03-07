@@ -336,7 +336,7 @@ function VehicleMain({
 
 type VehicleComponentsByTypeProps = {
   type: string;
-  data: SpvHardpoints;
+  data: SpvHardpoints & { FaceType?: string };
   icon: string;
 };
 
@@ -389,7 +389,7 @@ function VehicleComponentsByType({ type, data, icon }: VehicleComponentsByTypePr
 type HardpointSizesProps = { components: SpvPort[] | undefined };
 
 function HardpointSizes({ components }: HardpointSizesProps) {
-  const [numsOfSizes, setNumsOfSizes] = useState([]);
+  const [numsOfSizes, setNumsOfSizes] = useState<number[]>([]);
 
   useEffect(() => {
     if (components) {

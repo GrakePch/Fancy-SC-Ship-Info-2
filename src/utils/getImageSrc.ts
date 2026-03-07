@@ -1,4 +1,4 @@
-import shipIndex from "../data/vehicle-basic-list";
+import shipIndex from "../data/vehicle-basic-list.json";
 
 const nameFix: Record<string, string> = {
   ANVL_Hornet_F7A_Mk1: "f7a-hornet",
@@ -36,5 +36,5 @@ export const getImageSrc = (className: string, angle: "top" | "iso" = "top") => 
     }
   }
 
-  return `https://ships.42kit.com/resized/${queryName}%20${angle}.png`;
+  return `https://ships.42kit.com/resized/${queryName ?? ""}%20${angle}.png`;
 };
