@@ -74,8 +74,8 @@
   --gap: 1rem;
   --rad: .5rem;
 
-  --font-geom: "Google Sans Flex", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-slim: 'Barlow', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-geom: "Google Sans Flex", "Noto Sans CJK SC", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-slim: 'Barlow', "Noto Sans CJK SC", system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   --color-military: #367d39;
   --color-stealth: #439193;
