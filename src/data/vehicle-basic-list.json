@@ -571,6 +571,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": false,
+      "ShipOfTheMonth": "January 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20913-January-2026-Subscriber-Promotions",
       "Buy": 175.0
     },
     "PU": {
@@ -636,6 +639,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": false,
+      "ShipOfTheMonth": "January 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20913-January-2026-Subscriber-Promotions",
       "Buy": 185
     },
     "PU": {
@@ -670,6 +676,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": false,
+      "ShipOfTheMonth": "January 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20913-January-2026-Subscriber-Promotions",
       "Buy": 185
     },
     "PU": {
@@ -930,6 +939,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": false,
+      "ShipOfTheMonth": "December 2025",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20877-December-2025-Subscriber-Promotions",
       "Buy": 350
     },
     "PU": {
@@ -2163,6 +2175,41 @@
     }
   },
   {
+    "ClassName": "ARGO_MOTH",
+    "Name": "Argo MOTH",
+    "Manufacturer": "Argo Astronautics",
+    "Career": "Industrial",
+    "Role": "Medium Salvage",
+    "Size": 3,
+    "Cargo": 224,
+    "Type": "Ship",
+    "CommLink": {
+      "HasCommLink": false,
+      "Date": null,
+      "Url": null
+    },
+    "ProgressTracker": {
+      "Status": "Released",
+      "Patch": "4.6.0",
+      "IsOnPT": false,
+      "ID": null
+    },
+    "Store": {
+      "Url": null,
+      "IsPromotionOnly": false,
+      "IsLimitedSale": false,
+      "Buy": 315
+    },
+    "PU": {
+      "Patch": "4.6.0",
+      "Date": "2026-02-11",
+      "HasPerf": true,
+      "IsPTUOnly": false,
+      "IsPTUBuyOnly": false,
+      "Buy": null
+    }
+  },
+  {
     "ClassName": "ARGO_MPUV",
     "Name": "Argo MPUV Cargo",
     "Manufacturer": "Argo Astronautics",
@@ -2286,7 +2333,7 @@
       "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "August 2024",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/comm-link/transmission/20078-August-2024-Subscriber-Promotions",
-      "Buy": 125.0
+      "Buy": 190.0
     },
     "PU": {
       "Patch": "3.15.1",
@@ -3514,7 +3561,7 @@
       "HasPerf": true,
       "IsPTUOnly": false,
       "IsPTUBuyOnly": false,
-      "Buy": 342720.0
+      "Buy": null
     }
   },
   {
@@ -5320,9 +5367,9 @@
       "Url": "https://robertsspaceindustries.com/comm-link/transmission/20214-MISC-Starlancer-MAX",
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": false,
-      "ShipOfTheMonth": "July 2025",
-      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20624-July-2025-Subscriber-Promotions",
+      "IsShipOfTheMonth": true,
+      "ShipOfTheMonth": "February 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20961-February-2026-Subscriber-Promotions",
       "Buy": 250
     },
     "PU": {
@@ -5358,6 +5405,9 @@
       "Url": "https://robertsspaceindustries.com/comm-link/transmission/20213-MISC-Starlancer-TAC",
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": true,
+      "ShipOfTheMonth": "February 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20961-February-2026-Subscriber-Promotions",
       "Buy": 375
     },
     "PU": {
@@ -5392,7 +5442,7 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "November 2025",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20853-November-2025-Subscriber-Promotions",
       "Buy": 250
@@ -5430,7 +5480,7 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "November 2025",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20853-November-2025-Subscriber-Promotions",
       "Buy": 290
@@ -5467,7 +5517,7 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "November 2025",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20853-November-2025-Subscriber-Promotions",
       "Buy": 260
@@ -6612,6 +6662,39 @@
     }
   },
   {
+    "ClassName": "RSI_Hermes",
+    "Name": "RSI Hermes",
+    "Manufacturer": "Roberts Space Industries",
+    "Career": "Transporter",
+    "Role": "Medium Freight",
+    "Size": 5,
+    "Cargo": 288,
+    "Type": "Ship",
+    "CommLink": {
+      "HasCommLink": false,
+      "Date": null,
+      "Url": null
+    },
+    "ProgressTracker": {
+      "Status": "Released",
+      "IsOnPT": false,
+      "ID": null
+    },
+    "Store": {
+      "Url": null,
+      "IsPromotionOnly": false,
+      "IsLimitedSale": false,
+      "Buy": 220
+    },
+    "PU": {
+      "Patch": "4.6.0",
+      "Date": "2026-01-28",
+      "HasPerf": true,
+      "IsPTUOnly": false,
+      "Buy": null
+    }
+  },
+  {
     "New Vehicle": "RSI Lynx",
     "ClassName": "RSI_Lynx",
     "Name": "RSI Lynx",
@@ -7316,6 +7399,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": false,
+      "ShipOfTheMonth": "December 2025",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20877-December-2025-Subscriber-Promotions",
       "Buy": 120.0
     },
     "PU": {

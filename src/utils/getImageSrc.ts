@@ -12,6 +12,7 @@ const nameFix: Record<string, string> = {
   RSI_Zeus_MR: "zeus-mkii-mr",
   RSI_Polaris_FW: "polaris",
   CNOU_Pionneer: "pioneer",
+  KRIG_L22_AlphaWolf: "l22-alphawolf",
 };
 
 export const getImageSrc = (className: string, angle: "top" | "iso" = "top") => {
