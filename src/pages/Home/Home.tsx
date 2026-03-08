@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import vehicleBasicListRaw from "../../data/vehicle-basic-list.json";
@@ -45,8 +44,14 @@ export default function Home() {
               <li
                 key={s.ClassName}
                 className={styles.item}
-                style={{ "--item-bg": `url(${getImageSrc(s.ClassName, "top")})` } as CSSProperties}
               >
+                <img
+                  className={styles.thumbnail}
+                  src={getImageSrc(s.ClassName, "top")}
+                  loading="lazy"
+                  alt=""
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
+                />
                 <Link to={`/vehicle/${encodeURIComponent(s.ClassName)}`} className={styles.link}>
                   <div className={styles.name}>{shorten(tv(s.Name, { defaultValue: s.Name }))}</div>
                   <div className={styles.nameOriginal}>{shorten(s.Name)}</div>

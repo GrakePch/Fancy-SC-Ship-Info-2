@@ -26,19 +26,17 @@
   background-color: var(--color-bg-1);
 }
 
-.item::after {
-  content: "";
+.thumbnail {
   position: absolute;
   top: 0.5rem;
   bottom: 0.5rem;
   right: 1rem;
   width: 8rem;
+  height: calc(100% - 1rem);
+  object-fit: contain;
+  object-position: right center;
   pointer-events: none;
-  background-image: var(--item-bg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right center;
-  filter: drop-shadow(0 .25rem .99rem #00000080)
+  filter: drop-shadow(0 .25rem .99rem #00000080);
 }
 
 .item:hover {
