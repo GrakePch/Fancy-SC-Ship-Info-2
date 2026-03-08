@@ -1,0 +1,130 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 12vh;
+  animation: fadeIn 120ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.panel {
+  width: min(600px, 92vw);
+  background: var(--color-bg-1);
+  border-radius: var(--rad);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: slideDown 150ms ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-12px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  font-family: var(--font-geom);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease;
+}
+
+.inputActive {
+  border-bottom-color: var(--color-bg-3);
+}
+
+.input::placeholder {
+  color: var(--color-text-2);
+}
+
+.resultList {
+  list-style: none;
+  margin: 0;
+  padding: 0rem 0;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 80ms ease;
+}
+
+.resultItem.active {
+  background: var(--color-bg-3);
+}
+
+.thumb {
+  width: 3rem;
+  height: 2rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px #00000060);
+  align-self: center;
+}
+
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  min-width: 0;
+}
+
+.shipName {
+  font-size: 1rem;
+}
+
+.shipNameEn {
+  font-size: 0.75rem;
+  color: var(--color-text-1);
+}
+
+.price {
+  margin-left: auto;
+  font-family: var(--font-slim);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-orange);
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.priceUnit {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.priceNull {
+  margin-left: auto;
+  font-family: var(--font-slim);
+  font-size: 0.75rem;
+  color: var(--color-text-2);
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.empty {
+  padding: 1rem 1.25rem;
+  color: var(--color-text-2);
+  font-size: 0.875rem;
+}
