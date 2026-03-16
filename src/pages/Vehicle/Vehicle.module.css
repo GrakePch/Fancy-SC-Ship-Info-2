@@ -271,3 +271,44 @@
   border-radius: var(--rad);
   background-color: var(--color-bg-1);
 }
+
+/*/////////////////////////*/
+
+@media (max-width: 960px) {
+  .components {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .vehicleName {
+    font-size: 3rem;
+  }
+
+  .manufacturer {
+    font-size: 1.25rem;
+  }
+
+  .vehicleManuNameOriginal {
+    font-size: 1.25rem;
+  }
+
+  .trading {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .rsiStore,
+  .inGameBuy {
+    grid-column: span 1;
+    min-height: 6.25rem;
+  }
+
+  .components {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .twoColumn {
+    grid-template-columns: 1fr;
+  }
+}
