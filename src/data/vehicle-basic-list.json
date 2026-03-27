@@ -2177,7 +2177,7 @@
   {
     "ClassName": "ARGO_MOTH",
     "Name": "Argo MOTH",
-    "Manufacturer": "Argo Astronautics",
+    "Manufacturer": "Argo",
     "Career": "Industrial",
     "Role": "Medium Salvage",
     "Size": 3,
@@ -3671,7 +3671,7 @@
     "Career": "Transporter",
     "Role": "Armored Cargo",
     "Size": 5,
-    "Cargo": 1536,
+    "Cargo": 2204,
     "Type": "Ship",
     "CommLink": {
       "HasCommLink": true,
@@ -3702,7 +3702,7 @@
     "Career": "Transporter",
     "Role": "Heavy Dropship",
     "Size": 5,
-    "Cargo": 1152,
+    "Cargo": 1140,
     "Type": "Ship",
     "CommLink": {
       "HasCommLink": true,
@@ -4521,7 +4521,7 @@
     "Career": "Industrial",
     "Role": "Mobile Refinery",
     "Size": 3,
-    "Cargo": 128,
+    "Cargo": 64,
     "Type": "Ship",
     "CommLink": {
       "HasCommLink": true,
@@ -4934,7 +4934,7 @@
     "Career": "Transporter",
     "Role": "Heavy Freight",
     "Size": 6,
-    "Cargo": 20736,
+    "Cargo": 6912,
     "Type": "Ship",
     "CommLink": {
       "HasCommLink": true,
@@ -4965,7 +4965,7 @@
     "Career": "Transporter",
     "Role": "Heavy Freight",
     "Size": 6,
-    "Cargo": 98304,
+    "Cargo": 12288,
     "Type": "Ship",
     "CommLink": {
       "HasCommLink": true,
@@ -5367,7 +5367,7 @@
       "Url": "https://robertsspaceindustries.com/comm-link/transmission/20214-MISC-Starlancer-MAX",
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "February 2026",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20961-February-2026-Subscriber-Promotions",
       "Buy": 250
@@ -5405,7 +5405,7 @@
       "Url": "https://robertsspaceindustries.com/comm-link/transmission/20213-MISC-Starlancer-TAC",
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "February 2026",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20961-February-2026-Subscriber-Promotions",
       "Buy": 375
@@ -6257,6 +6257,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": true,
+      "ShipOfTheMonth": "March 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20962-March-2026-Subscriber-Promotions",
       "Buy": 290.0
     },
     "PU": {
@@ -6397,6 +6400,39 @@
     }
   },
   {
+    "ClassName": "RSI_Aurora_GS_SE",
+    "Name": "RSI Aurora Mk I SE",
+    "Manufacturer": "Roberts Space Industries",
+    "Career": "Combat",
+    "Role": "Light Fighter",
+    "Size": 2,
+    "Cargo": 6,
+    "Type": "Ship",
+    "CommLink": {
+      "HasCommLink": false,
+      "Date": null,
+      "Url": null
+    },
+    "ProgressTracker": {
+      "Status": "Released",
+      "IsOnPT": false,
+      "ID": null
+    },
+    "Store": {
+      "Url": null,
+      "IsPromotionOnly": false,
+      "IsLimitedSale": false,
+      "Buy": 50.0
+    },
+    "PU": {
+      "Patch": "4.7.0",
+      "Date": "2026-03-25",
+      "HasPerf": true,
+      "IsPTUOnly": false,
+      "Buy": null
+    }
+  },
+  {
     "ClassName": "RSI_Aurora_LN",
     "Name": "RSI Aurora LN",
     "Manufacturer": "Roberts Space Industries",
@@ -6458,6 +6494,39 @@
       "HasPerf": true,
       "IsPTUOnly": false,
       "Buy": 687960.0
+    }
+  },
+  {
+    "ClassName": "RSI_Aurora_MK2",
+    "Name": "RSI Aurora MK2",
+    "Manufacturer": "Roberts Space Industries",
+    "Career": "Multi-Role",
+    "Role": "Starter / Light Fighter",
+    "Size": 2,
+    "Cargo": 2,
+    "Type": "Ship",
+    "CommLink": {
+      "HasCommLink": false,
+      "Date": null,
+      "Url": null
+    },
+    "ProgressTracker": {
+      "Status": "Released",
+      "IsOnPT": false,
+      "ID": null
+    },
+    "Store": {
+      "Url": null,
+      "IsPromotionOnly": false,
+      "IsLimitedSale": false,
+      "Buy": 45.0
+    },
+    "PU": {
+      "Patch": "4.7.0",
+      "Date": "2026-03-25",
+      "HasPerf": true,
+      "IsPTUOnly": false,
+      "Buy": null
     }
   },
   {
@@ -7028,6 +7097,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": true,
+      "ShipOfTheMonth": "March 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20962-March-2026-Subscriber-Promotions",
       "Buy": 60
     },
     "PU": {
