@@ -68,6 +68,10 @@ jobs:
           )
           PY
 
+      - name: Preprocess formatted JSON
+        run: |
+          python scripts/dataPreProc.py batchFormatted/vehicle-basic-list.json
+
       - name: Copy formatted JSON to src/data
         run: |
           cp -f batchFormatted/vehicle-basic-list.json src/data/vehicle-basic-list.json
