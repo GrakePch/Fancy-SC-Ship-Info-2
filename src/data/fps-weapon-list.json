@@ -4003,7 +4003,7 @@
     "itemName": "behr_binoculars_01",
     "type": "WeaponPersonal",
     "subType": "Gadget",
-    "tags": "",
+    "tags": "binoculars",
     "requiredTags": "",
     "size": 1,
     "grade": 1,
@@ -4025,6 +4025,9 @@
         "Code": "BEH",
         "Name": "Behring"
       },
+      "Tags": [
+        "binoculars"
+      ],
       "HeatController": {
         "EnableHeat": false,
         "InitialTemperature": -1.0,
@@ -4130,6 +4133,11 @@
         "SoundRadiusMultiplier": 1.0
       },
       "Radar": {
+        "AimAssist": {
+          "DistanceMin": 500.0,
+          "DistanceMax": 700.0,
+          "OutsideRangeBufferDistance": 100.0
+        },
         "IR": {
           "Sensitivity": 0.0,
           "GroundSensitivity": 0.0,
@@ -4194,6 +4202,9 @@
           "MaxSize": 1,
           "Types": [
             "WeaponAttachment.Magazine"
+          ],
+          "Tags": [
+            "binoculars"
           ],
           "RequiredTags": [
             "grin_multitool_energy_01"
@@ -4280,12 +4291,18 @@
           ],
           "Flags": [
             "inventory"
+          ],
+          "Tags": [
+            "binoculars"
           ]
         },
         {
           "PortName": "item_grab",
           "MinSize": 0,
-          "MaxSize": 0
+          "MaxSize": 0,
+          "Tags": [
+            "binoculars"
+          ]
         }
       ]
     }
@@ -8030,6 +8047,92 @@
     }
   },
   {
+    "className": "gmni_optics_tsco_x8_s3_store01",
+    "reference": "8335d320-36ee-48a0-8ca8-600ad88b7a1f",
+    "itemName": "gmni_optics_tsco_x8_s3_store01",
+    "type": "WeaponAttachment",
+    "subType": "IronSight",
+    "tags": "",
+    "requiredTags": "",
+    "size": 3,
+    "grade": 1,
+    "name": "@item_Namegmni_optics_tsco_x8_s3_store01",
+    "manufacturer": "GEM",
+    "classification": "FPS.WeaponAttachment.IronSight",
+    "stdItem": {
+      "ClassName": "gmni_optics_tsco_x8_s3_store01",
+      "Size": 3,
+      "Mass": 0.1,
+      "Volume": 1900.0,
+      "Grade": 1,
+      "Class": "",
+      "Type": "WeaponAttachment.IronSight",
+      "Classification": "FPS.WeaponAttachment.IronSight",
+      "Name": "OT8-RF \"HighSec\" (8x Telescopic)",
+      "Description": "Combining a premium 8x telescopic sight with Gemini's innovative echoburst rangefinder, the OT8-RF model allows you to accurately gauge the distance to your target; vital for effective precision shooting. The standard scope for Gemini's A03 Sniper Rifle, the OT8-RF is engineered to impress in a variety of situations and engagements.The HighSec edition features a carbon fiber finish with red accents.",
+      "Manufacturer": {
+        "Code": "GEM",
+        "Name": "Gemini"
+      },
+      "HeatController": {
+        "EnableHeat": false,
+        "InitialTemperature": -1.0,
+        "PoweredAmbientCoolingMultiplier": 1.0,
+        "MinOperatingTemperature": 0.0,
+        "MinCoolingTemperature": 300.0,
+        "Signature": {
+          "EnableSignature": false,
+          "MinTemperatureForIR": 250.0,
+          "TemperatureToIR": 6.0,
+          "StartIREmission": 0.0
+        },
+        "Overheat": {
+          "EnableOverheat": false,
+          "MaxTemperature": 450.0,
+          "WarningTemperature": 370.0,
+          "RecoveryTemperature": 350.0
+        }
+      },
+      "WeaponModifier": {
+        "RecoilModifier": {
+          "AimRecoilModifier": {
+            "CurveRecoil": {
+              "YawMaxDegrees": 1.0,
+              "PitchMaxDegrees": 1.0,
+              "RollMaxDegrees": 1.0
+            },
+            "RandomPitchMultiplier": 1.0,
+            "RandomYawMultiplier": 1.0,
+            "DecayMultiplier": 1.0
+          },
+          "RecoilMultiplier": 1.0,
+          "DecayMultiplier": 1.0
+        },
+        "SpreadModifier": {
+          "Min": 1.0,
+          "Max": 1.0,
+          "FirstAttack": 1.0,
+          "PerAttack": 1.0,
+          "Decay": 1.0
+        },
+        "AimModifier": {
+          "ZoomScale": 8.0,
+          "SecondZoomScale": 1.0,
+          "ZoomTimeScale": 1.0
+        },
+        "DamageMultiplier": 1.0,
+        "DamageOverTimeMultiplier": 1.0,
+        "FireRateMultiplier": 1.0,
+        "ProjectileSpeedMultiplier": 1.0,
+        "AmmoCostMultiplier": 1.0,
+        "ChargeTimeMultiplier": 1.0,
+        "HeatGenerationMultiplier": 1.0,
+        "BarrelEffectsStrength": 1.0,
+        "SoundRadiusMultiplier": 1.0
+      }
+    }
+  },
+  {
     "className": "gmni_pistol_ballistic_01",
     "reference": "b15f7736-0010-4c85-b684-85118761d124",
     "itemName": "gmni_pistol_ballistic_01",
@@ -9620,6 +9723,11 @@
         ]
       },
       "Radar": {
+        "AimAssist": {
+          "DistanceMin": 500.0,
+          "DistanceMax": 700.0,
+          "OutsideRangeBufferDistance": 100.0
+        },
         "IR": {
           "Sensitivity": 0.0,
           "GroundSensitivity": 0.0,
@@ -10663,26 +10771,25 @@
     "reference": "1b6a6b76-f3fc-402c-a24a-204f2eeae6f7",
     "itemName": "kegr_fire_extinguisher_01",
     "type": "WeaponPersonal",
-    "subType": "Medium",
-    "tags": "stocked kegr_fire_extinguisher_01",
+    "subType": "Gadget",
+    "tags": "kegr_fire_extinguisher_01",
     "requiredTags": "",
-    "size": 2,
+    "size": 5,
     "grade": 1,
     "name": "@item_Namekegr_fire_extinguisher_01",
-    "classification": "FPS.Weapon.Medium",
+    "classification": "FPS.Weapon.Gadget",
     "stdItem": {
       "ClassName": "kegr_fire_extinguisher_01",
-      "Size": 2,
+      "Size": 5,
       "Mass": 3.2,
       "Volume": 13000.0,
       "Grade": 1,
       "Class": "Gadget",
-      "Type": "WeaponPersonal.Medium",
-      "Classification": "FPS.Weapon.Medium",
+      "Type": "WeaponPersonal.Gadget",
+      "Classification": "FPS.Weapon.Gadget",
       "Name": "APX Fire Extinguisher",
       "Description": "Magazine Size: Gas CanisterRate of Fire: ConstantEffective Range: 3-4 mThe KE Group's APX Fire Extinguisher has been rated a best-in-class consumer grade safety equipment for well-over a decade making it the industry standard in fire prevention. Filled with a patented gaseous cooling compound, the extinguisher can rapidly smother any fire in sight. The digital screen on the device allows you to monitor the local temperature to help you contain and eliminate fire hazards.",
       "Tags": [
-        "stocked",
         "kegr_fire_extinguisher_01"
       ],
       "Durability": {
@@ -10796,7 +10903,6 @@
             "WeaponAttachment.Magazine"
           ],
           "Tags": [
-            "stocked",
             "kegr_fire_extinguisher_01"
           ],
           "RequiredTags": [
@@ -10811,7 +10917,6 @@
           "MinSize": 0,
           "MaxSize": 0,
           "Tags": [
-            "stocked",
             "kegr_fire_extinguisher_01"
           ]
         },
@@ -10823,7 +10928,6 @@
             "WeaponAttachment.Magazine"
           ],
           "Tags": [
-            "stocked",
             "kegr_fire_extinguisher_01"
           ],
           "RequiredTags": [
