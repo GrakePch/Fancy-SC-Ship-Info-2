@@ -94,5 +94,5 @@ jobs:
           git add src/data/vehicle-hardpoints-list.json
           git add src/data/vehicle-item-list.json
           git add src/data/fps-weapon-list.json
-          git commit -m "chore(data): update Game1 data"
+          git commit -m "chore(data): update data"
           git push origin main
