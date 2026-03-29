@@ -272,6 +272,10 @@
   background-color: var(--color-bg-1);
 }
 
+.textWarnColor {
+  color: var(--color-red);
+}
+
 /*/////////////////////////*/
 
 @media (max-width: 960px) {

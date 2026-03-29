@@ -7,26 +7,26 @@
   "LengthXWidthXHeight": "{{L}} m × {{W}} m × {{H}} m",
   "Mass": "质量",
   "CargoGrid": "货物网格",
-  
+  "ArmorHealth": "装甲耐久",
+  "PhysicalDamageDeflectionThreshold": "物理伤害偏转阈值",
+  "EnergyDamageDeflectionThreshold": "能量伤害偏转阈值",
+  "PhysicalDamageResistance": "物理伤害抗性",
+  "EnergyDamageResistance": "能量伤害抗性",
   "New Deal, Lorville": "赫斯顿 罗威尔",
   "Astro Armada, Area 18": "弧光星 18区",
   "Crusader Showroom, Orison": "十字军 奥里森",
-
   "Concept": "概念",
   "InProd": "制作中",
   "Released": "已交付",
   "OnHold": "暂停制作",
   "PU": "PU",
   "NextPatch": "下个版本",
-
   "RsiStore": "RSI 商店",
-
   "Military": "军用",
   "Stealth": "隐形",
   "Civilian": "民用",
   "Industrial": "工业",
   "Competition": "竞速",
-
   "FlightVelocities": {
     "NAV": "导航",
     "SCM": "作战",
@@ -83,7 +83,8 @@
   "EmissionType": {
     "Electromagnetic": "电磁",
     "Infrared": "红外",
-    "CrossSection": "截面"
+    "CrossSection": "截面",
+    "Radar": "雷达"
   },
   "QuantumTravel": {
     "MaxSpeed": "最大速度",
@@ -92,5 +93,16 @@
     "CrusaderToHurston": "十字军 ↔ 赫斯顿",
     "MicroTechToPyroGateway": "微科 ↔ 派罗跳点",
     "TerminusToEndgame": "端点星 ↔ 死局空间站"
+  },
+  "Radar": {
+    "Class": "类型",
+    "Grade": "等级",
+    "MaxLockRange": "最大锁定距离",
+    "Unknown": "未知雷达",
+    "Sensitivity": "灵敏度",
+    "InfraredSensitivity": "红外灵敏度",
+    "ElectromagneticSensitivity": "电磁灵敏度",
+    "CrossSectionSensitivity": "截面灵敏度",
+    "RadarSignatureSensitivity": "雷达灵敏度"
   }
 }

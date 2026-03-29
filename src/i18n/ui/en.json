@@ -4,6 +4,11 @@
   "notBuyableUSD": "Not Sell in Store",
   "notBuyableUEC": "Not Sell in Game",
   "Dimensions": "{{L}} L × {{W}} W × {{H}} H m",
+  "ArmorHealth": "Armor Health",
+  "PhysicalDamageDeflectionThreshold": "Physical Damage Deflection Threshold",
+  "EnergyDamageDeflectionThreshold": "Energy Damage Deflection Threshold",
+  "PhysicalDamageResistance": "Physical Damage Resistance",
+  "EnergyDamageResistance": "Energy Damage Resistance",
   "FlightVelocities": {
     "NAV": "NAV",
     "SCM": "SCM",
@@ -29,5 +34,22 @@
   "FlightCharacteristics": {
     "Time0ToMaxSpeed": "Time from 0 to Max Speed",
     "BrakeDistanceAtMax": "Brake Distance at Max Speed"
+  },
+  "Radar": {
+    "Class": "Class",
+    "Grade": "Grade",
+    "MaxLockRange": "Max Lock Range",
+    "InfraredSensitivity": "Infrared Sensitivity",
+    "ElectromagneticSensitivity": "Electromagnetic Sensitivity",
+    "CrossSectionSensitivity": "Cross Section Sensitivity",
+    "Unknown": "Unknown Radar",
+    "Sensitivity": "Sensitivity",
+    "RadarSignatureSensitivity": "Radar Sensitivity"
+  },
+  "EmissionType": {
+    "Electromagnetic": "Electromagnetic",
+    "Infrared": "Infrared",
+    "CrossSection": "Cross Section",
+    "Radar": "Radar"
   }
 }

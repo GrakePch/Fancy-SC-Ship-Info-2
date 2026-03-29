@@ -11,6 +11,7 @@ import FlightVelocities from "../../components/FlightVelocities/FlightVelocities
 import { useTranslation } from "react-i18next";
 import SimpleWeaponGroup from "../../components/SimpleWeaponGroup/SimpleWeaponGroup";
 import QuantumTravel from "../../components/QuantumTravel/QuantumTravel";
+import RadarInfo from "../../components/RadarInfo/RadarInfo";
 import Icon from "@mdi/react";
 import {
   mdiAxisArrow,
@@ -18,6 +19,7 @@ import {
   mdiCurrencySign,
   mdiFileDocumentArrowRightOutline,
   mdiFileDocumentOutline,
+  mdiShieldHalfFull,
   mdiWeight,
 } from "@mdi/js";
 import formatTime from "../../utils/formatTime";
@@ -200,9 +202,43 @@ function VehicleMain({
     (s: any) => s.className === quantumDriveClassName
   );
 
+  /*//// RADAR ////*/
+
+  const radarInstalledItems = vInfoHardpoints?.Hardpoints.Components.Avionics.Radars?.InstalledItems;
+  const radarHardpoint = radarInstalledItems?.find((item) => {
+    const radarClassName = item?.BaseLoadout?.ClassName || item?.Loadout;
+    return Boolean(radarClassName && !radarClassName.endsWith("_Fake"));
+  });
+  const radarClassName: string | undefined =
+    radarHardpoint?.BaseLoadout?.ClassName || radarHardpoint?.Loadout;
+  const vItemRadar: any | undefined = radarClassName
+    ? vehicleItemList.find(
+        (s: any) => s.className === radarClassName || s.stdItem?.ClassName === radarClassName
+      )
+    : undefined;
+
   /*//// FLIGHT CHARACTERISTICS ////*/
 
   const infoFlightCharacteristics = vInfoMain.FlightCharacteristics;
+
+  /*//// ARMOR ////*/
+
+  const armorHealth = vInfoMain.Armor?.Durability?.Health;
+  const physicalDamageDeflection = vInfoMain.Armor?.DamageDeflection?.Physical;
+  const energyDamageDeflection = vInfoMain.Armor?.DamageDeflection?.Energy;
+  const physicalDamageModifier = vInfoMain.Armor?.Durability?.DamageMultipliers?.Physical;
+  const energyDamageModifier = vInfoMain.Armor?.Durability?.DamageMultipliers?.Energy;
+  const formatArmorValue = (value: number | undefined) => (value === undefined ? "-" : value);
+  const getDamageResistancePercentage = (value: number | undefined) => {
+    if (value === undefined) return undefined;
+    return Math.round((1 - value) * 100);
+  };
+  const formatDamageResistanceDelta = (value: number | undefined) => {
+    const percentage = getDamageResistancePercentage(value);
+    if (percentage === undefined) return "-";
+    if (percentage > 0) return `+${percentage}%`;
+    return `${percentage}%`;
+  };
   return (
     <>
       <section className={styles.components}>
@@ -238,6 +274,8 @@ function VehicleMain({
 
           {infoFlightCharacteristics && <FlightVelocities spvFC={infoFlightCharacteristics} />}
 
+          {radarHardpoint && <RadarInfo radarPort={radarHardpoint} vItem={vItemRadar} />}
+
           {vItemQuantumDrive && (
             <QuantumTravel fuelCapacity={quantumFuelTotalCapacityScu} vItem={vItemQuantumDrive} />
           )}
@@ -262,6 +300,50 @@ function VehicleMain({
           </div>
 
           {infoFlightCharacteristics && <FlightAccelerations spvFC={infoFlightCharacteristics} />}
+
+          <div className={styles.insurance}>
+            <div className={styles.commonKeyValue}>
+              <Icon path={mdiShieldHalfFull} />
+              <div>{t("ArmorHealth")}</div>
+              <div>{formatArmorValue(armorHealth)}</div>
+            </div>
+            <div className={styles.commonKeyValue}>
+              <Icon path={icons.armor_physical_deflection_threshold} />
+              <div>{t("PhysicalDamageDeflectionThreshold")}</div>
+              <div>{formatArmorValue(physicalDamageDeflection)}</div>
+            </div>
+            <div className={styles.commonKeyValue}>
+              <Icon path={icons.armor_energy_deflection_threshold} />
+              <div>{t("EnergyDamageDeflectionThreshold")}</div>
+              <div>{formatArmorValue(energyDamageDeflection)}</div>
+            </div>
+            <div className={styles.commonKeyValue}>
+              <Icon path={icons.damage_resistance_physical} />
+              <div>{t("PhysicalDamageResistance")}</div>
+              <div
+                className={
+                  (getDamageResistancePercentage(physicalDamageModifier) ?? 0) < 0
+                    ? styles.textWarnColor
+                    : undefined
+                }
+              >
+                {formatDamageResistanceDelta(physicalDamageModifier)}
+              </div>
+            </div>
+            <div className={styles.commonKeyValue}>
+              <Icon path={icons.damage_resistance_energy} />
+              <div>{t("EnergyDamageResistance")}</div>
+              <div
+                className={
+                  (getDamageResistancePercentage(energyDamageModifier) ?? 0) < 0
+                    ? styles.textWarnColor
+                    : undefined
+                }
+              >
+                {formatDamageResistanceDelta(energyDamageModifier)}
+              </div>
+            </div>
+          </div>
 
           <SimpleWeaponGroup
             groupName="PilotWeapons"

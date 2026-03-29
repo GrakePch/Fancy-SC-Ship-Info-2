@@ -66,6 +66,22 @@ declare global {
     IsVehicle?: boolean;
     IsGravlev?: true;
     Armor: {
+      Durability?: {
+        Health: number;
+        DamageMultipliers: {
+          Physical: number;
+          Energy: number;
+          Distortion: number;
+          Thermal?: number;
+          Biochemical?: number;
+          Stun?: number;
+        };
+      };
+      DamageDeflection?: {
+        Physical: number;
+        Energy: number;
+        Distortion: number;
+      };
       DamageMultipliers: {
         Physical: number;
         Energy: number;
