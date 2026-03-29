@@ -1,0 +1,184 @@
+.Index-Personal-Wpn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.Index-Personal-Wpn-container h1,
+.Index-Personal-Wpn-container h2,
+.Index-Personal-Wpn-container h3,
+.Index-Personal-Wpn-container p {
+    margin: 0;
+}
+
+.Index-Personal-Wpn-container>nav {
+    display: flex;
+    gap: .5rem;
+}
+
+.Index-Personal-Wpn-container .btn-type-select {
+    display: block;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    font-family: var(--font-geom);
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+}
+
+.Index-Personal-Wpn-container .btn-type-select.active {
+    background-color: var(--color-text);
+    color: var(--color-bg-light);
+}
+
+.Index-Personal-Wpn-container .sort-selector {
+    display: flex;
+    gap: .5rem;
+    align-self: center;
+    padding: .5rem;
+    background-color: #00000020;
+    box-shadow:
+        inset 0rem .25rem .25rem 0 #00000030;
+    border-radius: 1rem;
+}
+
+.Index-Personal-Wpn-container .sort-selector>button {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-family: var(--font-slim);
+    padding: .5rem .5rem;
+    border-radius: .5rem;
+    transition: all .2s;
+}
+
+.Index-Personal-Wpn-container .sort-selector>button.active {
+    padding: .5rem 1rem;
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    font-weight: 600;
+}
+
+.Index-Personal-Wpn-container .group-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.Index-Personal-Wpn-container .item-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 719px) {
+    .Index-Personal-Wpn-container .item-list {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+.Index-Personal-Wpn-container .item {
+    position: relative;
+    display: flex;
+    gap: .5rem;
+    height: 5rem;
+    padding: .75rem 1rem;
+    background-color: var(--color-bg-light);
+    border-radius: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--acrylic-edge), var(--shadow-1);
+    transition: background-color .2s, box-shadow .2s;
+    overflow: hidden;
+}
+
+.Index-Personal-Wpn-container .item:hover {
+    background-color: var(--color-bg-lighter);
+    box-shadow: var(--acrylic-edge), var(--shadow-2);
+}
+
+
+.Index-Personal-Wpn-container .item >svg {
+    display: none;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.Index-Personal-Wpn-container .size-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 1.5rem;
+    margin-top: .1rem;
+    padding: 0 .4rem;
+    border-radius: .75rem;
+    background-color: #00000035;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.Index-Personal-Wpn-container .contents {
+    display: flex;
+    flex-direction: column;
+}
+
+.Index-Personal-Wpn-container .item .name {
+    /* flex-grow: 1; */
+    font-weight: 600;
+}
+
+.Index-Personal-Wpn-container .item .name-small {
+    font-size: .8rem;
+    font-weight: 500;
+    opacity: .5;
+    margin-top: .25rem;
+    flex-grow: 1;
+}
+
+.Index-Personal-Wpn-container .manufacturer {
+    width: max-content;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    padding: .25rem .5rem;
+    margin-top: .25rem;
+    border-radius: 1rem;
+    opacity: .7;
+}
+
+.Index-Personal-Wpn-container .item .value {
+    font-family: var(--font-slim);
+    font-size: .8rem;
+}
+.Index-Personal-Wpn-container .item .value>span {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: hsl(166, 50%, 60%);
+}
+
+.Index-Personal-Wpn-container .thumbnail {
+    position: absolute;
+    top: .25rem;
+    right: .5rem;
+    height: calc(100% - .5rem);
+    width: 70%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    filter: brightness(1.4) drop-shadow(0 .25rem .5rem #00000080);
+}
+
+.Index-Personal-Wpn-container .value-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: hsl(166, 50%, 60%);
+    border-top-right-radius: 4px;
+}

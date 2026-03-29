@@ -62,6 +62,11 @@
   --color-bg-2a: #30303080;
   --color-bg-3: #404040;
   --color-bg-3a: #40404080;
+  --color-bg-a: #101010d0;
+  --color-bg-light: var(--color-bg-1);
+  --color-bg-light-a: var(--color-bg-2a);
+  --color-bg-lighter: var(--color-bg-2);
+  --color-bg-lighter-a: var(--color-bg-3a);
   --color-text: #f0f0f0;
   --color-text-1: #b0b0b0;
   --color-text-2: #808080;
@@ -76,6 +81,12 @@
 
   --font-geom: "Google Sans Flex", "Noto Sans CJK SC", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-slim: 'Barlow', "Noto Sans CJK SC", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-slim-2: var(--font-slim);
+
+  --shadow-1: 0 0.1rem 0.25rem #00000040;
+  --shadow-2: 0 0.2rem 0.5rem #00000055;
+  --shadow-3: 0 0.75rem 2rem #00000088;
+  --acrylic-edge: inset 0 0 0 1px #ffffff14;
 
   --color-military: #367d39;
   --color-stealth: #439193;
