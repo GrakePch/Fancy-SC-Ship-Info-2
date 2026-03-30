@@ -1,13 +1,10 @@
 name: Screenshot Vehicle Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - ".github/**"
-      - ".playwright-cli/**"
-      - "scripts/**"
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - data-updated
 
 jobs:
   screenshot:
