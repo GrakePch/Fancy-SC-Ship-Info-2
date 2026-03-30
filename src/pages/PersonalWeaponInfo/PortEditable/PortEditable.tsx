@@ -53,8 +53,7 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
   const [listAttachments, setListAttachments] = useState<FpsAttachmentItem[]>([]);
   const { t: tUi } = useTranslation("ui");
   const { t: tPw } = useTranslation("pw");
-  const { t: tItem } = useTranslation("vehicle_item");
-  const tpw = (key: string, defaultValue: string) =>
+  const tUiPW = (key: string, defaultValue: string) =>
     tUi(`PersonalWeapon.${key}`, { defaultValue });
 
   useEffect(() => {
@@ -69,17 +68,6 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
     setListAttachments(available);
   }, [data]);
 
-  const resolveItemName = (className: string, fallback: string) => {
-    const normalizedClassName = className.toLowerCase();
-    const mappedPwNameKey = pwNameKeyByClassName.get(normalizedClassName);
-    if (mappedPwNameKey) {
-      const vehicleItemFallback = tItem(mappedPwNameKey, { defaultValue: "" });
-      return tPw(mappedPwNameKey, { defaultValue: vehicleItemFallback || fallback || className });
-    }
-    const vehicleItemByClass = tItem(`item_name${normalizedClassName}`, { defaultValue: "" });
-    return vehicleItemByClass || fallback || className;
-  };
-
   if (!data) {
     return (
       <div className="PortEditable-container invalid">
@@ -87,7 +75,7 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
           <p>N/A</p>
         </div>
         <div className="title">
-          <p>{tpw(name, name)}</p>
+          <p>{tUiPW(name, name)}</p>
         </div>
       </div>
     );
@@ -100,7 +88,7 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
           {data.InstalledItem ? (
             <div className="item">
               <p className="item-name">
-                {resolveItemName(data.InstalledItem.ClassName, data.InstalledItem.ClassName)}
+                {tPw("item_name" + data.InstalledItem.ClassName, data.InstalledItem.ClassName)}
               </p>
             </div>
           ) : (
@@ -109,7 +97,7 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
         </div>
         <div className="title">
           {icon}
-          <p>{tpw(name, name)}</p>
+          <p>{tUiPW(name, name)}</p>
           <span>{sizeLabel(data.MaxSize)}</span>
         </div>
       </div>
@@ -118,7 +106,7 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
         <div className={`PortEditable-window ${windowActive ? "active" : ""}`}>
           <div className="nav">
             <div className="icon">{icon}</div>
-            <p>{tpw(name, name)}</p>
+            <p>{tUiPW(name, name)}</p>
             <div className="size">{sizeLabel(data.MaxSize)}</div>
             <div className="grow" />
             <div className="close" onClick={() => setWindowActive(false)}>
@@ -130,20 +118,20 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
               <div className="port">
                 <div className="installed">
                   <p className="item-name">
-                    {resolveItemName(data.InstalledItem.ClassName, data.InstalledItem.ClassName)}
+                    {tPw("item_name" + data.InstalledItem.ClassName, data.InstalledItem.ClassName)}
                   </p>
                 </div>
               </div>
             )}
             <p className="attachments-list-title">
               {listAttachments.length > 0
-                ? tpw("Available Attachments", "Available Attachments")
-                : tpw("No Other Available Attachments", "No Other Available Attachments")}
+                ? tUiPW("Available Attachments", "Available Attachments")
+                : tUiPW("No Other Available Attachments", "No Other Available Attachments")}
             </p>
             <div className="list">
               {listAttachments.map((item) => (
                 <div className="attachment" key={item.className}>
-                  <p>{resolveItemName(item.stdItem.ClassName, item.stdItem.Name)}</p>
+                  <p>{tPw("item_name" + item.stdItem.ClassName, item.stdItem.Name)}</p>
                 </div>
               ))}
             </div>
