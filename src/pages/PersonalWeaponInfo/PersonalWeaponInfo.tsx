@@ -41,7 +41,7 @@ type FiringMode = {
   RoundsPerMinute?: number;
   AmmoPerShot?: number;
   PelletsPerShot?: number;
-  DamagePerShot: DamageMap;
+  DamagePerShot?: DamageMap;
   DamagePerSecond: DamageMap;
   HeatPerShot?: number;
   WearPerShot?: number;
@@ -184,7 +184,7 @@ export default function PersonalWeaponInfo() {
     }
 
     const damagePerShot =
-      (activeFiringMode.DamagePerShot.Physical ?? 0) + (activeFiringMode.DamagePerShot.Energy ?? 0);
+      (activeFiringMode.DamagePerShot?.Physical ?? 0) + (activeFiringMode.DamagePerShot?.Energy ?? 0);
     const rpm = Number(activeFiringMode.RoundsPerMinute ?? 0);
     const interval = rpm > 0 ? 60 / rpm : Number.POSITIVE_INFINITY;
     const baseDps = Math.round(
@@ -345,58 +345,58 @@ export default function PersonalWeaponInfo() {
                 <p>{tpw("DamagePerShot", "Damage Per Shot")}</p>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Physical ? dmgTypeToColor.Physical : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerShot?.Physical ? dmgTypeToColor.Physical : "#808080" }}
                 >
                   <div>{tpw("Physical", "Physical")}</div>
-                  <div>{activeFiringMode.DamagePerShot.Physical ?? 0}</div>
+                  <div>{activeFiringMode.DamagePerShot?.Physical ?? 0}</div>
                 </div>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Energy ? dmgTypeToColor.Energy : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerShot?.Energy ? dmgTypeToColor.Energy : "#808080" }}
                 >
                   <div>{tpw("Energy", "Energy")}</div>
-                  <div>{activeFiringMode.DamagePerShot.Energy ?? 0}</div>
+                  <div>{activeFiringMode.DamagePerShot?.Energy ?? 0}</div>
                 </div>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Distortion ? dmgTypeToColor.Distortion : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerShot?.Distortion ? dmgTypeToColor.Distortion : "#808080" }}
                 >
                   <div>{tpw("Distortion", "Distortion")}</div>
-                  <div>{activeFiringMode.DamagePerShot.Distortion ?? 0}</div>
+                  <div>{activeFiringMode.DamagePerShot?.Distortion ?? 0}</div>
                 </div>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Stun ? dmgTypeToColor.Stun : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerShot?.Stun ? dmgTypeToColor.Stun : "#808080" }}
                 >
                   <div>{tpw("Stun", "Stun")}</div>
-                  <div>{activeFiringMode.DamagePerShot.Stun ?? 0}</div>
+                  <div>{activeFiringMode.DamagePerShot?.Stun ?? 0}</div>
                 </div>
                 <hr />
                 <p>{tpw("DamagePerSecond", "Damage Per Second")}</p>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Physical ? dmgTypeToColor.Physical : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerSecond?.Physical ? dmgTypeToColor.Physical : "#808080" }}
                 >
                   <div>{tpw("Physical", "Physical")}</div>
                   <div>{activeFiringMode.DamagePerSecond.Physical ?? 0}</div>
                 </div>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Energy ? dmgTypeToColor.Energy : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerSecond?.Energy ? dmgTypeToColor.Energy : "#808080" }}
                 >
                   <div>{tpw("Energy", "Energy")}</div>
                   <div>{activeFiringMode.DamagePerSecond.Energy ?? 0}</div>
                 </div>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Distortion ? dmgTypeToColor.Distortion : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerSecond?.Distortion ? dmgTypeToColor.Distortion : "#808080" }}
                 >
                   <div>{tpw("Distortion", "Distortion")}</div>
                   <div>{activeFiringMode.DamagePerSecond.Distortion ?? 0}</div>
                 </div>
                 <div
                   className={vehicleStyles.commonKeyValue}
-                  style={{ color: activeFiringMode.DamagePerShot.Stun ? dmgTypeToColor.Stun : "#808080" }}
+                  style={{ color: activeFiringMode.DamagePerSecond?.Stun ? dmgTypeToColor.Stun : "#808080" }}
                 >
                   <div>{tpw("Stun", "Stun")}</div>
                   <div>{activeFiringMode.DamagePerSecond.Stun ?? 0}</div>
