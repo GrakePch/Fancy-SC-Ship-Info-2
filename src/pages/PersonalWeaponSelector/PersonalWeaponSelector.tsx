@@ -51,18 +51,6 @@ function getMaxDps(item: FpsWeapon): number {
   const firingModes = item.stdItem.Weapon?.Firing ?? [];
   if (firingModes.length === 0) return 0;
 
-  // Temporary: Boomtube Rocket Launcher DPS data is incorrect.
-  if (item.className === "none_special_ballistic_01") {
-    return 0;
-  }
-
-  // Keep old special fix for ksar_sniper_ballistic_01.
-  if (item.className === "ksar_sniper_ballistic_01" && firingModes[0]?.DamagePerShot?.Physical != null) {
-    const rpm = 60;
-    const ammoPerShot = 2;
-    return Math.round((firingModes[0].DamagePerShot.Physical * rpm * ammoPerShot) / 60);
-  }
-
   return Math.max(
     ...firingModes.map((mode) => {
       const dps = mode.DamagePerSecond;
@@ -112,11 +100,6 @@ export default function PersonalWeaponSelector() {
       }));
   }, []);
 
-  const maxDpsInList = useMemo(
-    () => Math.max(...personalWeapons.map((item) => item.sort.maxDPS), 1),
-    [personalWeapons],
-  );
-
   const grouped = useMemo<Record<GunType, EnrichedWeapon[]>>(() => {
     const groupedInit: Record<GunType, EnrichedWeapon[]> = {
       HG: [],
@@ -161,14 +144,14 @@ export default function PersonalWeaponSelector() {
         <p className="name">{resolveDisplayName(item)}</p>
         <p className="name-small">{item.stdItem.Name}</p>
         <p className="value">
-          <span>{item.sort.maxDPS}</span> {tpw("FPSSort-MaxDPS", "Max DPS")}
+          <span>{Math.round(item.sort.maxDPS)}</span> {tpw("FPSSort-MaxDPS", "Max DPS")}
         </p>
       </div>
       <div
         className="thumbnail"
         style={{ backgroundImage: `url(${personalWeaponsImg[item.className as keyof typeof personalWeaponsImg] ?? ""})` }}
       />
-      <div className="value-bar" style={{ width: `${(item.sort.maxDPS / maxDpsInList) * 100}%` }} />
+      <div className="value-bar" style={{ width: `${(item.sort.maxDPS / 500) * 100}%` }} />
     </div>
   );
 
