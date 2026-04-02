@@ -15,16 +15,8 @@ import {
 } from "recharts";
 import dmgTypeToColor from "../../assets/damageTypeToColor";
 
-type DamageDrop = {
-  MinDistance: Record<string, number>;
-  DropPerMeter: Record<string, number>;
-  MinDamage: Record<string, number>;
-};
-
-type WeaponAmmunition = {
-  ImpactDamage?: Record<string, number>;
-  DamageDrop?: DamageDrop;
-};
+type DamageDrop = NonNullable<SpvPersonalWeaponAmmunition["DamageDrop"]>;
+type WeaponAmmunition = Pick<SpvPersonalWeaponAmmunition, "ImpactDamage" | "DamageDrop">;
 
 type LinePoint = {
   x: number;

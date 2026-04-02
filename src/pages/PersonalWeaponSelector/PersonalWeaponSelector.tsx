@@ -7,47 +7,18 @@ import weaponListRaw from "../../data/fps-weapon-list.json";
 import personalWeaponsImg from "../../assets/personal_weapons_side/144p/personal_weapons_img";
 import "./PersonalWeaponSelector.css";
 
-type FpsDamage = {
-  Physical?: number;
-  Energy?: number;
-};
-
-type FpsFiringMode = {
-  DamagePerSecond?: FpsDamage;
-  DamagePerShot?: FpsDamage;
-  RoundsPerMinute?: number;
-  AmmoPerShot?: number;
-};
-
-type FpsStdItem = {
-  Name: string;
-  Size: number;
-  Weapon?: {
-    Firing?: FpsFiringMode[];
-  };
-};
-
-type FpsWeapon = {
-  className: string;
-  type: string;
-  subType: string;
-  tags?: string;
-  name?: string;
-  stdItem: FpsStdItem;
-};
-
-type EnrichedWeapon = FpsWeapon & {
+type EnrichedWeapon = SpvPersonalWeapon & {
   sort: {
     maxDPS: number;
   };
 };
 
-const weaponList = weaponListRaw as unknown as FpsWeapon[];
+const weaponList = weaponListRaw as unknown as SpvPersonalWeapon[];
 
 const gunTypes = ["HG", "SMG", "AR", "SR", "SG", "LMG", "GL", "Heavy"] as const;
 type GunType = (typeof gunTypes)[number] | "Other";
 
-function getMaxDps(item: FpsWeapon): number {
+function getMaxDps(item: SpvPersonalWeapon): number {
   const firingModes = item.stdItem.Weapon?.Firing ?? [];
   if (firingModes.length === 0) return 0;
 
@@ -59,7 +30,7 @@ function getMaxDps(item: FpsWeapon): number {
   );
 }
 
-function classifyGun(item: FpsWeapon): GunType {
+function classifyGun(item: SpvPersonalWeapon): GunType {
   if (item.subType === "Small") return "HG";
   if (item.subType === "Large") return "Heavy";
   if (item.subType !== "Medium") return "Other";

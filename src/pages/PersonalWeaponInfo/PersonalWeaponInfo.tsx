@@ -19,109 +19,19 @@ import PortEditable from "./PortEditable/PortEditable";
 import vehicleStyles from "../Vehicle/Vehicle.module.css";
 import "./PersonalWeaponInfo.css";
 import PersonalWeaponCharts from "./PersonalWeaponCharts";
+import HumanStatus from "./HumanStatus";
+import icons from "../../assets/icons";
 
-type DamageMap = {
-  Physical?: number;
-  Energy?: number;
-  Distortion?: number;
-  Stun?: number;
-};
+const listPersonalWeapon = listPersonalWeaponRaw as unknown as SpvPersonalWeapon[];
 
-type DamageDrop = {
-  MinDistance: Record<string, number>;
-  DropPerMeter: Record<string, number>;
-  MinDamage: Record<string, number>;
-  DropEnd?: Record<string, number>;
-};
-
-type FiringMode = {
-  Name: string;
-  FireType: string;
-  ShotPerAction?: number;
-  RoundsPerMinute?: number;
-  AmmoPerShot?: number;
-  PelletsPerShot?: number;
-  DamagePerShot?: DamageMap;
-  DamagePerSecond: DamageMap;
-  HeatPerShot?: number;
-  WearPerShot?: number;
-  Spread?: {
-    Min: number;
-    Max: number;
-  };
-  AimModifier?: {
-    SpreadModifier: {
-      Min: number;
-      Max: number;
-    };
-  };
-};
-
-type WeaponAmmunition = {
-  Speed: number;
-  Range: number;
-  LifeTime: number;
-  ImpactDamage: Record<string, number>;
-  DamageDrop: DamageDrop;
-};
-
-type StdItem = {
-  ClassName: string;
-  Name: string;
-  Mass: number;
-  Volume: number;
-  Manufacturer?: {
-    Name?: string;
-  };
-  Weapon?: {
-    Firing?: FiringMode[];
-    Ammunition?: WeaponAmmunition;
-  };
-  Ports?: PortData[];
-};
-
-type FpsWeapon = {
-  className: string;
-  name?: string;
-  stdItem: StdItem;
-};
-
-type PortData = {
-  PortName: string;
-  MinSize: number;
-  MaxSize: number;
-  Types: string[];
-  InstalledItem?: {
-    ClassName: string;
-    Magazine?: {
-      Capacity?: number;
-    };
-  };
-};
-
-const listPersonalWeapon = listPersonalWeaponRaw as unknown as FpsWeapon[];
-
-const targetArmors = ["naked", "default", "undersuit", "fa", "light", "medium", "heavy"] as const;
-const targetArmorsMod: Record<(typeof targetArmors)[number], number[]> = {
-  naked: [4, 2, 1.5, 1.5],
-  default: [1, 1, 1, 1],
-  undersuit: [0.9, 0.9, 0.9, 0.9],
-  fa: [0.9, 0.9, 0.9, 0.9],
-  light: [0.8, 0.8, 0.8, 0.8],
-  medium: [0.7, 0.7, 0.7, 0.7],
-  heavy: [0.6, 0.6, 0.6, 0.6],
-};
-const bodyPartMod = [1.5, 1, 0.8, 0.8];
-
-const iconPathByFiringMode: Record<string, string> = {
-  Rapid: mdiFlare,
-  Single: mdiRayStartArrow,
-  Burst: mdiDatabaseOutline,
-  Charge: mdiFlash,
-  Shotgun: mdiFlare,
-  RapidBeam: mdiRayStartArrow,
-  Beam: mdiRayStartArrow,
-  TractorBeam: mdiRayStartArrow,
+const iconPathByFiringMode: Record<SpvPersonalWeaponLocalisedName, string> = {
+  "[AUTO]": icons.pw_fire_type_auto,
+  "[SEMI]": icons.pw_fire_type_semi,
+  "[BURST]": icons.pw_fire_type_burst,
+  "[CHARGE]": icons.pw_fire_type_charge,
+  "[SHOTGUN]": icons.pw_fire_type_auto,
+  "Tractor": icons.beam,
+  "@LOC_PLACEHOLDER": icons.beam,
 };
 
 export default function PersonalWeaponInfo() {
@@ -155,17 +65,16 @@ export default function PersonalWeaponInfo() {
   const manufacturerName = dataPW?.Manufacturer?.Name ?? "";
   const localizedManufacturer = tManufacturer(manufacturerName, { defaultValue: manufacturerName });
 
-  const firingModes = dataPW?.Weapon?.Firing ?? [];
+  const firingModes = (dataPW?.Weapon?.Firing ?? []) as SpvPersonalWeaponAction[];
   const [firingMode, setFiringMode] = useState(0);
-  const [targetArmor, setTargetArmor] = useState<(typeof targetArmors)[number]>("heavy");
 
   useEffect(() => {
     setFiringMode(0);
   }, [className]);
 
   const activeFiringMode = firingModes[firingMode];
-  const portsByName = useMemo<Record<string, PortData>>(() => {
-    const map: Record<string, PortData> = {};
+  const portsByName = useMemo<Record<string, SpvPersonalWeaponPort>>(() => {
+    const map: Record<string, SpvPersonalWeaponPort> = {};
     for (const port of dataPW?.Ports ?? []) {
       map[port.PortName] = port;
     }
@@ -177,9 +86,6 @@ export default function PersonalWeaponInfo() {
       return {
         baseDps: 0,
         baseTtk: "N/A",
-        dmgForParts: [0, 0, 0, 0],
-        stkForParts: [0, 0, 0, 0],
-        ttkForParts: ["0.00", "0.00", "0.00", "0.00"],
       };
     }
 
@@ -193,27 +99,11 @@ export default function PersonalWeaponInfo() {
     const baseStk = Math.ceil(100 / Math.max(damagePerShot, 0.0001));
     const baseTtk = Number.isFinite(interval) ? ((baseStk - 1) * interval).toFixed(2) : "N/A";
 
-    const dmgForParts = [0, 0, 0, 0];
-    const stkForParts = [0, 0, 0, 0];
-    const ttkForParts = ["0.00", "0.00", "0.00", "0.00"];
-
-    for (let i = 0; i < 4; i += 1) {
-      const dmg = damagePerShot * bodyPartMod[i] * targetArmorsMod[targetArmor][i];
-      const stk = Math.ceil(100 / Math.max(dmg, 0.0001));
-      const ttk = Number.isFinite(interval) ? ((stk - 1) * interval).toFixed(2) : "N/A";
-      dmgForParts[i] = Math.round(dmg * 10) / 10;
-      stkForParts[i] = Number.isFinite(stk) ? stk : 0;
-      ttkForParts[i] = ttk;
-    }
-
     return {
       baseDps,
       baseTtk,
-      dmgForParts,
-      stkForParts,
-      ttkForParts,
     };
-  }, [activeFiringMode, targetArmor]);
+  }, [activeFiringMode]);
 
   if (!source || !dataPW) return null;
 
@@ -270,7 +160,7 @@ export default function PersonalWeaponInfo() {
                     className={idx === firingMode ? "active" : ""}
                     onClick={() => setFiringMode(idx)}
                   >
-                    <Icon path={iconPathByFiringMode[mode.Name] ?? mdiDatabaseOutline} size={1} />
+                    <Icon path={iconPathByFiringMode[mode.LocalisedName] ?? mdiDatabaseOutline} size={1} />
                     {mode.Name === "Burst" && mode.ShotPerAction
                       ? tpw(`FiringMode-Burst-${mode.ShotPerAction}`, `Burst (${mode.ShotPerAction})`)
                       : tpw(`FiringMode-${mode.Name}`, mode.Name)}
@@ -283,7 +173,7 @@ export default function PersonalWeaponInfo() {
       </div>
 
       <div className="attachment-container">
-        <PortEditable data={portsByName.magazine_attach} name="magazine_attach" icon={<Icon path={mdiMagazineRifle} size={1} />} />
+        <PortEditable data={portsByName.magazine_attach} name="magazine_attach" icon={<Icon path={mdiMagazineRifle} size={1} horizontal/>} />
         <PortEditable data={portsByName.optics_attach} name="optics_attach" icon={<Icon path={mdiTarget} size={1} />} />
         <PortEditable data={portsByName.barrel_attach} name="barrel_attach" icon={<Icon path={mdiDatabaseOutline} size={1} rotate={90} />} />
         <PortEditable data={portsByName.underbarrel_attach} name="underbarrel_attach" icon={<Icon path={mdiFlare} size={1} />} />
@@ -292,51 +182,7 @@ export default function PersonalWeaponInfo() {
       <div className="data-detail">
         <div className="charts">
           <PersonalWeaponCharts ammunition={ammunition} />
-          <div className="human-status">
-            <div className="humans">
-              <div>
-                <p>{tpw("DamagePerShot", "Damage Per Shot")}</p>
-                <div className="human">
-                  <div className="head">{combatStats.dmgForParts[0]}</div>
-                  <div className="torso">{combatStats.dmgForParts[1]}</div>
-                  <div className="arm">{combatStats.dmgForParts[2]}</div>
-                  <div className="arm2" />
-                  <div className="leg">{combatStats.dmgForParts[3]}</div>
-                </div>
-              </div>
-              <div>
-                <p>{tpw("ShotsToKill", "Shots To Kill")}</p>
-                <div className="human">
-                  <div className="head">{combatStats.stkForParts[0]}</div>
-                  <div className="torso">{combatStats.stkForParts[1]}</div>
-                  <div className="arm">{combatStats.stkForParts[2]}</div>
-                  <div className="arm2" />
-                  <div className="leg">{combatStats.stkForParts[3]}</div>
-                </div>
-              </div>
-              <div>
-                <p>{tpw("TimeToKill", "Time To Kill")}</p>
-                <div className="human">
-                  <div className="head">{combatStats.ttkForParts[0]}</div>
-                  <div className="torso">{combatStats.ttkForParts[1]}</div>
-                  <div className="arm">{combatStats.ttkForParts[2]}</div>
-                  <div className="arm2" />
-                  <div className="leg">{combatStats.ttkForParts[3]}</div>
-                </div>
-              </div>
-            </div>
-            <div className="armor-selectors">
-              {[0, 1, 2, 4, 5, 6].map((idx) => (
-                <button
-                  key={targetArmors[idx]}
-                  className={targetArmor === targetArmors[idx] ? "active" : ""}
-                  onClick={() => setTargetArmor(targetArmors[idx])}
-                >
-                  {tpw(`Armor-${targetArmors[idx]}`, targetArmors[idx])}
-                </button>
-              ))}
-            </div>
-          </div>
+          <HumanStatus activeFiringMode={activeFiringMode} />
         </div>
         <div className="main-data">
           {activeFiringMode && (
@@ -467,3 +313,4 @@ export default function PersonalWeaponInfo() {
     </div>
   );
 }
+

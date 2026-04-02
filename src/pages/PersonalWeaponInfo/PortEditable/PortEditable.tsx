@@ -5,28 +5,7 @@ import { useTranslation } from "react-i18next";
 import weaponListRaw from "../../../data/fps-weapon-list.json";
 import "./PortEditable.css";
 
-type PortInstalledItem = {
-  ClassName: string;
-};
-
-type PortData = {
-  Types: string[];
-  MinSize: number;
-  MaxSize: number;
-  InstalledItem?: PortInstalledItem;
-};
-
-type FpsAttachmentItem = {
-  className: string;
-  name?: string;
-  size: number;
-  stdItem: {
-    ClassName: string;
-    Name: string;
-    Type: string;
-  };
-};
-
+type FpsAttachmentItem = SpvPersonalWeapon;
 const weaponList = weaponListRaw as unknown as FpsAttachmentItem[];
 const pwNameKeyByClassName = new Map<string, string>();
 for (const item of weaponList) {
@@ -39,7 +18,7 @@ for (const item of weaponList) {
 }
 
 type PortEditableProps = {
-  data?: PortData;
+  data?: SpvPersonalWeaponPort;
   name: string;
   icon: ReactNode;
 };
@@ -61,7 +40,11 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
       setListAttachments([]);
       return;
     }
-    const type = data.Types[0];
+    const type = data.Types?.[0];
+    if (!type) {
+      setListAttachments([]);
+      return;
+    }
     const available = weaponList.filter(
       (item) => item.stdItem.Type === type && item.size >= data.MinSize && item.size <= data.MaxSize,
     );
@@ -75,6 +58,7 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
           <p>N/A</p>
         </div>
         <div className="title">
+          {icon}
           <p>{tUiPW(name, name)}</p>
         </div>
       </div>
