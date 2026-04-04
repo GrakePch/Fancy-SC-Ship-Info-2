@@ -1,10 +1,10 @@
-.PortEditable-container {
+.container {
     padding: .5rem;
     background-color: var(--color-bg-light);
     border-radius: var(--rad);
 }
 
-.PortEditable-container .title {
+.container .title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,20 +14,20 @@
     line-height: 1;
 }
 
-.PortEditable-container .title>svg:first-of-type {
+.container .title > svg:first-of-type {
     fill: var(--color-text);
 }
 
-.PortEditable-container .title>p {
+.container .title > p {
     flex-grow: 1;
 }
 
-.PortEditable-container .title>svg {
+.container .title > svg {
     width: 1.5rem;
     height: 1.5rem;
 }
 
-.PortEditable-container .title>span {
+.container .title > span {
     min-width: 1.75rem;
     text-align: center;
     font-size: .85rem;
@@ -37,7 +37,7 @@
     padding: .1rem .35rem;
 }
 
-.PortEditable-container .port {
+.container .port {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,19 +50,19 @@
     transition: background-color .2s, box-shadow .2s, filter .2s;
 }
 
-.PortEditable-container .port:hover {
+.container .port:hover {
     background-color: #00000020;
     box-shadow:
         inset 0rem .325rem .5rem 0 #00000030;
 }
 
-.PortEditable-container .port:active {
+.container .port:active {
     background-color: #00000025;
     box-shadow:
         inset 0rem .5rem .75rem 0 #00000050;
 }
 
-.PortEditable-container .port>p {
+.container .port > p {
     color: var(--color-text);
     opacity: .5;
     text-align: center;
@@ -71,23 +71,23 @@
     user-select: none;
 }
 
-.PortEditable-container.invalid {
+.container.invalid {
     background-color: transparent;
 }
 
-.PortEditable-container.invalid .port {
+.container.invalid .port {
     box-shadow: none !important;
     background: linear-gradient(var(--color-bg-a), var(--color-bg-a));
     cursor: not-allowed;
 }
 
-.PortEditable-container.invalid .port>p {
+.container.invalid .port > p {
     opacity: 1;
     padding: 0 .5rem;
     background-color: var(--color-bg);
 }
 
-.PortEditable-container .item {
+.container .item {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -101,34 +101,32 @@
     transition: all .2s;
 }
 
-.PortEditable-container .item:hover {
+.container .item:hover {
     filter: brightness(.98);
     box-shadow: var(--acrylic-edge), var(--shadow-2);
 }
 
-.PortEditable-container .item:active {
+.container .item:active {
     box-shadow: var(--acrylic-edge);
 }
 
-.PortEditable-container .item-name {
+.container .itemName {
     font-weight: 500;
     flex-grow: 1;
     overflow: hidden;
     white-space: normal;
     word-break: break-all;
-    /* text-overflow: ellipsis; */
 }
 
-.PortEditable-container .item-value {
+.itemValue {
     text-align: right;
 }
 
-
-.PortEditable-window-container:not(.active) {
+.windowContainer:not(.active) {
     visibility: collapse;
 }
 
-.PortEditable-window-container {
+.windowContainer {
     position: fixed;
     top: 0;
     left: 0;
@@ -140,11 +138,11 @@
     z-index: 1000;
 }
 
-.PortEditable-window-bg:not(.active) {
+.windowBg:not(.active) {
     visibility: collapse;
 }
 
-.PortEditable-window-bg {
+.windowBg {
     position: absolute;
     top: 0;
     left: 0;
@@ -155,7 +153,7 @@
     cursor: pointer;
 }
 
-.PortEditable-window {
+.window {
     width: 75%;
     height: 75%;
     background-color: var(--color-bg-light);
@@ -164,7 +162,7 @@
     z-index: inherit;
 }
 
-.PortEditable-window .nav {
+.window .nav {
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -173,12 +171,12 @@
     padding-left: 1rem;
 }
 
-.PortEditable-window .icon {
+.window .icon {
     width: 1.5rem;
     height: 1.5rem;
 }
 
-.PortEditable-window .size {
+.window .size {
     min-width: 1.75rem;
     text-align: center;
     font-size: .85rem;
@@ -188,11 +186,11 @@
     padding: .1rem .35rem;
 }
 
-.PortEditable-window .grow {
+.window .grow {
     flex-grow: 1;
 }
 
-.PortEditable-window .close {
+.window .close {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -201,15 +199,15 @@
     transition: background-color .2s;
 }
 
-.PortEditable-window .close:hover {
+.window .close:hover {
     background-color: var(--color-bg-lighter-a);
 }
 
-.PortEditable-window .close:active {
+.window .close:active {
     background-color: var(--color-bg-lighter);
 }
 
-.PortEditable-window .contents {
+.window .contents {
     margin: 0 1rem;
     padding-bottom: 1rem;
     display: flex;
@@ -217,7 +215,7 @@
     height: calc(100% - 3rem);
 }
 
-.PortEditable-window .port {
+.window .port {
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -229,14 +227,14 @@
         inset 0rem .25rem .25rem 0 #00000030;
 }
 
-.PortEditable-window .port>p {
+.window .port > p {
     opacity: .5;
     text-align: center;
     font-weight: 500;
     user-select: none;
 }
 
-.PortEditable-window .installed {
+.window .installed {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -249,11 +247,11 @@
     box-shadow: var(--acrylic-edge), var(--shadow-1);
 }
 
-.PortEditable-window .attachments-list-title {
+.window .attachmentsListTitle {
     margin: .5rem 0;
 }
 
-.PortEditable-window .list {
+.window .list {
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -261,14 +259,13 @@
     gap: 1rem;
 }
 
-.PortEditable-window .list::-webkit-scrollbar {
+.window .list::-webkit-scrollbar {
     width: 0;
 }
 
-.PortEditable-window .attachment {
+.window .attachment {
     padding: 1rem;
     border-radius: .5rem;
     background-color: var(--color-bg-lighter);
     overflow-wrap: break-word;
 }
-

@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import styles from "./HumanStatus.module.css";
 
 export const targetArmors = ["naked", "default", "undersuit", "fa", "light", "medium", "heavy"] as const;
 
@@ -88,44 +89,44 @@ export default function HumanStatus({ activeFiringMode }: HumanStatusProps) {
   const legStyle = getPartStyle(combatStats.ttkForParts[3]);
 
   return (
-    <div className="human-status">
-      <div className="humans">
+    <div className={styles.humanStatus}>
+      <div className={styles.humans}>
         <div>
           <p>{tpw("DamagePerShot", "Damage Per Shot")}</p>
-          <div className="human">
-            <div className="head" style={headStyle}>{combatStats.dmgForParts[0]}</div>
-            <div className="torso" style={torsoStyle}>{combatStats.dmgForParts[1]}</div>
-            <div className="arm" style={armStyle}>{combatStats.dmgForParts[2]}</div>
-            <div className="arm2" style={armStyle} />
-            <div className="leg" style={legStyle}>{combatStats.dmgForParts[3]}</div>
+          <div className={styles.human}>
+            <div className={styles.head} style={headStyle}>{combatStats.dmgForParts[0]}</div>
+            <div className={styles.torso} style={torsoStyle}>{combatStats.dmgForParts[1]}</div>
+            <div className={styles.arm} style={armStyle}>{combatStats.dmgForParts[2]}</div>
+            <div className={styles.arm2} style={armStyle} />
+            <div className={styles.leg} style={legStyle}>{combatStats.dmgForParts[3]}</div>
           </div>
         </div>
         <div>
           <p>{tpw("ShotsToKill", "Shots To Kill")}</p>
-          <div className="human">
-            <div className="head" style={headStyle}>{combatStats.stkForParts[0]}</div>
-            <div className="torso" style={torsoStyle}>{combatStats.stkForParts[1]}</div>
-            <div className="arm" style={armStyle}>{combatStats.stkForParts[2]}</div>
-            <div className="arm2" style={armStyle} />
-            <div className="leg" style={legStyle}>{combatStats.stkForParts[3]}</div>
+          <div className={styles.human}>
+            <div className={styles.head} style={headStyle}>{combatStats.stkForParts[0]}</div>
+            <div className={styles.torso} style={torsoStyle}>{combatStats.stkForParts[1]}</div>
+            <div className={styles.arm} style={armStyle}>{combatStats.stkForParts[2]}</div>
+            <div className={styles.arm2} style={armStyle} />
+            <div className={styles.leg} style={legStyle}>{combatStats.stkForParts[3]}</div>
           </div>
         </div>
         <div>
           <p>{tpw("TimeToKill", "Time To Kill")}</p>
-          <div className="human">
-            <div className="head" style={headStyle}>{combatStats.ttkForParts[0]}</div>
-            <div className="torso" style={torsoStyle}>{combatStats.ttkForParts[1]}</div>
-            <div className="arm" style={armStyle}>{combatStats.ttkForParts[2]}</div>
-            <div className="arm2" style={armStyle} />
-            <div className="leg" style={legStyle}>{combatStats.ttkForParts[3]}</div>
+          <div className={styles.human}>
+            <div className={styles.head} style={headStyle}>{combatStats.ttkForParts[0]}</div>
+            <div className={styles.torso} style={torsoStyle}>{combatStats.ttkForParts[1]}</div>
+            <div className={styles.arm} style={armStyle}>{combatStats.ttkForParts[2]}</div>
+            <div className={styles.arm2} style={armStyle} />
+            <div className={styles.leg} style={legStyle}>{combatStats.ttkForParts[3]}</div>
           </div>
         </div>
       </div>
-      <div className="armor-selectors">
+      <div className={styles.armorSelectors}>
         {selectableArmors.map((armor) => (
           <button
             key={armor}
-            className={targetArmor === armor ? "active" : ""}
+            className={targetArmor === armor ? styles.active : ""}
             onClick={() => setTargetArmor(armor)}
           >
             {tpw(`Armor-${armor}`, armor)}

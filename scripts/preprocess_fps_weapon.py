@@ -279,6 +279,28 @@ def build_attachment_row_from_installed(installed_item: dict[str, Any]) -> dict[
     }
 
 
+def collect_magazine_mapping(std_item: dict[str, Any], weapon_class_name: str) -> list[tuple[str, str]]:
+    ports = std_item.get("Ports")
+    if not isinstance(ports, list):
+        return []
+
+    result: list[tuple[str, str]] = []
+    for port in ports:
+        if not isinstance(port, dict):
+            continue
+        if to_string(port.get("PortName")) != "magazine_attach":
+            continue
+        installed_item = port.get("InstalledItem")
+        installed_class_name = ""
+        if isinstance(installed_item, dict):
+            installed_class_name = to_string(installed_item.get("ClassName"))
+        magazine_class_name = installed_class_name or to_string(port.get("Loadout"))
+        if not magazine_class_name:
+            continue
+        result.append((magazine_class_name, weapon_class_name))
+    return result
+
+
 def preprocess(input_path: Path, output_dir: Path) -> tuple[int, int]:
     if not input_path.is_file():
         raise SystemExit(f"Input file does not exist: {input_path}")
@@ -291,6 +313,7 @@ def preprocess(input_path: Path, output_dir: Path) -> tuple[int, int]:
 
     personal_rows: list[dict[str, Any]] = []
     attachment_by_class: dict[str, dict[str, Any]] = {}
+    magazine_to_weapons: dict[str, set[str]] = {}
 
     for item in raw:
         if not isinstance(item, dict):
@@ -302,6 +325,9 @@ def preprocess(input_path: Path, output_dir: Path) -> tuple[int, int]:
                 personal_rows.append(row)
             std_item = item.get("stdItem")
             if isinstance(std_item, dict):
+                if row:
+                    for magazine_class_name, weapon_class_name in collect_magazine_mapping(std_item, row["ClassName"]):
+                        magazine_to_weapons.setdefault(magazine_class_name, set()).add(weapon_class_name)
                 for port in std_item.get("Ports") or []:
                     if not isinstance(port, dict):
                         continue
@@ -321,6 +347,11 @@ def preprocess(input_path: Path, output_dir: Path) -> tuple[int, int]:
 
     personal_rows.sort(key=lambda x: x["ClassName"])
     attachment_rows = sorted(attachment_by_class.values(), key=lambda x: x["ClassName"])
+    for item in attachment_rows:
+        if item.get("SubType") != "Magazine":
+            continue
+        class_name = to_string(item.get("ClassName"))
+        item["ForWeapons"] = sorted(magazine_to_weapons.get(class_name, set()))
 
     output_dir.mkdir(parents=True, exist_ok=True)
     personal_out = output_dir / "fps-weapon-personal-list.json"

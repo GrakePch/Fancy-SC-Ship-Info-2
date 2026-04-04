@@ -9,7 +9,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import dmgTypeToColor from "../../assets/damageTypeToColor";
+import dmgTypeToColor from "../../../assets/damageTypeToColor";
+import styles from "./PersonalWeaponCharts.module.css";
 
 type LinePoint = {
   x: number;
@@ -169,12 +170,12 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
   }, [ammunition, damageTypes]);
 
   return (
-    <div className="damage-drop-chart">
-      <div className={`damage-drop-legend${damageTypes.length > 1 ? " is-horizontal" : ""}`}>
+    <div className={styles.damageDropChart}>
+      <div className={`${styles.damageDropLegend} ${damageTypes.length > 1 ? styles.isHorizontal : ""}`}>
         {damageTypes.map((dmgType) => (
-          <div key={`legend_${dmgType}`} className="damage-drop-legend-item">
+          <div key={`legend_${dmgType}`} className={styles.damageDropLegendItem}>
             <span
-              className="damage-drop-legend-dot"
+              className={styles.damageDropLegendDot}
               style={{ backgroundColor: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor] }}
             />
             <span style={{ color: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor] }}>

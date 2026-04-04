@@ -1,0 +1,17 @@
+.container {
+  background-color: var(--color-bg-light);
+  padding: 0.5rem 1rem;
+  border-radius: var(--rad);
+}
+
+.container hr {
+  border: none;
+  display: block;
+  height: 1px;
+  background-color: var(--color-text);
+  opacity: 0.5;
+}
+
+.damageRow {
+  color: var(--damage-color);
+}

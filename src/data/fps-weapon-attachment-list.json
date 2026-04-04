@@ -9,13 +9,19 @@
     "ClassName": "apar_special_ballistic_01_mag",
     "Name": "Scourge Railgun Magazine (5 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "apar_special_ballistic_01"
+    ]
   },
   {
     "ClassName": "apar_special_ballistic_02_mag",
     "Name": "Animus Missile Launcher Magazine (3 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "apar_special_ballistic_02"
+    ]
   },
   {
     "ClassName": "apar_special_ballistic_02_missile",
@@ -249,13 +255,19 @@
     "ClassName": "behr_glauncher_ballistic_01_mag",
     "Name": "GP-33 MOD Grenade Launcher Magazine (6 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_glauncher_ballistic_01"
+    ]
   },
   {
     "ClassName": "behr_lmg_ballistic_01_mag",
     "Name": "FS-9 Magazine (75 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_lmg_ballistic_01"
+    ]
   },
   {
     "ClassName": "behr_optics_holo_x1_s1",
@@ -309,49 +321,71 @@
     "ClassName": "behr_pistol_ballistic_01_mag",
     "Name": "S-38 Magazine (20 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_pistol_ballistic_01"
+    ]
   },
   {
     "ClassName": "behr_rifle_ballistic_01_mag",
     "Name": "P4-AR Magazine (40 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_rifle_ballistic_01"
+    ]
   },
   {
     "ClassName": "behr_rifle_ballistic_02_mag_civilian",
     "Name": "P8-AR Rifle Magazine (15 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_rifle_ballistic_02_civilian"
+    ]
   },
   {
     "ClassName": "behr_shotgun_ballistic_01_mag",
     "Name": "BR-2 Shotgun Magazine (12 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_shotgun_ballistic_01"
+    ]
   },
   {
     "ClassName": "behr_smg_ballistic_01_mag",
     "Name": "P8-SC SMG Magazine (45 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_smg_ballistic_01"
+    ]
   },
   {
     "ClassName": "behr_sniper_ballistic_01_mag",
     "Name": "P6-LR Magazine (8 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "behr_sniper_ballistic_01"
+    ]
   },
   {
     "ClassName": "crlf_medgun_vial_01",
     "Name": "ParaMed Refill",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": []
   },
   {
     "ClassName": "gmni_lmg_ballistic_01_mag",
     "Name": "F55 LMG Magazine (150 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "gmni_lmg_ballistic_01"
+    ]
   },
   {
     "ClassName": "gmni_optics_tsco_x4_s2",
@@ -387,31 +421,46 @@
     "ClassName": "gmni_pistol_ballistic_01_mag",
     "Name": "LH86 Pistol Magazine (25 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "gmni_pistol_ballistic_01"
+    ]
   },
   {
     "ClassName": "gmni_rifle_ballistic_01_mag",
     "Name": "S71 Rifle Magazine (30 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "gmni_rifle_ballistic_01"
+    ]
   },
   {
     "ClassName": "gmni_shotgun_ballistic_01_mag",
     "Name": "R97 Shotgun Magazine (18 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "gmni_shotgun_ballistic_01"
+    ]
   },
   {
     "ClassName": "gmni_smg_ballistic_01_mag",
     "Name": "C54 SMG Magazine (50 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "gmni_smg_ballistic_01"
+    ]
   },
   {
     "ClassName": "gmni_sniper_ballistic_01_mag",
     "Name": "A03 Sniper Rifle Magazine (15 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "gmni_sniper_ballistic_01"
+    ]
   },
   {
     "ClassName": "grin_multitool_01_cutter",
@@ -447,37 +496,47 @@
     "ClassName": "grin_multitool_energy_01_mag",
     "Name": "Pyro RYT Multi-Tool Battery",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": []
   },
   {
     "ClassName": "grin_tool_01_mag",
     "Name": "Cambrio SRT Battery",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": []
   },
   {
     "ClassName": "grin_tractor_01_mag",
     "Name": "MaxLift Tractor Beam Battery",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": []
   },
   {
     "ClassName": "hdgw_pistol_ballistic_01_mag",
     "Name": "Salvo Frag Pistol Magazine (8 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "hdgw_pistol_ballistic_01"
+    ]
   },
   {
     "ClassName": "kegr_fire_extinguisher_01_mag",
     "Name": "APX Fire Extinguisher Canister ",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": []
   },
   {
     "ClassName": "klwe_lmg_energy_01_mag",
     "Name": "Demeco LMG Battery (100 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "klwe_lmg_energy_01"
+    ]
   },
   {
     "ClassName": "klwe_optics_disp_x8_s3",
@@ -525,25 +584,37 @@
     "ClassName": "klwe_pistol_energy_01_mag",
     "Name": "Arclight Pistol Battery (30 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "klwe_pistol_energy_01"
+    ]
   },
   {
     "ClassName": "klwe_rifle_energy_01_mag",
     "Name": "Gallant Rifle Battery (45 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "klwe_rifle_energy_01"
+    ]
   },
   {
     "ClassName": "klwe_smg_energy_01_mag",
     "Name": "Lumin V SMG Battery (45 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "klwe_smg_energy_01"
+    ]
   },
   {
     "ClassName": "klwe_sniper_energy_01_mag",
     "Name": "Arrowhead Sniper Rifle Battery (16 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "klwe_sniper_energy_01"
+    ]
   },
   {
     "ClassName": "klwe_ubarrel_flsh_s1",
@@ -573,37 +644,55 @@
     "ClassName": "ksar_pistol_ballistic_01_mag",
     "Name": "Coda Pistol Magazine (6 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "ksar_pistol_ballistic_01"
+    ]
   },
   {
     "ClassName": "ksar_rifle_energy_01_mag",
     "Name": "Karna Rifle Battery (35 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "ksar_rifle_energy_01"
+    ]
   },
   {
     "ClassName": "ksar_shotgun_ballistic_01_mag",
     "Name": "Ravager-212 Twin Shotgun Magazine (16 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "ksar_shotgun_ballistic_01"
+    ]
   },
   {
     "ClassName": "ksar_shotgun_energy_01_mag",
     "Name": "Devastator Shotgun Battery (12 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "ksar_shotgun_energy_01"
+    ]
   },
   {
     "ClassName": "ksar_smg_energy_01_mag",
     "Name": "Custodian SMG Magazine (60 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "ksar_smg_energy_01"
+    ]
   },
   {
     "ClassName": "ksar_sniper_ballistic_01_mag",
     "Name": "Scalpel Sniper Rifle Magazine (12 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "ksar_sniper_ballistic_01"
+    ]
   },
   {
     "ClassName": "lbco_optics_tsco_x16_s3",
@@ -639,49 +728,73 @@
     "ClassName": "lbco_pistol_energy_01_mag",
     "Name": "Yubarev Pistol Battery (10 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "lbco_pistol_energy_01"
+    ]
   },
   {
     "ClassName": "lbco_sniper_energy_01_mag",
     "Name": "Atzkav Sniper Rifle Battery (8 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "lbco_sniper_energy_01"
+    ]
   },
   {
     "ClassName": "none_lmg_ballistic_01_mag",
     "Name": "Pulverizer LMG Magazine (120 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "none_lmg_ballistic_01"
+    ]
   },
   {
     "ClassName": "none_pistol_ballistic_01_mag",
     "Name": "Tripledown Pistol Magazine (12 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "none_pistol_ballistic_01"
+    ]
   },
   {
     "ClassName": "none_rifle_multi_01_mag",
     "Name": "Killshot Rifle Magazine (45 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "none_rifle_multi_01"
+    ]
   },
   {
     "ClassName": "none_shotgun_ballistic_01_mag",
     "Name": "Deadrig Shotgun Magazine (8 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "none_shotgun_ballistic_01"
+    ]
   },
   {
     "ClassName": "none_smg_energy_01_mag",
     "Name": "Ripper SMG Battery (60 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "none_smg_energy_01"
+    ]
   },
   {
     "ClassName": "none_special_ballistic_01_rocket",
     "Name": "Boomtube Rocket",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "none_special_ballistic_01"
+    ]
   },
   {
     "ClassName": "nvtc_optics_holo_x1_s1",
@@ -819,13 +932,19 @@
     "ClassName": "sasu_pistol_toy_01_mag",
     "Name": "WowBlast Desperado Toy Pistol Magazine (10 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "sasu_pistol_toy_01"
+    ]
   },
   {
     "ClassName": "volt_lmg_energy_01_mag",
     "Name": "Fresnel Energy LMG Battery (165 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "volt_lmg_energy_01"
+    ]
   },
   {
     "ClassName": "volt_optics_holo_x1_s1",
@@ -885,31 +1004,46 @@
     "ClassName": "volt_pistol_energy_01_mag",
     "Name": "Pulse Laser Pistol Battery (60 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "volt_pistol_energy_01"
+    ]
   },
   {
     "ClassName": "volt_rifle_energy_01_mag",
     "Name": "Parallax Rifle Battery (80 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "volt_rifle_energy_01"
+    ]
   },
   {
     "ClassName": "volt_shotgun_energy_01_mag",
     "Name": "Prism Laser Shotgun Battery (20 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "volt_shotgun_energy_01"
+    ]
   },
   {
     "ClassName": "volt_smg_energy_01_mag",
     "Name": "Quartz Energy SMG Battery (45 cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "volt_smg_energy_01"
+    ]
   },
   {
     "ClassName": "volt_sniper_energy_01_mag",
     "Name": "Zenith Laser Sniper Rifle Battery (22 Cap)",
     "Size": 1,
-    "SubType": "Magazine"
+    "SubType": "Magazine",
+    "ForWeapons": [
+      "volt_sniper_energy_01"
+    ]
   },
   {
     "ClassName": "volt_ubarrel_flsh_s1",

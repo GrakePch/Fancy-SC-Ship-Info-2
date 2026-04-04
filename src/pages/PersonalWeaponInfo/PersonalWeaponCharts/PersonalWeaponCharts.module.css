@@ -1,0 +1,38 @@
+.damageDropChart {
+    position: relative;
+    background-color: var(--color-bg-light);
+    min-height: 16rem;
+    border-radius: var(--rad);
+    overflow: hidden;
+}
+
+.damageDropLegend {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: .875rem;
+    pointer-events: none;
+}
+
+.damageDropLegend.isHorizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: calc(100% - 1rem);
+}
+
+.damageDropLegendItem {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.damageDropLegendDot {
+    width: .625rem;
+    height: .625rem;
+    border-radius: 999rem;
+}

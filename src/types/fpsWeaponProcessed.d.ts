@@ -71,6 +71,7 @@ declare global {
     Name: string;
     Size: number;
     SubType: WeaponAttachmentSubType;
+    ForWeapons?: string[];
   }
 
   type WeaponPersonalList = WeaponPersonal[];
