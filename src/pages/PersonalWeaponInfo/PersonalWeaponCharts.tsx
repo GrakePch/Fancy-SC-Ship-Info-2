@@ -80,7 +80,9 @@ type PersonalWeaponChartsProps = {
 export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChartsProps) {
   const { t: tUi } = useTranslation("ui");
   const damageStats = ammunition?.DamageStats ?? {};
-  const damageTypes = DAMAGE_TYPE_ORDER.filter((type) => type !== "Stun" && Boolean(damageStats[type]));
+  const damageTypes = DAMAGE_TYPE_ORDER.filter(
+    (type) => type !== "Stun" && (damageStats[type]?.ImpactDamage ?? 0) > 0,
+  );
   const hasDamageData = damageTypes.length > 0;
   const sampleMaxDistance = Math.max(0, Math.round(ammunition?.Range ?? DEFAULT_SAMPLE_MAX_DISTANCE));
   const maxRangeAxisX = distanceToAxisX(sampleMaxDistance, sampleMaxDistance);

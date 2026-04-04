@@ -1,7 +1,7 @@
 .PortEditable-container {
     padding: .5rem;
     background-color: var(--color-bg-light);
-    border-radius: 1rem;
+    border-radius: var(--rad);
 }
 
 .PortEditable-container .title {

@@ -3,7 +3,7 @@ declare global {
   type FiringDamageType = "Physical" | "Energy" | "Distortion" | "Stun";
   type WeaponFiringLocalisedName = "@LOC_PLACEHOLDER" | "[AUTO]" | "[BURST]" | "[CHARGE]" | "[SEMI]" | "[SHOTGUN]";
   type WeaponPersonalSubType = "Large" | "Medium" | "Small";
-  type WeaponPersonalTag = "HG" | "SMG" | "AR" | "SR" | "SG" | "LMG" | "GL" | "Heavy" | "Other";
+  type WeaponPersonalTag = "HG" | "SMG" | "AR" | "SR" | "SG" | "LMG" | "GL" | "Heavy";
   type WeaponAttachmentSubType =
     | "Barrel"
     | "BottomAttachment"

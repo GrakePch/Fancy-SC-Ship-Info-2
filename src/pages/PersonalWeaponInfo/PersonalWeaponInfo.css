@@ -203,7 +203,7 @@
 .Personal-Weapon-Info-container .simple-data {
     background-color: var(--color-bg-light);
     padding: .5rem 1rem;
-    border-radius: 1rem;
+    border-radius: var(--rad);
 }
 
 .Personal-Weapon-Info-container .simple-data>div {
@@ -241,7 +241,7 @@
     position: relative;
     background-color: var(--color-bg-light);
     min-height: 16rem;
-    border-radius: 1rem;
+    border-radius: var(--rad);
     overflow: hidden;
 }
 
@@ -278,7 +278,7 @@
 
 .Personal-Weapon-Info-container .human-status {
     background-color: var(--color-bg-light);
-    border-radius: 1rem;
+    border-radius: var(--rad);
     padding: 1rem;
 }
 

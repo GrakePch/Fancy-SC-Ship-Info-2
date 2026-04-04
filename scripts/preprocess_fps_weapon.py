@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 WEAPON_PERSONAL_ALLOWED_SUBTYPES = {"Large", "Medium", "Small"}
+WEAPON_PERSONAL_EXCLUDED_CLASSNAMES = {"grin_cutter_01", "crlf_medgun_01"}
 
 PORT_NAME_TO_KEY = {
     "magazine_attach": "Magazine",
@@ -32,7 +33,7 @@ def classify_personal_tag(sub_type: str, raw_tags: str) -> str:
     if sub_type == "Large":
         return "Heavy"
     if sub_type != "Medium":
-        return "Other"
+        return "AR"
 
     tags = raw_tags.lower()
     if "sniper" in tags:
@@ -47,7 +48,7 @@ def classify_personal_tag(sub_type: str, raw_tags: str) -> str:
         return "LMG"
     if "glauncher" in tags:
         return "GL"
-    return "Other"
+    return "AR"
 
 
 def build_damage_summary(damage_map: Any) -> dict[str, float]:
@@ -209,6 +210,8 @@ def build_personal_row(item: dict[str, Any]) -> dict[str, Any] | None:
 
     class_name = to_string(std_item.get("ClassName")) or to_string(item.get("className"))
     if not class_name:
+        return None
+    if class_name in WEAPON_PERSONAL_EXCLUDED_CLASSNAMES:
         return None
 
     manufacturer = std_item.get("Manufacturer") if isinstance(std_item.get("Manufacturer"), dict) else {}

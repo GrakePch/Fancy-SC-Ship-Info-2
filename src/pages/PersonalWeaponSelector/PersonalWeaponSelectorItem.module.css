@@ -1,0 +1,72 @@
+.item {
+    position: relative;
+    display: flex;
+    gap: .5rem;
+    height: 5rem;
+    padding: .75rem 1rem;
+    background-color: var(--color-bg-light);
+    border-radius: var(--rad);
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--acrylic-edge), var(--shadow-1);
+    transition: background-color .2s, box-shadow .2s;
+    overflow: hidden;
+}
+
+.item:hover {
+    background-color: var(--color-bg-lighter);
+    box-shadow: var(--acrylic-edge), var(--shadow-2);
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    margin: 0;
+    font-weight: 600;
+}
+
+.nameSmall {
+    margin: 0;
+    margin-top: .25rem;
+    flex-grow: 1;
+    font-size: .8rem;
+    font-weight: 500;
+    opacity: .5;
+}
+
+.value {
+    margin: 0;
+    font-family: var(--font-slim);
+    font-size: .8rem;
+}
+
+.value > span {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: hsl(166, 50%, 60%);
+    font-variant-numeric: tabular-nums;
+}
+
+.thumbnail {
+    position: absolute;
+    top: .25rem;
+    right: .5rem;
+    height: calc(100% - .5rem);
+    width: 70%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    filter: brightness(1.4) drop-shadow(0 .25rem .5rem #00000080);
+}
+
+.valueBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: hsl(166, 50%, 60%);
+    border-top-right-radius: 4px;
+}

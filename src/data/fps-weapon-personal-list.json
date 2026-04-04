@@ -625,55 +625,6 @@
     "DefaultMagazineCapacity": 8.0
   },
   {
-    "ClassName": "crlf_medgun_01",
-    "Name": "ParaMed Medical Device",
-    "NameKey": "item_namecrlf_medgun_01",
-    "SubType": "Small",
-    "Tag": "HG",
-    "Mass": 1.5,
-    "Volume": 2500.0,
-    "ManufacturerCode": "CUR",
-    "ManufacturerName": "Curelife",
-    "MaxDps": 0.0,
-    "Firing": [],
-    "Ammunition": {
-      "Speed": 600.0,
-      "LifeTime": 2.0,
-      "Range": 1200.0,
-      "DamageStats": {
-        "Energy": {
-          "ImpactDamage": 18.0,
-          "MinDamage": 18.0,
-          "DistanceStartDrop": 0.0,
-          "DropPerMeter": 0.0
-        }
-      }
-    },
-    "Ports": {
-      "Magazine": {
-        "MinSize": 1,
-        "MaxSize": 1,
-        "DefaultInstalled": "crlf_medgun_vial_01"
-      },
-      "Optics": {
-        "MinSize": 0,
-        "MaxSize": 0,
-        "DefaultInstalled": ""
-      },
-      "Barrel": {
-        "MinSize": 0,
-        "MaxSize": 0,
-        "DefaultInstalled": ""
-      },
-      "UnderBarrel": {
-        "MinSize": 0,
-        "MaxSize": 0,
-        "DefaultInstalled": ""
-      }
-    },
-    "DefaultMagazineCapacity": 200.0
-  },
-  {
     "ClassName": "gmni_lmg_ballistic_01",
     "Name": "F55 LMG",
     "NameKey": "item_namegmni_lmg_ballistic_01",
@@ -1049,65 +1000,6 @@
       }
     },
     "DefaultMagazineCapacity": 15.0
-  },
-  {
-    "ClassName": "grin_cutter_01",
-    "Name": "grin_cutter_01",
-    "NameKey": "item_namegrin_cutter_01",
-    "SubType": "Medium",
-    "Tag": "Other",
-    "Mass": 4.0,
-    "Volume": 13000.0,
-    "ManufacturerCode": "GRIN",
-    "ManufacturerName": "Greycat Industrial",
-    "MaxDps": 30.0,
-    "Firing": [
-      {
-        "Name": "",
-        "LocalisedName": "@LOC_PLACEHOLDER",
-        "RoundsPerMinute": 0.0,
-        "DamagePerShot": {},
-        "DamagePerSecond": {
-          "Energy": 30.0
-        }
-      }
-    ],
-    "Ammunition": {
-      "Speed": 1200.0,
-      "LifeTime": 4.0,
-      "Range": 4800.0,
-      "DamageStats": {
-        "Energy": {
-          "ImpactDamage": 21.0,
-          "MinDamage": 21.0,
-          "DistanceStartDrop": 0.0,
-          "DropPerMeter": 0.0
-        }
-      }
-    },
-    "Ports": {
-      "Magazine": {
-        "MinSize": 1,
-        "MaxSize": 1,
-        "DefaultInstalled": "grin_tool_01_mag"
-      },
-      "Optics": {
-        "MinSize": 0,
-        "MaxSize": 0,
-        "DefaultInstalled": ""
-      },
-      "Barrel": {
-        "MinSize": 0,
-        "MaxSize": 0,
-        "DefaultInstalled": ""
-      },
-      "UnderBarrel": {
-        "MinSize": 0,
-        "MaxSize": 0,
-        "DefaultInstalled": ""
-      }
-    },
-    "DefaultMagazineCapacity": 50.0
   },
   {
     "ClassName": "hdgw_pistol_ballistic_01",

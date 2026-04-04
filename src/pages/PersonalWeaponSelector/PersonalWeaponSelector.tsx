@@ -4,19 +4,17 @@ import { useTranslation } from "react-i18next";
 import Icon from "@mdi/react";
 import { mdiSortAscending, mdiSortDescending } from "@mdi/js";
 import weaponListRaw from "../../data/fps-weapon-personal-list.json";
-import personalWeaponsImg from "../../assets/personal_weapons_side/144p/personal_weapons_img";
+import PersonalWeaponSelectorItem from "./PersonalWeaponSelectorItem";
 import "./PersonalWeaponSelector.css";
 
 const weaponList = weaponListRaw as unknown as WeaponPersonalList;
 
-const tagOrder: WeaponPersonalTag[] = ["HG", "SMG", "AR", "SG", "SR", "LMG", "GL", "Heavy", "Other"];
+const tagOrder: WeaponPersonalTag[] = ["HG", "SMG", "AR", "SG", "SR", "LMG", "GL", "Heavy"];
 
 export default function PersonalWeaponSelector() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const { t: tUi } = useTranslation("ui");
-  const { t: tPw } = useTranslation("pw");
-  const { t: tItem } = useTranslation("vehicle_item");
   const tpw = (key: string, defaultValue: string) =>
     tUi(`PersonalWeapon.${key}`, { defaultValue });
 
@@ -37,7 +35,6 @@ export default function PersonalWeaponSelector() {
       LMG: [],
       GL: [],
       Heavy: [],
-      Other: [],
     };
     for (const item of weaponList) {
       groupedInit[item.Tag].push(item);
@@ -52,33 +49,9 @@ export default function PersonalWeaponSelector() {
     return [...weaponList].sort((a, b) => sortMode.order * (a.MaxDps - b.MaxDps));
   }, [sortMode.order]);
 
-  const resolveDisplayName = (item: WeaponPersonal) => {
-    if (item.NameKey) {
-      const fallbackVehicleItem = tItem(item.NameKey, { defaultValue: "" });
-      return tPw(item.NameKey, {
-        defaultValue: fallbackVehicleItem || item.Name || item.ClassName,
-      });
-    }
-    const byClassName = tItem(`item_name${item.ClassName}`.toLowerCase(), { defaultValue: "" });
-    return byClassName || item.Name || item.ClassName;
+  const renderItem = (item: WeaponPersonal) => {
+    return <PersonalWeaponSelectorItem key={item.ClassName} item={item} onClick={() => navigate(`/PW/${item.ClassName}`)} />;
   };
-
-  const renderItem = (item: WeaponPersonal) => (
-    <div key={item.ClassName} className="item" onClick={() => navigate(`/PW/${item.ClassName}`)}>
-      <div className="contents">
-        <p className="name">{resolveDisplayName(item)}</p>
-        <p className="name-small">{item.Name}</p>
-        <p className="value">
-          <span>{Math.round(item.MaxDps)}</span> {tpw("FPSSort-MaxDPS", "Max DPS")}
-        </p>
-      </div>
-      <div
-        className="thumbnail"
-        style={{ backgroundImage: `url(${personalWeaponsImg[item.ClassName as keyof typeof personalWeaponsImg] ?? ""})` }}
-      />
-      <div className="value-bar" style={{ width: `${(item.MaxDps / 500) * 100}%` }} />
-    </div>
-  );
 
   return (
     <div className="Index-Personal-Wpn-container">
