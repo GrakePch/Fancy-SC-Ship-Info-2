@@ -1,15 +1,11 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  CartesianGrid,
-  Dot,
+  Area,
+  ComposedChart,
   Label,
-  Legend,
   ReferenceLine,
   ResponsiveContainer,
-  Scatter,
-  ScatterChart,
-  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -20,6 +16,63 @@ type LinePoint = {
   y: number;
 };
 
+type VerticalReferenceLabelProps = {
+  value?: string | number;
+  fill?: string;
+  viewBox?: {
+    x?: number;
+    y?: number;
+    width?: number;
+    height?: number;
+  };
+};
+
+const X_AXIS_CURVATURE = 100;
+const DEFAULT_SAMPLE_MAX_DISTANCE = 500;
+const TARGET_SAMPLE_POINTS = 50;
+const DAMAGE_TYPE_ORDER: DamageType[] = ["Physical", "Energy", "Distortion", "Stun", "Thermal"];
+
+function distanceToAxisX(distance: number, maxDistance: number) {
+  if (distance <= 0) return 0;
+  const safeMaxDistance = Math.max(1, maxDistance);
+  const denominator = safeMaxDistance / (safeMaxDistance + X_AXIS_CURVATURE);
+  return (distance / (distance + X_AXIS_CURVATURE)) / denominator * safeMaxDistance;
+}
+
+function axisXToDistance(axisX: number, maxDistance: number) {
+  if (axisX <= 0) return 0;
+  const safeMaxDistance = Math.max(1, maxDistance);
+  if (axisX >= safeMaxDistance) return safeMaxDistance;
+  return (axisX * X_AXIS_CURVATURE) / (safeMaxDistance + X_AXIS_CURVATURE - axisX);
+}
+
+
+function round2(value: number) {
+  return Math.round(value * 100) / 100;
+}
+
+function VerticalReferenceLabel({ value, fill = "var(--color-text-1)", viewBox }: VerticalReferenceLabelProps) {
+  if (value === undefined || value === null || !viewBox) return null;
+
+  const x = (viewBox.x ?? 0);
+  const y = (viewBox.y ?? 0) + (viewBox.height ?? 0) - 6;
+
+  return (
+    <text
+      x={x}
+      y={y}
+      dy="1em"
+      fill={fill}
+      fontWeight={500}
+      transform={`rotate(90 ${x} ${y})`}
+      textAnchor="end"
+      fontSize={"0.875rem"}
+    >
+      {value}
+    </text>
+  );
+}
+
 type PersonalWeaponChartsProps = {
   ammunition?: WeaponAmmunition;
 };
@@ -27,44 +80,83 @@ type PersonalWeaponChartsProps = {
 export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChartsProps) {
   const { t: tUi } = useTranslation("ui");
   const damageStats = ammunition?.DamageStats ?? {};
-  const damageTypes = Object.keys(damageStats);
+  const damageTypes = DAMAGE_TYPE_ORDER.filter((type) => type !== "Stun" && Boolean(damageStats[type]));
   const hasDamageData = damageTypes.length > 0;
+  const sampleMaxDistance = Math.max(0, Math.round(ammunition?.Range ?? DEFAULT_SAMPLE_MAX_DISTANCE));
+  const maxRangeAxisX = distanceToAxisX(sampleMaxDistance, sampleMaxDistance);
+  const getDamageTypeLabel = (dmgType: string) =>
+    tUi(`DamageType.${dmgType}`, { defaultValue: tUi(dmgType, { defaultValue: dmgType }) });
 
   const lineData = useMemo<Record<string, LinePoint[]>>(() => {
     if (!ammunition?.DamageStats) return {};
 
     const output: Record<string, LinePoint[]> = {};
-    for (const dmgType of Object.keys(ammunition.DamageStats)) {
+    const axisMax = distanceToAxisX(sampleMaxDistance, sampleMaxDistance);
+
+    for (const dmgType of damageTypes) {
       const stat = ammunition.DamageStats[dmgType as DamageType];
       if (!stat) continue;
-      const maxDmg = stat.ImpactDamage ?? 0;
-      const minDmg = stat.MinDamage ?? maxDmg;
-      const startDrop = stat.DistanceStartDrop ?? 0;
-      const dropPerMeter = stat.DropPerMeter ?? 0;
+      const maxDmg = stat.ImpactDamage;
+      const minDmg = stat.MinDamage;
+      const startDrop = stat.DistanceStartDrop;
+      const dropPerMeter = stat.DropPerMeter;
+      const dropEndDistance =
+        dropPerMeter > 0 ? Math.round(startDrop + (maxDmg - minDmg) / dropPerMeter) : startDrop;
 
-      const points: LinePoint[] = [];
-      let dmg = maxDmg;
-      for (let x = 0; x <= 500; x += 1) {
-        if (x > startDrop && dmg > minDmg) {
-          dmg -= dropPerMeter;
-        }
-        points.push({ x, y: Math.max(Math.round(dmg * 100) / 100, minDmg) });
+      const sampledDistances = new Set<number>();
+      for (let i = 0; i < TARGET_SAMPLE_POINTS; i += 1) {
+        const axisX = TARGET_SAMPLE_POINTS > 1 ? (i / (TARGET_SAMPLE_POINTS - 1)) * axisMax : 0;
+        const distance = axisXToDistance(axisX, sampleMaxDistance);
+        if (!Number.isFinite(distance)) continue;
+        sampledDistances.add(Math.round(distance));
       }
+
+      sampledDistances.add(0);
+      sampledDistances.add(Math.round(startDrop));
+      sampledDistances.add(Math.round(dropEndDistance));
+      sampledDistances.add(sampleMaxDistance);
+
+      const sortedDistances = [...sampledDistances]
+        .filter((distance) => distance >= 0 && distance <= sampleMaxDistance)
+        .sort((a, b) => a - b);
+
+      const points: LinePoint[] = sortedDistances.map((distance) => {
+        const dropDistance = Math.max(0, distance - startDrop);
+        const damage = Math.max(minDmg, maxDmg - dropDistance * dropPerMeter);
+        return { x: distanceToAxisX(distance, sampleMaxDistance), y: round2(damage) };
+      });
+
       output[dmgType] = points;
     }
     return output;
-  }, [ammunition]);
+  }, [ammunition, damageTypes, sampleMaxDistance]);
+
+  const effectiveMinDamage = useMemo<Record<string, number>>(() => {
+    if (!ammunition?.DamageStats) return {};
+    const result: Record<string, number> = {};
+
+    for (const dmgType of damageTypes) {
+      const stat = ammunition.DamageStats[dmgType as DamageType];
+      if (!stat) continue;
+
+      const dropDistance = Math.max(0, sampleMaxDistance - stat.DistanceStartDrop);
+      const minAtRange = Math.max(stat.MinDamage, stat.ImpactDamage - dropDistance * stat.DropPerMeter);
+      result[dmgType] = round2(minAtRange);
+    }
+
+    return result;
+  }, [ammunition, damageTypes, sampleMaxDistance]);
 
   const dropEnd = useMemo<Record<string, number>>(() => {
     if (!ammunition?.DamageStats) return {};
     const result: Record<string, number> = {};
-    for (const dmgType of Object.keys(ammunition.DamageStats)) {
+    for (const dmgType of damageTypes) {
       const stat = ammunition.DamageStats[dmgType as DamageType];
       if (!stat) continue;
-      const max = stat.ImpactDamage ?? 0;
-      const min = stat.MinDamage ?? max;
-      const minDistance = stat.DistanceStartDrop ?? 0;
-      const dropPerMeter = stat.DropPerMeter ?? 0;
+      const max = stat.ImpactDamage;
+      const min = stat.MinDamage;
+      const minDistance = stat.DistanceStartDrop;
+      const dropPerMeter = stat.DropPerMeter;
       if (dropPerMeter <= 0) {
         result[dmgType] = minDistance;
       } else {
@@ -72,87 +164,132 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
       }
     }
     return result;
-  }, [ammunition]);
+  }, [ammunition, damageTypes]);
 
   return (
     <div className="damage-drop-chart">
+      <div className={`damage-drop-legend${damageTypes.length > 1 ? " is-horizontal" : ""}`}>
+        {damageTypes.map((dmgType) => (
+          <div key={`legend_${dmgType}`} className="damage-drop-legend-item">
+            <span
+              className="damage-drop-legend-dot"
+              style={{ backgroundColor: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor] }}
+            />
+            <span style={{ color: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor] }}>
+              {getDamageTypeLabel(dmgType)}
+            </span>
+          </div>
+        ))}
+      </div>
       <ResponsiveContainer width="100%" height="100%">
-        <ScatterChart margin={{ top: 10, right: 40, left: -16, bottom: 0 }}>
-          <CartesianGrid />
-          <XAxis dataKey="x" type="number" domain={[0, 500]} tick={false} />
-          <YAxis dataKey="y" type="number" domain={[0, (dataMax: number) => (dataMax * 1.2)]} tick={false} />
-          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-          <Legend />
+        <ComposedChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+          <defs>
+            {damageTypes.map((dmgType) => (
+              <linearGradient key={`fillGradient_${dmgType}`} id={`fillGradient_${dmgType}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]} stopOpacity={0.4} />
+                <stop offset="100%" stopColor={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]} stopOpacity={0.02} />
+              </linearGradient>
+            ))}
+          </defs>
+          <XAxis dataKey="x" type="number" domain={[0, sampleMaxDistance]} tick={false} height={0} />
+          <YAxis dataKey="y" type="number" domain={[0, (dataMax: number) => (dataMax * 1.2)]} tick={false} width={0} />
+
+          {hasDamageData &&
+            damageTypes.map((dmgType) => (
+              <Area
+                key={"a_" + dmgType}
+                data={lineData[dmgType]}
+                name={dmgType}
+                dataKey="y"
+                type="linear"
+                stroke={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]}
+                strokeWidth={3}
+                fill={`url(#fillGradient_${dmgType})`}
+                baseValue={0}
+                dot={false}
+                isAnimationActive
+                animationDuration={900}
+                animationEasing="ease-out"
+              />
+            ))}
+
           {hasDamageData &&
             damageTypes.flatMap((dmgType) => {
-              const stat = damageStats[dmgType as DamageType];
-              if (!stat) return [];
+              const stat = damageStats[dmgType as DamageType]!;
               return [
-              <ReferenceLine
-                key={"y1_" + dmgType}
-                y={stat.ImpactDamage ?? 0}
-                label={
-                  <Label
-                    value={stat.ImpactDamage ?? 0}
-                    position="left"
-                    offset={8}
-                    style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
+                <ReferenceLine
+                  key={"maxDamage_" + dmgType}
+                  y={stat.ImpactDamage}
+                  label={
+                    <Label
+                      value={stat.ImpactDamage}
+                      position="insideBottomLeft"
+                      offset={6}
+                      style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
+                    />
+                  }
+                  strokeWidth={0}
+                />,
+                <ReferenceLine
+                  key={"minDamage_" + dmgType}
+                  y={effectiveMinDamage[dmgType]}
+                  label={
+                    <Label
+                      value={effectiveMinDamage[dmgType]}
+                      position="insideBottomRight"
+                      offset={6}
+                      style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
+                    />
+                  }
+                  strokeWidth={0}
+                />,
+                stat.DistanceStartDrop > 0 ? (
+                  <ReferenceLine
+                    key={"dropStart_" + dmgType}
+                    x={distanceToAxisX(stat.DistanceStartDrop, sampleMaxDistance)}
+                    label={
+                      <Label
+                        value={`${stat.DistanceStartDrop}m`}
+                        position="insideBottomRight"
+                        content={<VerticalReferenceLabel />}
+                      />
+                    }
+                    strokeDasharray="3 3"
+                    stroke={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]}
                   />
-                }
-                strokeWidth={0}
-              />,
-              <ReferenceLine
-                key={"y2_" + dmgType}
-                y={stat.MinDamage ?? 0}
-                label={
-                  <Label
-                    value={stat.MinDamage ?? 0}
-                    position="right"
-                    offset={8}
-                    style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
+                ) : null,
+                dropEnd[dmgType] > 0 &&
+                dropEnd[dmgType] <= sampleMaxDistance &&
+                dropEnd[dmgType] - stat.DistanceStartDrop >= 5 ? (
+                  <ReferenceLine
+                    key={"dropEnd_" + dmgType}
+                    x={distanceToAxisX(dropEnd[dmgType], sampleMaxDistance)}
+                    label={
+                      <Label
+                        value={`${dropEnd[dmgType]}m`}
+                        position="insideBottomRight"
+                        content={<VerticalReferenceLabel />}
+                      />
+                    }
+                    strokeDasharray="3 3"
+                    stroke={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]}
                   />
-                }
-                strokeWidth={0}
-              />,
-              <ReferenceLine
-                key={"x1_" + dmgType}
-                x={stat.DistanceStartDrop ?? 0}
-                label={
-                  <Label
-                    value={stat.DistanceStartDrop ?? 0}
-                    position="bottom"
-                    offset={8}
-                    style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
-                  />
-                }
-                strokeDasharray="3 3"
-                stroke={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]}
-              />,
-              <ReferenceLine
-                key={"x2_" + dmgType}
-                x={dropEnd[dmgType]}
-                label={
-                  <Label
-                    value={dropEnd[dmgType]}
-                    position="bottom"
-                    offset={8}
-                    style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
-                  />
-                }
-                strokeDasharray="3 3"
-                stroke={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]}
-              />,
-              <Scatter
-                key={"s_" + dmgType}
-                data={lineData[dmgType]}
-                name={tUi(dmgType, { defaultValue: dmgType })}
-                fill={dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor]}
-                shape={<Dot r={2} />}
-                isAnimationActive={false}
-              />,
-            ];
+                ) : null,
+              ];
             })}
-        </ScatterChart>
+
+          <ReferenceLine
+            x={maxRangeAxisX}
+            label={
+              <Label
+                value={`${sampleMaxDistance}m`}
+                position="insideBottomRight"
+                content={<VerticalReferenceLabel />}
+              />
+            }
+            strokeWidth={0}
+          />
+        </ComposedChart>
       </ResponsiveContainer>
     </div>
   );
