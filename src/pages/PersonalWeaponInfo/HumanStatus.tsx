@@ -6,7 +6,7 @@ export const targetArmors = ["naked", "default", "undersuit", "fa", "light", "me
 export type TargetArmor = (typeof targetArmors)[number];
 
 type HumanStatusProps = {
-  activeFiringMode?: SpvPersonalWeaponAction;
+  activeFiringMode?: WeaponFiringMode;
 };
 
 const selectableArmors: TargetArmor[] = ["naked", "default", "undersuit", "light", "medium", "heavy"];

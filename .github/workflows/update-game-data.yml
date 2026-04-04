@@ -71,6 +71,7 @@ jobs:
       - name: Preprocess formatted JSON
         run: |
           python scripts/dataPreProc.py batchFormatted/vehicle-basic-list.json
+          python scripts/preprocess_fps_weapon.py --input batchFormatted/fps-weapon-list.json --output-dir batchFormatted
 
       - name: Copy formatted JSON to src/data
         run: |
@@ -79,6 +80,8 @@ jobs:
           cp -f batchFormatted/vehicle-hardpoints-list.json src/data/vehicle-hardpoints-list.json
           cp -f batchFormatted/vehicle-item-list.json src/data/vehicle-item-list.json
           cp -f batchFormatted/fps-weapon-list.json src/data/fps-weapon-list.json
+          cp -f batchFormatted/fps-weapon-personal-list.json src/data/fps-weapon-personal-list.json
+          cp -f batchFormatted/fps-weapon-attachment-list.json src/data/fps-weapon-attachment-list.json
 
       - name: Check if data changed
         id: data-changed
@@ -100,6 +103,8 @@ jobs:
           git add src/data/vehicle-hardpoints-list.json
           git add src/data/vehicle-item-list.json
           git add src/data/fps-weapon-list.json
+          git add src/data/fps-weapon-personal-list.json
+          git add src/data/fps-weapon-attachment-list.json
           git commit -m "chore(data): update data"
           git push origin main
 

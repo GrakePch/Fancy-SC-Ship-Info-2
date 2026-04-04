@@ -5,14 +5,13 @@ import {
   mdiCube,
   mdiDatabaseOutline,
   mdiFlare,
-  mdiFlash,
   mdiMagazineRifle,
-  mdiRayStartArrow,
   mdiTarget,
   mdiWeight,
 } from "@mdi/js";
 import Icon from "@mdi/react";
-import listPersonalWeaponRaw from "../../data/fps-weapon-list.json";
+import listPersonalWeaponRaw from "../../data/fps-weapon-personal-list.json";
+import listAttachmentRaw from "../../data/fps-weapon-attachment-list.json";
 import dmgTypeToColor from "../../assets/damageTypeToColor";
 import personalWeaponsImg from "../../assets/personal_weapons_side/1080p/personal_weapons_img";
 import PortEditable from "./PortEditable/PortEditable";
@@ -22,15 +21,16 @@ import PersonalWeaponCharts from "./PersonalWeaponCharts";
 import HumanStatus from "./HumanStatus";
 import icons from "../../assets/icons";
 
-const listPersonalWeapon = listPersonalWeaponRaw as unknown as SpvPersonalWeapon[];
+const listPersonalWeapon = listPersonalWeaponRaw as unknown as WeaponPersonalList;
+const listAttachment = listAttachmentRaw as unknown as WeaponAttachmentList;
+const attachmentByClassName = new Map(listAttachment.map((item) => [item.ClassName, item]));
 
-const iconPathByFiringMode: Record<SpvPersonalWeaponLocalisedName, string> = {
+const iconPathByFiringMode: Partial<Record<WeaponFiringLocalisedName, string>> = {
   "[AUTO]": icons.pw_fire_type_auto,
   "[SEMI]": icons.pw_fire_type_semi,
   "[BURST]": icons.pw_fire_type_burst,
   "[CHARGE]": icons.pw_fire_type_charge,
   "[SHOTGUN]": icons.pw_fire_type_auto,
-  "Tractor": icons.beam,
   "@LOC_PLACEHOLDER": icons.beam,
 };
 
@@ -44,28 +44,27 @@ export default function PersonalWeaponInfo() {
   const tpw = (key: string, defaultValue: string) =>
     tUi(`PersonalWeapon.${key}`, { defaultValue });
 
-  const source = useMemo(() => listPersonalWeapon.find((item) => item.className === className), [className]);
+  const weapon = useMemo(() => listPersonalWeapon.find((item) => item.ClassName === className), [className]);
 
   useEffect(() => {
-    if (!source) {
+    if (!weapon) {
       navigate("/PW", { replace: true });
     }
-  }, [navigate, source]);
+  }, [navigate, weapon]);
 
-  const dataPW = source?.stdItem;
-  const nameKey = source?.name?.startsWith("@") ? source.name.slice(1).toLowerCase() : "";
+  const nameKey = weapon?.NameKey ?? "";
   const localizedName = nameKey
     ? tPw(nameKey, {
         defaultValue: tItem(nameKey, {
-          defaultValue: dataPW?.Name ?? source?.className ?? "",
+          defaultValue: weapon?.Name ?? weapon?.ClassName ?? "",
         }),
       })
-    : dataPW?.Name ?? source?.className ?? "";
+    : weapon?.Name ?? weapon?.ClassName ?? "";
 
-  const manufacturerName = dataPW?.Manufacturer?.Name ?? "";
+  const manufacturerName = weapon?.ManufacturerName ?? "";
   const localizedManufacturer = tManufacturer(manufacturerName, { defaultValue: manufacturerName });
 
-  const firingModes = (dataPW?.Weapon?.Firing ?? []) as SpvPersonalWeaponAction[];
+  const firingModes = (weapon?.Firing ?? []) as WeaponFiringMode[];
   const [firingMode, setFiringMode] = useState(0);
 
   useEffect(() => {
@@ -73,13 +72,6 @@ export default function PersonalWeaponInfo() {
   }, [className]);
 
   const activeFiringMode = firingModes[firingMode];
-  const portsByName = useMemo<Record<string, SpvPersonalWeaponPort>>(() => {
-    const map: Record<string, SpvPersonalWeaponPort> = {};
-    for (const port of dataPW?.Ports ?? []) {
-      map[port.PortName] = port;
-    }
-    return map;
-  }, [dataPW?.Ports]);
 
   const combatStats = useMemo(() => {
     if (!activeFiringMode) {
@@ -105,18 +97,21 @@ export default function PersonalWeaponInfo() {
     };
   }, [activeFiringMode]);
 
-  if (!source || !dataPW) return null;
+  if (!weapon) return null;
 
-  const ammunition = dataPW.Weapon?.Ammunition;
-  const imageSrc = personalWeaponsImg[dataPW.ClassName as keyof typeof personalWeaponsImg] ?? "";
-  const magazineSize = portsByName.magazine_attach?.InstalledItem?.Magazine?.Capacity ?? "-";
+  const ammunition = weapon.Ammunition;
+  const imageSrc = personalWeaponsImg[weapon.ClassName as keyof typeof personalWeaponsImg] ?? "";
+  const magazineAttachmentName =
+    attachmentByClassName.get(weapon.Ports.Magazine.DefaultInstalled)?.Name ?? weapon.Ports.Magazine.DefaultInstalled;
+  const magazineCapMatch = magazineAttachmentName.match(/\((\d+)\s*cap\)/i);
+  const magazineSize = magazineCapMatch?.[1] ?? "-";
 
   return (
     <div className="Personal-Weapon-Info-container">
       <div className="spotlight">
         <h2>{localizedManufacturer || "-"}</h2>
-        <h1>{localizedName || dataPW.Name}</h1>
-        <h3>{dataPW.Name}</h3>
+        <h1>{localizedName || weapon.Name}</h1>
+        <h3>{weapon.Name}</h3>
         <div className="main-card">
           <div>
             <div className="main-image" style={{ backgroundImage: `url(${imageSrc})` }} />
@@ -124,12 +119,12 @@ export default function PersonalWeaponInfo() {
               <div>
                 <Icon path={mdiCube} size={1} />
                 <p>{tpw("Volume", "Volume")}</p>
-                <p>{dataPW.Volume} SCU</p>
+                <p>{weapon.Volume} SCU</p>
               </div>
               <div>
                 <Icon path={mdiWeight} size={1} />
                 <p>{tpw("Mass", "Mass")}</p>
-                <p>{dataPW.Mass} Kg</p>
+                <p>{weapon.Mass} Kg</p>
               </div>
             </div>
           </div>
@@ -156,14 +151,12 @@ export default function PersonalWeaponInfo() {
               <div className="fire-rate-tabs">
                 {firingModes.map((mode, idx) => (
                   <button
-                    key={`${mode.FireType}-${idx}`}
+                    key={`${mode.Name}-${idx}`}
                     className={idx === firingMode ? "active" : ""}
                     onClick={() => setFiringMode(idx)}
                   >
                     <Icon path={iconPathByFiringMode[mode.LocalisedName] ?? mdiDatabaseOutline} size={1} />
-                    {mode.Name === "Burst" && mode.ShotPerAction
-                      ? tpw(`FiringMode-Burst-${mode.ShotPerAction}`, `Burst (${mode.ShotPerAction})`)
-                      : tpw(`FiringMode-${mode.Name}`, mode.Name)}
+                    {tpw(`FiringMode-${mode.Name}`, mode.Name)}
                   </button>
                 ))}
               </div>
@@ -173,10 +166,10 @@ export default function PersonalWeaponInfo() {
       </div>
 
       <div className="attachment-container">
-        <PortEditable data={portsByName.magazine_attach} name="magazine_attach" icon={<Icon path={mdiMagazineRifle} size={1} horizontal/>} />
-        <PortEditable data={portsByName.optics_attach} name="optics_attach" icon={<Icon path={mdiTarget} size={1} />} />
-        <PortEditable data={portsByName.barrel_attach} name="barrel_attach" icon={<Icon path={mdiDatabaseOutline} size={1} rotate={90} />} />
-        <PortEditable data={portsByName.underbarrel_attach} name="underbarrel_attach" icon={<Icon path={mdiFlare} size={1} />} />
+        <PortEditable data={weapon.Ports.Magazine} name="magazine_attach" icon={<Icon path={mdiMagazineRifle} size={1} horizontal/>} />
+        <PortEditable data={weapon.Ports.Optics} name="optics_attach" icon={<Icon path={mdiTarget} size={1} />} />
+        <PortEditable data={weapon.Ports.Barrel} name="barrel_attach" icon={<Icon path={mdiDatabaseOutline} size={1} rotate={90} />} />
+        <PortEditable data={weapon.Ports.UnderBarrel} name="underbarrel_attach" icon={<Icon path={mdiFlare} size={1} />} />
       </div>
 
       <div className="data-detail">
@@ -254,14 +247,6 @@ export default function PersonalWeaponInfo() {
                   <div>{activeFiringMode.RoundsPerMinute ?? "-"} RPM</div>
                 </div>
                 <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("AmmoPerShot", "Ammo Per Shot")}</div>
-                  <div>{activeFiringMode.AmmoPerShot ?? "-"}</div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("PelletsPerShot", "Pellets Per Shot")}</div>
-                  <div>{activeFiringMode.PelletsPerShot ?? "-"}</div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
                   <div>{tpw("BulletVelocity", "Bullet Velocity")}</div>
                   <div>{ammunition?.Speed ?? "-"} m/s</div>
                 </div>
@@ -273,38 +258,6 @@ export default function PersonalWeaponInfo() {
                   <div>{tpw("BulletLifeTime", "Bullet Lifetime")}</div>
                   <div>{ammunition?.LifeTime ?? "-"} s</div>
                 </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("Spread-Min", "Spread Min")}</div>
-                  <div>{activeFiringMode.Spread?.Min ?? "-"}</div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("Spread-Max", "Spread Max")}</div>
-                  <div>{activeFiringMode.Spread?.Max ?? "-"}</div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("Spread-Aim-Min", "Spread Aim Min")}</div>
-                  <div>
-                    {activeFiringMode.Spread?.Min != null && activeFiringMode.AimModifier?.SpreadModifier?.Min != null
-                      ? (activeFiringMode.Spread.Min * activeFiringMode.AimModifier.SpreadModifier.Min).toFixed(0)
-                      : "-"}
-                  </div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("Spread-Aim-Max", "Spread Aim Max")}</div>
-                  <div>
-                    {activeFiringMode.Spread?.Max != null && activeFiringMode.AimModifier?.SpreadModifier?.Max != null
-                      ? (activeFiringMode.Spread.Max * activeFiringMode.AimModifier.SpreadModifier.Max).toFixed(0)
-                      : "-"}
-                  </div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("HeatPerShot", "Heat Per Shot")}</div>
-                  <div>{activeFiringMode.HeatPerShot ?? "-"}</div>
-                </div>
-                <div className={vehicleStyles.commonKeyValue}>
-                  <div>{tpw("WearPerShot", "Wear Per Shot")}</div>
-                  <div>{activeFiringMode.WearPerShot ?? "-"}</div>
-                </div>
               </div>
             </>
           )}
@@ -313,4 +266,3 @@ export default function PersonalWeaponInfo() {
     </div>
   );
 }
-

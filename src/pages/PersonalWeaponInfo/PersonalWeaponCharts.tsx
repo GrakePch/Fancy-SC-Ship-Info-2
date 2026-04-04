@@ -15,9 +15,6 @@ import {
 } from "recharts";
 import dmgTypeToColor from "../../assets/damageTypeToColor";
 
-type DamageDrop = NonNullable<SpvPersonalWeaponAmmunition["DamageDrop"]>;
-type WeaponAmmunition = Pick<SpvPersonalWeaponAmmunition, "ImpactDamage" | "DamageDrop">;
-
 type LinePoint = {
   x: number;
   y: number;
@@ -29,23 +26,21 @@ type PersonalWeaponChartsProps = {
 
 export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChartsProps) {
   const { t: tUi } = useTranslation("ui");
-  const safeImpactDamage = ammunition?.ImpactDamage ?? {};
-  const safeDamageDrop: DamageDrop = ammunition?.DamageDrop ?? {
-    MinDistance: {},
-    DropPerMeter: {},
-    MinDamage: {},
-  };
-  const hasDamageData = ammunition?.ImpactDamage != null && ammunition?.DamageDrop != null;
+  const damageStats = ammunition?.DamageStats ?? {};
+  const damageTypes = Object.keys(damageStats);
+  const hasDamageData = damageTypes.length > 0;
 
   const lineData = useMemo<Record<string, LinePoint[]>>(() => {
-    if (!ammunition?.ImpactDamage || !ammunition.DamageDrop) return {};
+    if (!ammunition?.DamageStats) return {};
 
     const output: Record<string, LinePoint[]> = {};
-    for (const dmgType of Object.keys(ammunition.ImpactDamage)) {
-      const maxDmg = ammunition.ImpactDamage[dmgType] ?? 0;
-      const minDmg = ammunition.DamageDrop.MinDamage[dmgType] ?? maxDmg;
-      const startDrop = ammunition.DamageDrop.MinDistance[dmgType] ?? 0;
-      const dropPerMeter = ammunition.DamageDrop.DropPerMeter[dmgType] ?? 0;
+    for (const dmgType of Object.keys(ammunition.DamageStats)) {
+      const stat = ammunition.DamageStats[dmgType as DamageType];
+      if (!stat) continue;
+      const maxDmg = stat.ImpactDamage ?? 0;
+      const minDmg = stat.MinDamage ?? maxDmg;
+      const startDrop = stat.DistanceStartDrop ?? 0;
+      const dropPerMeter = stat.DropPerMeter ?? 0;
 
       const points: LinePoint[] = [];
       let dmg = maxDmg;
@@ -61,13 +56,15 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
   }, [ammunition]);
 
   const dropEnd = useMemo<Record<string, number>>(() => {
-    if (!ammunition?.ImpactDamage || !ammunition.DamageDrop) return {};
+    if (!ammunition?.DamageStats) return {};
     const result: Record<string, number> = {};
-    for (const dmgType of Object.keys(ammunition.ImpactDamage)) {
-      const max = ammunition.ImpactDamage[dmgType] ?? 0;
-      const min = ammunition.DamageDrop.MinDamage[dmgType] ?? max;
-      const minDistance = ammunition.DamageDrop.MinDistance[dmgType] ?? 0;
-      const dropPerMeter = ammunition.DamageDrop.DropPerMeter[dmgType] ?? 0;
+    for (const dmgType of Object.keys(ammunition.DamageStats)) {
+      const stat = ammunition.DamageStats[dmgType as DamageType];
+      if (!stat) continue;
+      const max = stat.ImpactDamage ?? 0;
+      const min = stat.MinDamage ?? max;
+      const minDistance = stat.DistanceStartDrop ?? 0;
+      const dropPerMeter = stat.DropPerMeter ?? 0;
       if (dropPerMeter <= 0) {
         result[dmgType] = minDistance;
       } else {
@@ -87,13 +84,16 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
           <Legend />
           {hasDamageData &&
-            Object.keys(safeImpactDamage).flatMap((dmgType) => [
+            damageTypes.flatMap((dmgType) => {
+              const stat = damageStats[dmgType as DamageType];
+              if (!stat) return [];
+              return [
               <ReferenceLine
                 key={"y1_" + dmgType}
-                y={safeImpactDamage[dmgType] ?? 0}
+                y={stat.ImpactDamage ?? 0}
                 label={
                   <Label
-                    value={safeImpactDamage[dmgType] ?? 0}
+                    value={stat.ImpactDamage ?? 0}
                     position="left"
                     offset={8}
                     style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
@@ -103,10 +103,10 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
               />,
               <ReferenceLine
                 key={"y2_" + dmgType}
-                y={safeDamageDrop.MinDamage[dmgType] ?? 0}
+                y={stat.MinDamage ?? 0}
                 label={
                   <Label
-                    value={safeDamageDrop.MinDamage[dmgType] ?? 0}
+                    value={stat.MinDamage ?? 0}
                     position="right"
                     offset={8}
                     style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
@@ -116,10 +116,10 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
               />,
               <ReferenceLine
                 key={"x1_" + dmgType}
-                x={safeDamageDrop.MinDistance[dmgType] ?? 0}
+                x={stat.DistanceStartDrop ?? 0}
                 label={
                   <Label
-                    value={safeDamageDrop.MinDistance[dmgType] ?? 0}
+                    value={stat.DistanceStartDrop ?? 0}
                     position="bottom"
                     offset={8}
                     style={{ fill: dmgTypeToColor[dmgType as keyof typeof dmgTypeToColor], fontWeight: 600 }}
@@ -150,7 +150,8 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
                 shape={<Dot r={2} />}
                 isAnimationActive={false}
               />,
-            ])}
+            ];
+            })}
         </ScatterChart>
       </ResponsiveContainer>
     </div>

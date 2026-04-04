@@ -1,0 +1,2790 @@
+[
+  {
+    "ClassName": "apar_special_ballistic_01",
+    "Name": "Scourge Railgun",
+    "NameKey": "item_nameapar_special_ballistic_01",
+    "SubType": "Large",
+    "Tag": "Heavy",
+    "Mass": 15.0,
+    "Volume": 35000.0,
+    "ManufacturerCode": "APAR",
+    "ManufacturerName": "Apocalypse Arms",
+    "MaxDps": 3150.0,
+    "Firing": [
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 21.0,
+        "DamagePerShot": {
+          "Physical": 9000.0
+        },
+        "DamagePerSecond": {
+          "Physical": 3150.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 50.0,
+      "LifeTime": 4.0,
+      "Range": 200.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 20.0,
+          "MinDamage": 2.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "apar_special_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "apar_special_ballistic_02",
+    "Name": "Animus Missile Launcher",
+    "NameKey": "item_nameapar_special_ballistic_02",
+    "SubType": "Large",
+    "Tag": "Heavy",
+    "Mass": 15.0,
+    "Volume": 35000.0,
+    "ManufacturerCode": "APAR",
+    "ManufacturerName": "Apocalypse Arms",
+    "MaxDps": 321.42,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 128.57,
+        "DamagePerShot": {
+          "Physical": 150.0
+        },
+        "DamagePerSecond": {
+          "Physical": 321.42
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 700.0,
+      "LifeTime": 3.0,
+      "Range": 2100.0,
+      "DamageStats": {}
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "apar_special_ballistic_02_mag"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_glauncher_ballistic_01",
+    "Name": "GP-33 MOD Grenade Launcher",
+    "NameKey": "item_namebehr_glauncher_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "GL",
+    "Mass": 5.0,
+    "Volume": 20000.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 15.5,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 60.0,
+        "DamagePerShot": {
+          "Physical": 15.5
+        },
+        "DamagePerSecond": {
+          "Physical": 15.5
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 50.0,
+      "LifeTime": 4.0,
+      "Range": 200.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 3.0,
+          "MinDamage": 2.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_glauncher_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_lmg_ballistic_01",
+    "Name": "FS-9 LMG",
+    "NameKey": "item_namebehr_lmg_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "LMG",
+    "Mass": 10.0,
+    "Volume": 18000.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 157.08,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 650.0,
+        "DamagePerShot": {
+          "Physical": 14.5
+        },
+        "DamagePerSecond": {
+          "Physical": 157.08
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 14.5,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 50.0,
+          "DropPerMeter": 0.0137
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_lmg_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_pistol_ballistic_01",
+    "Name": "S-38 Pistol",
+    "NameKey": "item_namebehr_pistol_ballistic_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.1,
+    "Volume": 2500.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 168.75,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 450.0,
+        "DamagePerShot": {
+          "Physical": 22.5
+        },
+        "DamagePerSecond": {
+          "Physical": 168.75
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 500.0,
+      "LifeTime": 1.9,
+      "Range": 950.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 22.5,
+          "MinDamage": 16.0,
+          "DistanceStartDrop": 20.0,
+          "DropPerMeter": 0.25
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_pistol_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_rifle_ballistic_01",
+    "Name": "P4-AR Rifle",
+    "NameKey": "item_namebehr_rifle_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 3.2,
+    "Volume": 13000.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 162.0,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 810.0,
+        "DamagePerShot": {
+          "Physical": 12.0
+        },
+        "DamagePerSecond": {
+          "Physical": 162.0
+        }
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 810.0,
+        "DamagePerShot": {
+          "Physical": 12.0
+        },
+        "DamagePerSecond": {
+          "Physical": 162.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 550.0,
+      "LifeTime": 2.0,
+      "Range": 1100.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 12.0,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 40.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_rifle_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_rifle_ballistic_02_civilian",
+    "Name": "P8-AR Rifle",
+    "NameKey": "item_namebehr_rifle_ballistic_02_civilian",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 3.6,
+    "Volume": 13000.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 176.25,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 235.0,
+        "DamagePerShot": {
+          "Physical": 45.0
+        },
+        "DamagePerSecond": {
+          "Physical": 176.25
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1150.0,
+      "LifeTime": 2.0,
+      "Range": 2300.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 45.0,
+          "MinDamage": 40.0,
+          "DistanceStartDrop": 50.0,
+          "DropPerMeter": 0.1
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_rifle_ballistic_02_mag_civilian"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_shotgun_ballistic_01",
+    "Name": "BR-2 Shotgun",
+    "NameKey": "item_namebehr_shotgun_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SG",
+    "Mass": 4.5,
+    "Volume": 16000.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 132.0,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 90.0,
+        "DamagePerShot": {
+          "Physical": 88.0
+        },
+        "DamagePerSecond": {
+          "Physical": 132.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 225.0,
+      "LifeTime": 2.0,
+      "Range": 450.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 11.0,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 12.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_shotgun_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 3,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_smg_ballistic_01",
+    "Name": "P8-SC SMG",
+    "NameKey": "item_namebehr_smg_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SMG",
+    "Mass": 2.75,
+    "Volume": 7500.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 194.79,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 800.0,
+        "DamagePerShot": {
+          "Physical": 13.75
+        },
+        "DamagePerSecond": {
+          "Physical": 183.33
+        }
+      },
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 850.0,
+        "DamagePerShot": {
+          "Physical": 13.75
+        },
+        "DamagePerSecond": {
+          "Physical": 194.79
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 500.0,
+      "LifeTime": 1.9,
+      "Range": 950.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 13.75,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 15.0,
+          "DropPerMeter": 0.06
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_smg_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "behr_sniper_ballistic_01",
+    "Name": "P6-LR Sniper Rifle",
+    "NameKey": "item_namebehr_sniper_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SR",
+    "Mass": 7.5,
+    "Volume": 19000.0,
+    "ManufacturerCode": "BEH",
+    "ManufacturerName": "Behring",
+    "MaxDps": 91.67,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 55.0,
+        "DamagePerShot": {
+          "Physical": 100.0
+        },
+        "DamagePerSecond": {
+          "Physical": 91.67
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 725.0,
+      "LifeTime": 2.0,
+      "Range": 1450.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 100.0,
+          "MinDamage": 90.0,
+          "DistanceStartDrop": 550.0,
+          "DropPerMeter": 10.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "behr_sniper_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": "behr_optics_tsco_x8_s3"
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "crlf_medgun_01",
+    "Name": "ParaMed Medical Device",
+    "NameKey": "item_namecrlf_medgun_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.5,
+    "Volume": 2500.0,
+    "ManufacturerCode": "CUR",
+    "ManufacturerName": "Curelife",
+    "MaxDps": 0.0,
+    "Firing": [],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 18.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "crlf_medgun_vial_01"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "gmni_lmg_ballistic_01",
+    "Name": "F55 LMG",
+    "NameKey": "item_namegmni_lmg_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "LMG",
+    "Mass": 10.0,
+    "Volume": 18000.0,
+    "ManufacturerCode": "GEM",
+    "ManufacturerName": "Gemini",
+    "MaxDps": 200.0,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 1200.0,
+        "DamagePerShot": {
+          "Physical": 10.0
+        },
+        "DamagePerSecond": {
+          "Physical": 200.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 550.0,
+      "LifeTime": 2.0,
+      "Range": 1100.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 10.0,
+          "MinDamage": 5.0,
+          "DistanceStartDrop": 30.0,
+          "DropPerMeter": 0.0137
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "gmni_lmg_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "gmni_pistol_ballistic_01",
+    "Name": "LH86 Pistol",
+    "NameKey": "item_namegmni_pistol_ballistic_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.1,
+    "Volume": 2500.0,
+    "ManufacturerCode": "GEM",
+    "ManufacturerName": "Gemini",
+    "MaxDps": 205.83,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 950.0,
+        "DamagePerShot": {
+          "Physical": 13.0
+        },
+        "DamagePerSecond": {
+          "Physical": 205.83
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 500.0,
+      "LifeTime": 1.9,
+      "Range": 950.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 13.0,
+          "MinDamage": 5.0,
+          "DistanceStartDrop": 20.0,
+          "DropPerMeter": 0.1
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "gmni_pistol_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "gmni_rifle_ballistic_01",
+    "Name": "S71 Rifle",
+    "NameKey": "item_namegmni_rifle_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 3.4,
+    "Volume": 13000.0,
+    "ManufacturerCode": "GEM",
+    "ManufacturerName": "Gemini",
+    "MaxDps": 179.17,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 500.0,
+        "DamagePerShot": {
+          "Physical": 21.5
+        },
+        "DamagePerSecond": {
+          "Physical": 179.17
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1200.0,
+      "LifeTime": 2.0,
+      "Range": 2400.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 21.5,
+          "MinDamage": 17.5,
+          "DistanceStartDrop": 100.0,
+          "DropPerMeter": 0.1
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "gmni_rifle_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "gmni_shotgun_ballistic_01",
+    "Name": "R97 Shotgun",
+    "NameKey": "item_namegmni_shotgun_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SG",
+    "Mass": 4.0,
+    "Volume": 16000.0,
+    "ManufacturerCode": "GEM",
+    "ManufacturerName": "Gemini",
+    "MaxDps": 200.0,
+    "Firing": [
+      {
+        "Name": "Shotgun",
+        "LocalisedName": "[SHOTGUN]",
+        "RoundsPerMinute": 375.0,
+        "DamagePerShot": {
+          "Physical": 32.0
+        },
+        "DamagePerSecond": {
+          "Physical": 200.0
+        }
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 150.0,
+        "DamagePerShot": {
+          "Physical": 48.0
+        },
+        "DamagePerSecond": {
+          "Physical": 120.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 225.0,
+      "LifeTime": 2.0,
+      "Range": 450.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 4.0,
+          "MinDamage": 1.25,
+          "DistanceStartDrop": 12.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "gmni_shotgun_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "gmni_smg_ballistic_01",
+    "Name": "C54 SMG",
+    "NameKey": "item_namegmni_smg_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SMG",
+    "Mass": 2.75,
+    "Volume": 7500.0,
+    "ManufacturerCode": "GEM",
+    "ManufacturerName": "Gemini",
+    "MaxDps": 177.29,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 925.0,
+        "DamagePerShot": {
+          "Physical": 11.5
+        },
+        "DamagePerSecond": {
+          "Physical": 177.29
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 500.0,
+      "LifeTime": 1.9,
+      "Range": 950.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 11.5,
+          "MinDamage": 7.5,
+          "DistanceStartDrop": 15.0,
+          "DropPerMeter": 0.2
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "gmni_smg_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "gmni_sniper_ballistic_01",
+    "Name": "A03 Sniper Rifle",
+    "NameKey": "item_namegmni_sniper_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SR",
+    "Mass": 6.0,
+    "Volume": 19000.0,
+    "ManufacturerCode": "GEM",
+    "ManufacturerName": "Gemini",
+    "MaxDps": 159.38,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 225.0,
+        "DamagePerShot": {
+          "Physical": 42.5
+        },
+        "DamagePerSecond": {
+          "Physical": 159.38
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 800.0,
+      "LifeTime": 2.0,
+      "Range": 1600.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 42.5,
+          "MinDamage": 35.0,
+          "DistanceStartDrop": 150.0,
+          "DropPerMeter": 0.02
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "gmni_sniper_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": "gmni_optics_tsco_x8_s3"
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "grin_cutter_01",
+    "Name": "grin_cutter_01",
+    "NameKey": "item_namegrin_cutter_01",
+    "SubType": "Medium",
+    "Tag": "Other",
+    "Mass": 4.0,
+    "Volume": 13000.0,
+    "ManufacturerCode": "GRIN",
+    "ManufacturerName": "Greycat Industrial",
+    "MaxDps": 30.0,
+    "Firing": [
+      {
+        "Name": "",
+        "LocalisedName": "@LOC_PLACEHOLDER",
+        "RoundsPerMinute": 0.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {
+          "Energy": 30.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1200.0,
+      "LifeTime": 4.0,
+      "Range": 4800.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 21.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "grin_tool_01_mag"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "hdgw_pistol_ballistic_01",
+    "Name": "Salvo Frag Pistol",
+    "NameKey": "item_namehdgw_pistol_ballistic_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.0,
+    "Volume": 2500.0,
+    "ManufacturerCode": "HDGW",
+    "ManufacturerName": "Hedeby Gunworks",
+    "MaxDps": 83.1,
+    "Firing": [
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 55.4,
+        "DamagePerShot": {
+          "Physical": 90.0
+        },
+        "DamagePerSecond": {
+          "Physical": 83.1
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 550.0,
+      "LifeTime": 2.0,
+      "Range": 1100.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 45.0,
+          "MinDamage": 25.0,
+          "DistanceStartDrop": 30.0,
+          "DropPerMeter": 0.08
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "hdgw_pistol_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "klwe_lmg_energy_01",
+    "Name": "Demeco LMG",
+    "NameKey": "item_nameklwe_lmg_energy_01",
+    "SubType": "Medium",
+    "Tag": "LMG",
+    "Mass": 10.0,
+    "Volume": 18000.0,
+    "ManufacturerCode": "KLA",
+    "ManufacturerName": "Klaus & Werner",
+    "MaxDps": 153.33,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 800.0,
+        "DamagePerShot": {
+          "Energy": 11.5
+        },
+        "DamagePerSecond": {
+          "Energy": 153.33
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 4.0,
+      "Range": 2400.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 11.5,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "klwe_lmg_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "klwe_pistol_energy_01",
+    "Name": "Arclight Pistol",
+    "NameKey": "item_nameklwe_pistol_energy_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.5,
+    "Volume": 2500.0,
+    "ManufacturerCode": "KLA",
+    "ManufacturerName": "Klaus & Werner",
+    "MaxDps": 210.0,
+    "Firing": [
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 700.0,
+        "DamagePerShot": {
+          "Energy": 18.0
+        },
+        "DamagePerSecond": {
+          "Energy": 210.0
+        }
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 500.0,
+        "DamagePerShot": {
+          "Energy": 18.0
+        },
+        "DamagePerSecond": {
+          "Energy": 150.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 18.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "klwe_pistol_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "klwe_rifle_energy_01",
+    "Name": "Gallant Rifle",
+    "NameKey": "item_nameklwe_rifle_energy_01",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 3.7,
+    "Volume": 13000.0,
+    "ManufacturerCode": "KLA",
+    "ManufacturerName": "Klaus & Werner",
+    "MaxDps": 315.0,
+    "Firing": [
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 900.0,
+        "DamagePerShot": {
+          "Energy": 21.0
+        },
+        "DamagePerSecond": {
+          "Energy": 315.0
+        }
+      },
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 825.0,
+        "DamagePerShot": {
+          "Energy": 21.0
+        },
+        "DamagePerSecond": {
+          "Energy": 288.75
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1200.0,
+      "LifeTime": 4.0,
+      "Range": 4800.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 21.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "klwe_rifle_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "klwe_smg_energy_01",
+    "Name": "Lumin V SMG",
+    "NameKey": "item_nameklwe_smg_energy_01",
+    "SubType": "Medium",
+    "Tag": "SMG",
+    "Mass": 3.2,
+    "Volume": 7500.0,
+    "ManufacturerCode": "KLA",
+    "ManufacturerName": "Klaus & Werner",
+    "MaxDps": 150.92,
+    "Firing": [
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 431.21,
+        "DamagePerShot": {
+          "Energy": 21.0
+        },
+        "DamagePerSecond": {
+          "Energy": 150.92
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 21.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "klwe_smg_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "klwe_sniper_energy_01",
+    "Name": "Arrowhead Sniper Rifle",
+    "NameKey": "item_nameklwe_sniper_energy_01",
+    "SubType": "Medium",
+    "Tag": "SR",
+    "Mass": 7.5,
+    "Volume": 19000.0,
+    "ManufacturerCode": "KLA",
+    "ManufacturerName": "Klaus & Werner",
+    "MaxDps": 55.25,
+    "Firing": [
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 44.2,
+        "DamagePerShot": {
+          "Energy": 75.0
+        },
+        "DamagePerSecond": {
+          "Energy": 55.25
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1000.0,
+      "LifeTime": 4.0,
+      "Range": 4000.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 50.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "klwe_sniper_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": "klwe_optics_disp_x8_s3"
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "ksar_pistol_ballistic_01",
+    "Name": "Coda Pistol",
+    "NameKey": "item_nameksar_pistol_ballistic_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.1,
+    "Volume": 2500.0,
+    "ManufacturerCode": "KSAR",
+    "ManufacturerName": "Kastak Arms",
+    "MaxDps": 180.0,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 180.0,
+        "DamagePerShot": {
+          "Physical": 60.0
+        },
+        "DamagePerSecond": {
+          "Physical": 180.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 550.0,
+      "LifeTime": 2.0,
+      "Range": 1100.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 60.0,
+          "MinDamage": 35.0,
+          "DistanceStartDrop": 55.0,
+          "DropPerMeter": 0.2
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "ksar_pistol_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "ksar_rifle_energy_01",
+    "Name": "Karna Rifle",
+    "NameKey": "item_nameksar_rifle_energy_01",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 4.2,
+    "Volume": 13000.0,
+    "ManufacturerCode": "KSAR",
+    "ManufacturerName": "Kastak Arms",
+    "MaxDps": 175.0,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 600.0,
+        "DamagePerShot": {
+          "Energy": 17.5
+        },
+        "DamagePerSecond": {
+          "Energy": 175.0
+        }
+      },
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 27.6,
+        "DamagePerShot": {
+          "Energy": 105.0
+        },
+        "DamagePerSecond": {
+          "Energy": 48.3
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 17.5,
+          "MinDamage": 14.5,
+          "DistanceStartDrop": 20.0,
+          "DropPerMeter": 0.11
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "ksar_rifle_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "ksar_shotgun_ballistic_01",
+    "Name": "Ravager-212 Twin Shotgun",
+    "NameKey": "item_nameksar_shotgun_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SG",
+    "Mass": 4.3,
+    "Volume": 16000.0,
+    "ManufacturerCode": "KSAR",
+    "ManufacturerName": "Kastak Arms",
+    "MaxDps": 303.33,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 350.0,
+        "DamagePerShot": {
+          "Physical": 52.0
+        },
+        "DamagePerSecond": {
+          "Physical": 303.33
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 300.0,
+      "LifeTime": 2.0,
+      "Range": 600.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 6.5,
+          "MinDamage": 6.0,
+          "DistanceStartDrop": 12.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "ksar_shotgun_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "ksar_shotgun_energy_01",
+    "Name": "Devastator Shotgun",
+    "NameKey": "item_nameksar_shotgun_energy_01",
+    "SubType": "Medium",
+    "Tag": "SG",
+    "Mass": 4.3,
+    "Volume": 16000.0,
+    "ManufacturerCode": "KSAR",
+    "ManufacturerName": "Kastak Arms",
+    "MaxDps": 42.75,
+    "Firing": [
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 17.1,
+        "DamagePerShot": {
+          "Energy": 150.0
+        },
+        "DamagePerSecond": {
+          "Energy": 42.75
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 300.0,
+      "LifeTime": 2.0,
+      "Range": 600.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 10.0,
+          "MinDamage": 5.5,
+          "DistanceStartDrop": 14.0,
+          "DropPerMeter": 0.1
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "ksar_shotgun_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 3,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "ksar_smg_energy_01",
+    "Name": "Custodian SMG",
+    "NameKey": "item_nameksar_smg_energy_01",
+    "SubType": "Medium",
+    "Tag": "SMG",
+    "Mass": 2.75,
+    "Volume": 7500.0,
+    "ManufacturerCode": "KSAR",
+    "ManufacturerName": "Kastak Arms",
+    "MaxDps": 173.33,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 800.0,
+        "DamagePerShot": {
+          "Energy": 13.0
+        },
+        "DamagePerSecond": {
+          "Energy": 173.33
+        }
+      },
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 15.8,
+        "DamagePerShot": {
+          "Energy": 15.6
+        },
+        "DamagePerSecond": {
+          "Energy": 4.11
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 13.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "ksar_smg_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "ksar_sniper_ballistic_01",
+    "Name": "Scalpel Sniper Rifle",
+    "NameKey": "item_nameksar_sniper_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SR",
+    "Mass": 6.0,
+    "Volume": 19000.0,
+    "ManufacturerCode": "KSAR",
+    "ManufacturerName": "Kastak Arms",
+    "MaxDps": 75.0,
+    "Firing": [
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 100.0,
+        "DamagePerShot": {
+          "Physical": 45.0
+        },
+        "DamagePerSecond": {
+          "Physical": 75.0
+        }
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 40.0,
+        "DamagePerShot": {
+          "Physical": 45.0
+        },
+        "DamagePerSecond": {
+          "Physical": 30.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 875.0,
+      "LifeTime": 2.0,
+      "Range": 1750.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 45.0,
+          "MinDamage": 45.0,
+          "DistanceStartDrop": 335.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "ksar_sniper_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": "ksar_optics_tsco_x8_s3"
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "lbco_pistol_energy_01",
+    "Name": "Yubarev Pistol",
+    "NameKey": "item_namelbco_pistol_energy_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.5,
+    "Volume": 2500.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 189.58,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 350.0,
+        "DamagePerShot": {
+          "Energy": 32.5,
+          "Distortion": 7.5,
+          "Stun": 1.0
+        },
+        "DamagePerSecond": {
+          "Energy": 189.58,
+          "Distortion": 43.75,
+          "Stun": 5.83
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 500.0,
+      "LifeTime": 2.0,
+      "Range": 1000.0,
+      "DamageStats": {
+        "Distortion": {
+          "ImpactDamage": 7.5,
+          "MinDamage": 1.0,
+          "DistanceStartDrop": 25.0,
+          "DropPerMeter": 0.05
+        },
+        "Energy": {
+          "ImpactDamage": 32.5,
+          "MinDamage": 1.5,
+          "DistanceStartDrop": 20.0,
+          "DropPerMeter": 0.1
+        },
+        "Stun": {
+          "ImpactDamage": 1.0,
+          "MinDamage": 1.0,
+          "DistanceStartDrop": 25.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "lbco_pistol_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "lbco_sniper_energy_01",
+    "Name": "Atzkav Sniper Rifle",
+    "NameKey": "item_namelbco_sniper_energy_01",
+    "SubType": "Medium",
+    "Tag": "SR",
+    "Mass": 6.0,
+    "Volume": 19000.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 60.0,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 30.0,
+        "DamagePerShot": {
+          "Energy": 120.0,
+          "Distortion": 35.0,
+          "Stun": 10.0
+        },
+        "DamagePerSecond": {
+          "Energy": 60.0,
+          "Distortion": 17.5,
+          "Stun": 5.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 500.0,
+      "LifeTime": 2.0,
+      "Range": 1000.0,
+      "DamageStats": {
+        "Distortion": {
+          "ImpactDamage": 35.0,
+          "MinDamage": 20.0,
+          "DistanceStartDrop": 350.0,
+          "DropPerMeter": 0.01
+        },
+        "Energy": {
+          "ImpactDamage": 120.0,
+          "MinDamage": 30.0,
+          "DistanceStartDrop": 350.0,
+          "DropPerMeter": 0.01
+        },
+        "Stun": {
+          "ImpactDamage": 10.0,
+          "MinDamage": 6.0,
+          "DistanceStartDrop": 350.0,
+          "DropPerMeter": 0.01
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "lbco_sniper_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": "lbco_optics_tsco_x16_s3"
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "none_lmg_ballistic_01",
+    "Name": "Pulverizer LMG",
+    "NameKey": "item_namenone_lmg_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "LMG",
+    "Mass": 18.0,
+    "Volume": 18000.0,
+    "ManufacturerCode": "UNKN",
+    "ManufacturerName": "Unknown",
+    "MaxDps": 159.75,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 355.0,
+        "DamagePerShot": {
+          "Physical": 27.0
+        },
+        "DamagePerSecond": {
+          "Physical": 159.75
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1050.0,
+      "LifeTime": 2.0,
+      "Range": 2100.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 27.0,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 50.0,
+          "DropPerMeter": 0.011
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "none_lmg_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "none_pistol_ballistic_01",
+    "Name": "Tripledown Pistol ",
+    "NameKey": "item_namenone_pistol_ballistic_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.1,
+    "Volume": 2500.0,
+    "ManufacturerCode": "UNKN",
+    "ManufacturerName": "Unknown",
+    "MaxDps": 0.0,
+    "Firing": [],
+    "Ammunition": {
+      "Speed": 550.0,
+      "LifeTime": 2.0,
+      "Range": 1100.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 12.0,
+          "MinDamage": 9.0,
+          "DistanceStartDrop": 10.0,
+          "DropPerMeter": 0.2
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "none_pistol_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "none_rifle_multi_01",
+    "Name": "Killshot Rifle",
+    "NameKey": "item_namenone_rifle_multi_01",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 3.5,
+    "Volume": 13000.0,
+    "ManufacturerCode": "UNKN",
+    "ManufacturerName": "Unknown",
+    "MaxDps": 196.17,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 535.0,
+        "DamagePerShot": {
+          "Physical": 22.0
+        },
+        "DamagePerSecond": {
+          "Physical": 196.17
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 875.0,
+      "LifeTime": 2.0,
+      "Range": 1750.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 22.0,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 60.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "none_rifle_multi_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 2,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "none_shotgun_ballistic_01",
+    "Name": "Deadrig Shotgun",
+    "NameKey": "item_namenone_shotgun_ballistic_01",
+    "SubType": "Medium",
+    "Tag": "SG",
+    "Mass": 4.3,
+    "Volume": 16000.0,
+    "ManufacturerCode": "UNKN",
+    "ManufacturerName": "Unknown",
+    "MaxDps": 120.0,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 100.0,
+        "DamagePerShot": {
+          "Physical": 72.0
+        },
+        "DamagePerSecond": {
+          "Physical": 120.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 300.0,
+      "LifeTime": 2.0,
+      "Range": 600.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 9.0,
+          "MinDamage": 6.0,
+          "DistanceStartDrop": 7.0,
+          "DropPerMeter": 0.05
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "none_shotgun_ballistic_01_mag"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "none_smg_energy_01",
+    "Name": "Ripper \"Sunblock\" SMG",
+    "NameKey": "item_namenone_smg_energy_01",
+    "SubType": "Medium",
+    "Tag": "SMG",
+    "Mass": 2.75,
+    "Volume": 7500.0,
+    "ManufacturerCode": "UNKN",
+    "ManufacturerName": "Unknown",
+    "MaxDps": 165.0,
+    "Firing": [
+      {
+        "Name": "Damage Beam",
+        "LocalisedName": "@LOC_PLACEHOLDER",
+        "RoundsPerMinute": 0.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {
+          "Energy": 165.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 21.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "none_smg_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "none_special_ballistic_01",
+    "Name": "Boomtube Rocket Launcher ",
+    "NameKey": "item_namenone_special_ballistic_01",
+    "SubType": "Large",
+    "Tag": "Heavy",
+    "Mass": 15.0,
+    "Volume": 35000.0,
+    "ManufacturerCode": "UNKN",
+    "ManufacturerName": "Unknown",
+    "MaxDps": 416833.32999999996,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 500.0,
+        "DamagePerShot": {
+          "Physical": 25020.0,
+          "Energy": 25000.0
+        },
+        "DamagePerSecond": {
+          "Physical": 208500.0,
+          "Energy": 208333.33
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 135.0,
+      "LifeTime": 16.0,
+      "Range": 2160.0,
+      "DamageStats": {
+        "Physical": {
+          "ImpactDamage": 20.0,
+          "MinDamage": 15.0,
+          "DistanceStartDrop": 2000.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "none_special_ballistic_01_rocket"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "sasu_pistol_toy_01",
+    "Name": "WowBlast Desperado Toy Pistol Red",
+    "NameKey": "item_namesasu_pistol_toy_01_red",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.1,
+    "Volume": 2500.0,
+    "ManufacturerCode": "SASU",
+    "ManufacturerName": "Sakura Sun",
+    "MaxDps": 0.0,
+    "Firing": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 63.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {}
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 63.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {}
+      }
+    ],
+    "Ammunition": {
+      "Speed": 20.0,
+      "LifeTime": 15.0,
+      "Range": 300.0,
+      "DamageStats": {}
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "sasu_pistol_toy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "volt_lmg_energy_01",
+    "Name": "Fresnel Energy LMG",
+    "NameKey": "item_namevolt_lmg_energy_01",
+    "SubType": "Medium",
+    "Tag": "LMG",
+    "Mass": 15.0,
+    "Volume": 18000.0,
+    "ManufacturerCode": "KLA",
+    "ManufacturerName": "Klaus & Werner",
+    "MaxDps": 0.0,
+    "Firing": [
+      {
+        "Name": "",
+        "LocalisedName": "@LOC_PLACEHOLDER",
+        "RoundsPerMinute": 0.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {}
+      }
+    ],
+    "Ammunition": {
+      "Speed": 1100.0,
+      "LifeTime": 4.0,
+      "Range": 4400.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 9.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "volt_lmg_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "volt_pistol_energy_01",
+    "Name": "Pulse Laser Pistol",
+    "NameKey": "item_namevolt_pistol_energy_01",
+    "SubType": "Small",
+    "Tag": "HG",
+    "Mass": 1.5,
+    "Volume": 2500.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 97.92,
+    "Firing": [
+      {
+        "Name": "Rapid",
+        "LocalisedName": "[AUTO]",
+        "RoundsPerMinute": 500.0,
+        "DamagePerShot": {
+          "Energy": 11.75
+        },
+        "DamagePerSecond": {
+          "Energy": 97.92
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 11.75,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "volt_pistol_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "volt_rifle_energy_01",
+    "Name": "Parallax Energy Assault Rifle",
+    "NameKey": "item_namevolt_rifle_energy_01",
+    "SubType": "Medium",
+    "Tag": "AR",
+    "Mass": 3.2,
+    "Volume": 13000.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 0.0,
+    "Firing": [
+      {
+        "Name": "RapidBeam",
+        "LocalisedName": "@LOC_PLACEHOLDER",
+        "RoundsPerMinute": 0.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {}
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Distortion": {
+          "ImpactDamage": 5.0,
+          "MinDamage": 5.0,
+          "DistanceStartDrop": 200.0,
+          "DropPerMeter": 0.01
+        },
+        "Energy": {
+          "ImpactDamage": 13.0,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 200.0,
+          "DropPerMeter": 0.01
+        },
+        "Physical": {
+          "ImpactDamage": 0.0,
+          "MinDamage": 10.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        },
+        "Stun": {
+          "ImpactDamage": 3.0,
+          "MinDamage": 6.0,
+          "DistanceStartDrop": 200.0,
+          "DropPerMeter": 0.01
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "volt_rifle_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "volt_shotgun_energy_01",
+    "Name": "Prism Laser Shotgun",
+    "NameKey": "item_namevolt_shotgun_energy_01",
+    "SubType": "Medium",
+    "Tag": "SG",
+    "Mass": 4.3,
+    "Volume": 16000.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 0.0,
+    "Firing": [
+      {
+        "Name": "RapidBeam",
+        "LocalisedName": "@LOC_PLACEHOLDER",
+        "RoundsPerMinute": 0.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {}
+      }
+    ],
+    "Ammunition": {
+      "Speed": 300.0,
+      "LifeTime": 2.0,
+      "Range": 600.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 5.75,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "volt_shotgun_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "volt_smg_energy_01",
+    "Name": "Quartz Energy SMG",
+    "NameKey": "item_namevolt_smg_energy_01",
+    "SubType": "Medium",
+    "Tag": "SMG",
+    "Mass": 2.75,
+    "Volume": 7500.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 225.0,
+    "Firing": [
+      {
+        "Name": "Damage Beam",
+        "LocalisedName": "@LOC_PLACEHOLDER",
+        "RoundsPerMinute": 0.0,
+        "DamagePerShot": {},
+        "DamagePerSecond": {
+          "Energy": 225.0,
+          "Distortion": 50.0
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 600.0,
+      "LifeTime": 2.0,
+      "Range": 1200.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 5.0,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 0.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "volt_smg_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": ""
+      }
+    }
+  },
+  {
+    "ClassName": "volt_sniper_energy_01",
+    "Name": "Zenith Laser Sniper Rifle",
+    "NameKey": "item_namevolt_sniper_energy_01",
+    "SubType": "Medium",
+    "Tag": "SR",
+    "Mass": 6.0,
+    "Volume": 16000.0,
+    "ManufacturerCode": "",
+    "ManufacturerName": "@LOC_PLACEHOLDER",
+    "MaxDps": 23.09,
+    "Firing": [
+      {
+        "Name": "Charge",
+        "LocalisedName": "[CHARGE]",
+        "RoundsPerMinute": 16.3,
+        "DamagePerShot": {
+          "Energy": 85.0
+        },
+        "DamagePerSecond": {
+          "Energy": 23.09
+        }
+      }
+    ],
+    "Ammunition": {
+      "Speed": 700.0,
+      "LifeTime": 2.0,
+      "Range": 1400.0,
+      "DamageStats": {
+        "Energy": {
+          "ImpactDamage": 42.5,
+          "MinDamage": 0.0,
+          "DistanceStartDrop": 500.0,
+          "DropPerMeter": 0.0
+        }
+      }
+    },
+    "Ports": {
+      "Magazine": {
+        "MinSize": 1,
+        "MaxSize": 1,
+        "DefaultInstalled": "volt_sniper_energy_01_mag"
+      },
+      "Optics": {
+        "MinSize": 1,
+        "MaxSize": 3,
+        "DefaultInstalled": "volt_optics_tsco_x8_s3"
+      },
+      "Barrel": {
+        "MinSize": 0,
+        "MaxSize": 0,
+        "DefaultInstalled": ""
+      },
+      "UnderBarrel": {
+        "MinSize": 1,
+        "MaxSize": 2,
+        "DefaultInstalled": ""
+      }
+    }
+  }
+]

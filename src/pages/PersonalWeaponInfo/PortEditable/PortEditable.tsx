@@ -2,25 +2,26 @@ import { useEffect, useState, type ReactNode } from "react";
 import { mdiClose } from "@mdi/js";
 import Icon from "@mdi/react";
 import { useTranslation } from "react-i18next";
-import weaponListRaw from "../../../data/fps-weapon-list.json";
+import attachmentListRaw from "../../../data/fps-weapon-attachment-list.json";
 import "./PortEditable.css";
 
-type FpsAttachmentItem = SpvPersonalWeapon;
-const weaponList = weaponListRaw as unknown as FpsAttachmentItem[];
-const pwNameKeyByClassName = new Map<string, string>();
-for (const item of weaponList) {
-  const normalizedClassName = item.className?.toLowerCase();
-  const normalizedStdClassName = item.stdItem.ClassName?.toLowerCase();
-  const key = item.name?.startsWith("@") ? item.name.slice(1).toLowerCase() : "";
-  if (!key) continue;
-  if (normalizedClassName) pwNameKeyByClassName.set(normalizedClassName, key);
-  if (normalizedStdClassName) pwNameKeyByClassName.set(normalizedStdClassName, key);
+const attachmentList = attachmentListRaw as unknown as WeaponAttachmentList;
+const attachmentByClassName = new Map<string, WeaponAttachment>();
+for (const item of attachmentList) {
+  attachmentByClassName.set(item.ClassName, item);
 }
 
 type PortEditableProps = {
-  data?: SpvPersonalWeaponPort;
+  data?: PortInfo;
   name: string;
   icon: ReactNode;
+};
+
+const attachmentSubtypeByPortName: Record<string, WeaponAttachmentSubType | undefined> = {
+  magazine_attach: "Magazine",
+  optics_attach: "IronSight",
+  barrel_attach: "Barrel",
+  underbarrel_attach: "BottomAttachment",
 };
 
 function sizeLabel(size: number) {
@@ -29,7 +30,7 @@ function sizeLabel(size: number) {
 
 export default function PortEditable({ data, name, icon }: PortEditableProps) {
   const [windowActive, setWindowActive] = useState(false);
-  const [listAttachments, setListAttachments] = useState<FpsAttachmentItem[]>([]);
+  const [listAttachments, setListAttachments] = useState<WeaponAttachment[]>([]);
   const { t: tUi } = useTranslation("ui");
   const { t: tPw } = useTranslation("pw");
   const tUiPW = (key: string, defaultValue: string) =>
@@ -40,16 +41,18 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
       setListAttachments([]);
       return;
     }
-    const type = data.Types?.[0];
-    if (!type) {
+    const subtype = attachmentSubtypeByPortName[name];
+    if (!subtype) {
       setListAttachments([]);
       return;
     }
-    const available = weaponList.filter(
-      (item) => item.stdItem.Type === type && item.size >= data.MinSize && item.size <= data.MaxSize,
+    const available = attachmentList.filter(
+      (item) => item.SubType === subtype && item.Size >= data.MinSize && item.Size <= data.MaxSize,
     );
     setListAttachments(available);
-  }, [data]);
+  }, [data, name]);
+
+  const installedAttachment = data?.DefaultInstalled ? attachmentByClassName.get(data.DefaultInstalled) : undefined;
 
   if (!data) {
     return (
@@ -69,10 +72,10 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
     <>
       <div className="PortEditable-container">
         <div className="port" onClick={() => setWindowActive(true)}>
-          {data.InstalledItem ? (
+          {installedAttachment ? (
             <div className="item">
               <p className="item-name">
-                {tPw("item_name" + data.InstalledItem.ClassName, data.InstalledItem.ClassName)}
+                {tPw("item_name" + installedAttachment.ClassName, installedAttachment.Name)}
               </p>
             </div>
           ) : (
@@ -98,11 +101,11 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
             </div>
           </div>
           <div className="contents">
-            {data.InstalledItem && (
+            {installedAttachment && (
               <div className="port">
                 <div className="installed">
                   <p className="item-name">
-                    {tPw("item_name" + data.InstalledItem.ClassName, data.InstalledItem.ClassName)}
+                    {tPw("item_name" + installedAttachment.ClassName, installedAttachment.Name)}
                   </p>
                 </div>
               </div>
@@ -114,8 +117,8 @@ export default function PortEditable({ data, name, icon }: PortEditableProps) {
             </p>
             <div className="list">
               {listAttachments.map((item) => (
-                <div className="attachment" key={item.className}>
-                  <p>{tPw("item_name" + item.stdItem.ClassName, item.stdItem.Name)}</p>
+                <div className="attachment" key={item.ClassName}>
+                  <p>{tPw("item_name" + item.ClassName, item.Name)}</p>
                 </div>
               ))}
             </div>

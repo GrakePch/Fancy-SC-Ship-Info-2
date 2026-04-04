@@ -1,0 +1,926 @@
+[
+  {
+    "ClassName": "Multitool_Attachment",
+    "Name": "Multitool_Attachment",
+    "Size": 0,
+    "SubType": "Utility"
+  },
+  {
+    "ClassName": "apar_special_ballistic_01_mag",
+    "Name": "Scourge Railgun Magazine (5 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "apar_special_ballistic_02_mag",
+    "Name": "Animus Missile Launcher Magazine (3 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "apar_special_ballistic_02_missile",
+    "Name": "Animus Missile",
+    "Size": 1,
+    "SubType": "Missile"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s1",
+    "Name": "Sion Compensator1  ",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s1_02",
+    "Name": "Vera Compensator1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s1_03",
+    "Name": "Torrent Compensator1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s1_04",
+    "Name": "Stark Compensator1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s1_contestedzonereward",
+    "Name": "Sion \"Tweaker\" Compensator1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s2",
+    "Name": "Sion Compensator2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s2_02",
+    "Name": "Vera Compensator2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s2_03",
+    "Name": "Torrent Compensator2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s2_04",
+    "Name": "Stark Compensator2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s2_contestedzonereward",
+    "Name": "Sion \"Tweaker\" Compensator2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s2_firerats01",
+    "Name": "Sion \"Scorched\" Compensator2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s3",
+    "Name": "Sion Compensator3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s3_02",
+    "Name": "Vera Compensator3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s3_03",
+    "Name": "Torrent Compensator3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_comp_s3_04",
+    "Name": "Stark Compensator3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_flhd_s1",
+    "Name": "Veil Flash Hider1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_flhd_s2",
+    "Name": "Veil Flash Hider2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_flhd_s3",
+    "Name": "Veil Flash Hider3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s1",
+    "Name": "Emod Stabilizer1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s1_02",
+    "Name": "Escalate Stabilizer1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s1_firerats01",
+    "Name": "Emod \"Scorched\" Stabilizer1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s2",
+    "Name": "Emod Stabilizer2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s2_02",
+    "Name": "Escalate Stabilizer2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s2_contestedzonereward",
+    "Name": "Emod \"Tweaker\" Stabilizer2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s3",
+    "Name": "Emod Stabilizer3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_stab_s3_02",
+    "Name": "Escalate Stabilizer3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s1",
+    "Name": "Tacit Suppressor1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s1_02",
+    "Name": "Quell Suppressor1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s1_03",
+    "Name": "Stoic Suppressor1",
+    "Size": 1,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s2",
+    "Name": "Tacit Suppressor2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s2_02",
+    "Name": "Quell Suppressor2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s2_03",
+    "Name": "Stoic Suppressor2",
+    "Size": 2,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s3",
+    "Name": "Tacit Suppressor3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s3_02",
+    "Name": "Quell Suppressor3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "arma_barrel_supp_s3_03",
+    "Name": "Stoic Suppressor3",
+    "Size": 3,
+    "SubType": "Barrel"
+  },
+  {
+    "ClassName": "behr_binoculars_01_FakeOptic",
+    "Name": "EE16 (16x Telescopic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_binoculars_01_FakeOptic_Collector",
+    "Name": "EE16 (16x Telescopic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_glauncher_ballistic_01_mag",
+    "Name": "GP-33 MOD Grenade Launcher Magazine (6 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_lmg_ballistic_01_mag",
+    "Name": "FS-9 Magazine (75 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_optics_holo_x1_s1",
+    "Name": "PT1 (1x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_holo_x2_s1",
+    "Name": "PT2 (2x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_holo_x3_s1",
+    "Name": "PT3 (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_holo_x3_s1_tint01",
+    "Name": "PT3 \"Deadfall\" (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_rdot_x1_s1",
+    "Name": "RF1 (1x Reflex)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_tsco_x16_s3",
+    "Name": "EE16 (16x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_tsco_x4_s2",
+    "Name": "EE04 (4x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_optics_tsco_x8_s3",
+    "Name": "EE08 (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "behr_pistol_ballistic_01_mag",
+    "Name": "S-38 Magazine (20 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_rifle_ballistic_01_mag",
+    "Name": "P4-AR Magazine (40 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_rifle_ballistic_02_mag_civilian",
+    "Name": "P8-AR Rifle Magazine (15 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_shotgun_ballistic_01_mag",
+    "Name": "BR-2 Shotgun Magazine (12 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_smg_ballistic_01_mag",
+    "Name": "P8-SC SMG Magazine (45 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "behr_sniper_ballistic_01_mag",
+    "Name": "P6-LR Magazine (8 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "crlf_medgun_vial_01",
+    "Name": "ParaMed Refill",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "gmni_lmg_ballistic_01_mag",
+    "Name": "F55 LMG Magazine (150 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "gmni_optics_tsco_x4_s2",
+    "Name": "OT4-RF (4x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "gmni_optics_tsco_x4_s2_firerats01",
+    "Name": "OT4-RF \"Scorched\" (4x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "gmni_optics_tsco_x8_s3",
+    "Name": "OT8-RF (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "gmni_optics_tsco_x8_s3_firerats01",
+    "Name": "OT8-RF \"Scorched\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "gmni_optics_tsco_x8_s3_store01",
+    "Name": "OT8-RF \"HighSec\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "gmni_pistol_ballistic_01_mag",
+    "Name": "LH86 Pistol Magazine (25 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "gmni_rifle_ballistic_01_mag",
+    "Name": "S71 Rifle Magazine (30 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "gmni_shotgun_ballistic_01_mag",
+    "Name": "R97 Shotgun Magazine (18 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "gmni_smg_ballistic_01_mag",
+    "Name": "C54 SMG Magazine (50 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "gmni_sniper_ballistic_01_mag",
+    "Name": "A03 Sniper Rifle Magazine (15 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "grin_multitool_01_cutter",
+    "Name": "OxyTorch Cutter Attachment",
+    "Size": 1,
+    "SubType": "Utility"
+  },
+  {
+    "ClassName": "grin_multitool_01_healing",
+    "Name": "LifeGuard Medical Attachment",
+    "Size": 1,
+    "SubType": "Utility"
+  },
+  {
+    "ClassName": "grin_multitool_01_mining",
+    "Name": "OreBit Mining Attachment",
+    "Size": 1,
+    "SubType": "Utility"
+  },
+  {
+    "ClassName": "grin_multitool_01_salvage_repair",
+    "Name": "Cambio-Lite SRT Attachment",
+    "Size": 1,
+    "SubType": "Utility"
+  },
+  {
+    "ClassName": "grin_multitool_01_tractorbeam",
+    "Name": "TruHold Tractor Beam Attachment",
+    "Size": 1,
+    "SubType": "Utility"
+  },
+  {
+    "ClassName": "grin_multitool_energy_01_mag",
+    "Name": "Pyro RYT Multi-Tool Battery",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "grin_tool_01_mag",
+    "Name": "Cambrio SRT Battery",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "grin_tractor_01_mag",
+    "Name": "MaxLift Tractor Beam Battery",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "hdgw_pistol_ballistic_01_mag",
+    "Name": "Salvo Frag Pistol Magazine (8 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "kegr_fire_extinguisher_01_mag",
+    "Name": "APX Fire Extinguisher Canister ",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "klwe_lmg_energy_01_mag",
+    "Name": "Demeco LMG Battery (100 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "klwe_optics_disp_x8_s3",
+    "Name": "Touchstone (8x Monitor)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_optics_holo_x1_5_s1",
+    "Name": "HG-15 Jaeger (1.5x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_optics_holo_x2_s1",
+    "Name": "HG-2 Jaeger (2x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_optics_holo_x3_s1",
+    "Name": "HG-3 Jaeger (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_optics_rdot_x1_s1",
+    "Name": "RD-1 Jaeger (1x Red Dot)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_optics_tsco_2_5x_s2",
+    "Name": "TS-25 Basara (2.5x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_optics_tsco_3_5x_s2",
+    "Name": "TS-35 Basara (3.5x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "klwe_pistol_energy_01_mag",
+    "Name": "Arclight Pistol Battery (30 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "klwe_rifle_energy_01_mag",
+    "Name": "Gallant Rifle Battery (45 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "klwe_smg_energy_01_mag",
+    "Name": "Lumin V SMG Battery (45 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "klwe_sniper_energy_01_mag",
+    "Name": "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "klwe_ubarrel_flsh_s1",
+    "Name": "Brightspot Flashlight Purple",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "klwe_ubarrel_lasr_s1",
+    "Name": "Tracer Laser Pointer Orange ",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "klwe_ubarrel_lasr_s1_02",
+    "Name": "Tracer Laser Pointer Green",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "ksar_optics_tsco_x8_s3",
+    "Name": "Black Prism (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "ksar_pistol_ballistic_01_mag",
+    "Name": "Coda Pistol Magazine (6 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "ksar_rifle_energy_01_mag",
+    "Name": "Karna Rifle Battery (35 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "ksar_shotgun_ballistic_01_mag",
+    "Name": "Ravager-212 Twin Shotgun Magazine (16 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "ksar_shotgun_energy_01_mag",
+    "Name": "Devastator Shotgun Battery (12 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "ksar_smg_energy_01_mag",
+    "Name": "Custodian SMG Magazine (60 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "ksar_sniper_ballistic_01_mag",
+    "Name": "Scalpel Sniper Rifle Magazine (12 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "lbco_optics_tsco_x16_s3",
+    "Name": "Omarof (16x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "lbco_optics_tsco_x16_s3_acid01",
+    "Name": "Omarof (16x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "lbco_optics_tsco_x16_s3_chromic01",
+    "Name": "Omarof (16x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "lbco_optics_tsco_x16_s3_imp01",
+    "Name": "Omarof (16x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "lbco_optics_tsco_x16_s3_sunset01",
+    "Name": "Omarof (16x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "lbco_pistol_energy_01_mag",
+    "Name": "Yubarev Pistol Battery (10 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "lbco_sniper_energy_01_mag",
+    "Name": "Atzkav Sniper Rifle Battery (8 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "none_lmg_ballistic_01_mag",
+    "Name": "Pulverizer LMG Magazine (120 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "none_pistol_ballistic_01_mag",
+    "Name": "Tripledown Pistol Magazine (12 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "none_rifle_multi_01_mag",
+    "Name": "Killshot Rifle Magazine (45 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "none_shotgun_ballistic_01_mag",
+    "Name": "Deadrig Shotgun Magazine (8 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "none_smg_energy_01_mag",
+    "Name": "Ripper SMG Battery (60 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "none_special_ballistic_01_rocket",
+    "Name": "Boomtube Rocket",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x1_s1",
+    "Name": "Gamma (1x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x1_s1_LAMP",
+    "Name": "Gamma LL (1x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x1_s1_tint01",
+    "Name": "Gamma \"Black Op\" (1x Holographic) ",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x2_s1",
+    "Name": "Gamma Duo (2x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x2_s1_LAMP",
+    "Name": "Gamma Duo LL (2x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x3_s1",
+    "Name": "Gamma Plus (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x3_s1_LAMP",
+    "Name": "Gamma Plus LL (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_holo_x3_s1_tint01",
+    "Name": "Gamma Plus \"Lumen\" (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_rdot_x1_s1",
+    "Name": "Delta (1x Reflex)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_rdot_x1_s1_LAMP",
+    "Name": "Delta LL (1x Reflex)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_rdot_x1_s1_firerats01",
+    "Name": "Delta \"Scorched\" (1x Reflex)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_tsco_x4_s2",
+    "Name": "Tau Plus (4x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_tsco_x4_s2_LAMP",
+    "Name": "Tau Plus LL (4x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_tsco_x4_s2_firerats01",
+    "Name": "Tau Plus \"Scorched\" (4x Telescopic)",
+    "Size": 2,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_tsco_x8_s3",
+    "Name": "Theta Pro (8x Telescopic) ",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_optics_tsco_x8_s3_LAMP",
+    "Name": "Theta Pro LL (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "nvtc_ubarrel_flsh_s1",
+    "Name": "FieldLite Flashlight",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "nvtc_ubarrel_flsh_s1_02",
+    "Name": "FieldLite Flashlight Blue",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "nvtc_ubarrel_flsh_s1_03",
+    "Name": "FieldLite Flashlight Yellow",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "nvtc_ubarrel_flsh_s1_04",
+    "Name": "FieldLite Flashlight Red",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "nvtc_ubarrel_flsh_s1_firerats01",
+    "Name": "FieldLite \"Scorched\" Flashlight",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "nvtc_ubarrel_lasr_s1",
+    "Name": "250-E Laser Pointer",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "sasu_pistol_toy_01_mag",
+    "Name": "WowBlast Desperado Toy Pistol Magazine (10 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_lmg_energy_01_mag",
+    "Name": "Fresnel Energy LMG Battery (165 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_optics_holo_x1_s1",
+    "Name": "FocalWave-10 (1x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_holo_x2_s1",
+    "Name": "FocalWave-20 (2x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_holo_x3_s1",
+    "Name": "FocalWave-30 (3x Holographic)",
+    "Size": 1,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_tsco_x8_s3",
+    "Name": "FarSight (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_tsco_x8_s3_collector01",
+    "Name": "FarSight \"Snow Camo\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_tsco_x8_s3_store01",
+    "Name": "FarSight \"Golden Blossom\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_tsco_x8_s3_tint01",
+    "Name": "FarSight \"Darkwave\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_tsco_x8_s3_tint02",
+    "Name": "FarSight \"Landslide\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_optics_tsco_x8_s3_tint03",
+    "Name": "FarSight \"Thunderstrike\" (8x Telescopic)",
+    "Size": 3,
+    "SubType": "IronSight"
+  },
+  {
+    "ClassName": "volt_pistol_energy_01_mag",
+    "Name": "Pulse Laser Pistol Battery (60 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_rifle_energy_01_mag",
+    "Name": "Parallax Rifle Battery (80 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_shotgun_energy_01_mag",
+    "Name": "Prism Laser Shotgun Battery (20 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_smg_energy_01_mag",
+    "Name": "Quartz Energy SMG Battery (45 cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_sniper_energy_01_mag",
+    "Name": "Zenith Laser Sniper Rifle Battery (22 Cap)",
+    "Size": 1,
+    "SubType": "Magazine"
+  },
+  {
+    "ClassName": "volt_ubarrel_flsh_s1",
+    "Name": "Lux Flashlight",
+    "Size": 1,
+    "SubType": "BottomAttachment"
+  },
+  {
+    "ClassName": "weaponMount_nvtc_optics_holo_x1_s1",
+    "Name": "Gamma (1x Holographic)",
+    "Size": 4,
+    "SubType": "IronSight"
+  }
+]
