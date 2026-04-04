@@ -57,7 +57,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 5.0
   },
   {
     "ClassName": "apar_special_ballistic_02",
@@ -110,7 +111,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 0.0
   },
   {
     "ClassName": "behr_glauncher_ballistic_01",
@@ -170,7 +172,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 6.0
   },
   {
     "ClassName": "behr_lmg_ballistic_01",
@@ -230,7 +233,8 @@
         "MaxSize": 3,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 75.0
   },
   {
     "ClassName": "behr_pistol_ballistic_01",
@@ -290,7 +294,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 20.0
   },
   {
     "ClassName": "behr_rifle_ballistic_01",
@@ -361,7 +366,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 40.0
   },
   {
     "ClassName": "behr_rifle_ballistic_02_civilian",
@@ -421,7 +427,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 15.0
   },
   {
     "ClassName": "behr_shotgun_ballistic_01",
@@ -481,7 +488,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 12.0
   },
   {
     "ClassName": "behr_smg_ballistic_01",
@@ -552,7 +560,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 45.0
   },
   {
     "ClassName": "behr_sniper_ballistic_01",
@@ -612,7 +621,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 8.0
   },
   {
     "ClassName": "crlf_medgun_01",
@@ -633,7 +643,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 18.0,
-          "MinDamage": 0.0,
+          "MinDamage": 18.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -660,7 +670,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 200.0
   },
   {
     "ClassName": "gmni_lmg_ballistic_01",
@@ -720,7 +731,8 @@
         "MaxSize": 3,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 150.0
   },
   {
     "ClassName": "gmni_pistol_ballistic_01",
@@ -780,7 +792,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 25.0
   },
   {
     "ClassName": "gmni_rifle_ballistic_01",
@@ -840,7 +853,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 30.0
   },
   {
     "ClassName": "gmni_shotgun_ballistic_01",
@@ -911,7 +925,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 18.0
   },
   {
     "ClassName": "gmni_smg_ballistic_01",
@@ -971,7 +986,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 50.0
   },
   {
     "ClassName": "gmni_sniper_ballistic_01",
@@ -1031,7 +1047,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 15.0
   },
   {
     "ClassName": "grin_cutter_01",
@@ -1062,7 +1079,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 21.0,
-          "MinDamage": 0.0,
+          "MinDamage": 21.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1089,7 +1106,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 50.0
   },
   {
     "ClassName": "hdgw_pistol_ballistic_01",
@@ -1149,7 +1167,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 8.0
   },
   {
     "ClassName": "klwe_lmg_energy_01",
@@ -1182,7 +1201,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 11.5,
-          "MinDamage": 0.0,
+          "MinDamage": 11.5,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1209,7 +1228,8 @@
         "MaxSize": 3,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 100.0
   },
   {
     "ClassName": "klwe_pistol_energy_01",
@@ -1253,7 +1273,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 18.0,
-          "MinDamage": 0.0,
+          "MinDamage": 18.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1280,7 +1300,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 30.0
   },
   {
     "ClassName": "klwe_rifle_energy_01",
@@ -1324,7 +1345,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 21.0,
-          "MinDamage": 0.0,
+          "MinDamage": 21.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1351,7 +1372,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 45.0
   },
   {
     "ClassName": "klwe_smg_energy_01",
@@ -1384,7 +1406,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 21.0,
-          "MinDamage": 0.0,
+          "MinDamage": 21.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1411,7 +1433,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 45.0
   },
   {
     "ClassName": "klwe_sniper_energy_01",
@@ -1444,7 +1467,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 50.0,
-          "MinDamage": 0.0,
+          "MinDamage": 50.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1471,7 +1494,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 16.0
   },
   {
     "ClassName": "ksar_pistol_ballistic_01",
@@ -1531,7 +1555,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 6.0
   },
   {
     "ClassName": "ksar_rifle_energy_01",
@@ -1602,7 +1627,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 35.0
   },
   {
     "ClassName": "ksar_shotgun_ballistic_01",
@@ -1662,7 +1688,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 16.0
   },
   {
     "ClassName": "ksar_shotgun_energy_01",
@@ -1722,7 +1749,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 12.0
   },
   {
     "ClassName": "ksar_smg_energy_01",
@@ -1766,7 +1794,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 13.0,
-          "MinDamage": 0.0,
+          "MinDamage": 13.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -1793,7 +1821,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 60.0
   },
   {
     "ClassName": "ksar_sniper_ballistic_01",
@@ -1864,7 +1893,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 12.0
   },
   {
     "ClassName": "lbco_pistol_energy_01",
@@ -1940,7 +1970,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 10.0
   },
   {
     "ClassName": "lbco_sniper_energy_01",
@@ -2016,7 +2047,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 8.0
   },
   {
     "ClassName": "none_lmg_ballistic_01",
@@ -2076,7 +2108,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 120.0
   },
   {
     "ClassName": "none_pistol_ballistic_01",
@@ -2124,7 +2157,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 12.0
   },
   {
     "ClassName": "none_rifle_multi_01",
@@ -2184,7 +2218,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 45.0
   },
   {
     "ClassName": "none_shotgun_ballistic_01",
@@ -2244,7 +2279,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 8.0
   },
   {
     "ClassName": "none_smg_energy_01",
@@ -2275,7 +2311,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 21.0,
-          "MinDamage": 0.0,
+          "MinDamage": 21.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -2302,7 +2338,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 60.0
   },
   {
     "ClassName": "none_special_ballistic_01",
@@ -2364,7 +2401,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 1.0
   },
   {
     "ClassName": "sasu_pistol_toy_01",
@@ -2420,7 +2458,8 @@
         "MaxSize": 0,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 10.0
   },
   {
     "ClassName": "volt_lmg_energy_01",
@@ -2449,7 +2488,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 9.0,
-          "MinDamage": 0.0,
+          "MinDamage": 9.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -2476,7 +2515,8 @@
         "MaxSize": 3,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 165.0
   },
   {
     "ClassName": "volt_pistol_energy_01",
@@ -2509,7 +2549,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 11.75,
-          "MinDamage": 0.0,
+          "MinDamage": 11.75,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -2536,7 +2576,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 60.0
   },
   {
     "ClassName": "volt_rifle_energy_01",
@@ -2610,7 +2651,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 80.0
   },
   {
     "ClassName": "volt_shotgun_energy_01",
@@ -2639,7 +2681,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 5.75,
-          "MinDamage": 0.0,
+          "MinDamage": 5.75,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -2666,7 +2708,8 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 20.0
   },
   {
     "ClassName": "volt_smg_energy_01",
@@ -2698,7 +2741,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 5.0,
-          "MinDamage": 0.0,
+          "MinDamage": 5.0,
           "DistanceStartDrop": 0.0,
           "DropPerMeter": 0.0
         }
@@ -2725,7 +2768,8 @@
         "MaxSize": 1,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 45.0
   },
   {
     "ClassName": "volt_sniper_energy_01",
@@ -2758,7 +2802,7 @@
       "DamageStats": {
         "Energy": {
           "ImpactDamage": 42.5,
-          "MinDamage": 0.0,
+          "MinDamage": 42.5,
           "DistanceStartDrop": 500.0,
           "DropPerMeter": 0.0
         }
@@ -2785,6 +2829,7 @@
         "MaxSize": 2,
         "DefaultInstalled": ""
       }
-    }
+    },
+    "DefaultMagazineCapacity": 22.0
   }
 ]

@@ -10,6 +10,7 @@ type HumanStatusProps = {
 };
 
 const selectableArmors: TargetArmor[] = ["naked", "default", "undersuit", "light", "medium", "heavy"];
+const INFINITY_SYMBOL = "∞";
 const targetArmorsMod: Record<TargetArmor, number[]> = {
   naked: [4, 2, 1.5, 1.5],
   default: [1, 1, 1, 1],
@@ -31,7 +32,7 @@ export default function HumanStatus({ activeFiringMode }: HumanStatusProps) {
       return {
         dmgForParts: [0, 0, 0, 0],
         stkForParts: [0, 0, 0, 0],
-        ttkForParts: ["0.00", "0.00", "0.00", "0.00"],
+        ttkForParts: ["0.0", "0.0", "0.0", "0.0"],
       };
     }
 
@@ -41,14 +42,22 @@ export default function HumanStatus({ activeFiringMode }: HumanStatusProps) {
     const interval = rpm > 0 ? 60 / rpm : Number.POSITIVE_INFINITY;
 
     const dmgForParts = [0, 0, 0, 0];
-    const stkForParts = [0, 0, 0, 0];
-    const ttkForParts = ["0.00", "0.00", "0.00", "0.00"];
+    const stkForParts: Array<number | string> = [0, 0, 0, 0];
+    const ttkForParts = ["0.0", "0.0", "0.0", "0.0"];
+
+    if (damagePerShot === 0) {
+      return {
+        dmgForParts,
+        stkForParts: [INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL],
+        ttkForParts: [INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL],
+      };
+    }
 
     for (let i = 0; i < 4; i += 1) {
       const dmg = damagePerShot * bodyPartMod[i] * targetArmorsMod[targetArmor][i];
       const stk = Math.ceil(100 / Math.max(dmg, 0.0001));
-      const ttk = Number.isFinite(interval) ? ((stk - 1) * interval).toFixed(2) : "N/A";
-      dmgForParts[i] = Math.round(dmg * 10) / 10;
+      const ttk = Number.isFinite(interval) ? ((stk - 1) * interval).toFixed(1) : "N/A";
+      dmgForParts[i] = Math.round(dmg);
       stkForParts[i] = Number.isFinite(stk) ? stk : 0;
       ttkForParts[i] = ttk;
     }
@@ -60,37 +69,55 @@ export default function HumanStatus({ activeFiringMode }: HumanStatusProps) {
     };
   }, [activeFiringMode, targetArmor]);
 
+  const getPartStyle = (ttk: string) => {
+    const ttkValue = Number(ttk);
+    if (!Number.isFinite(ttkValue) || ttkValue < 0) {
+      return undefined;
+    }
+
+    // Lower TTK -> red (0deg), higher TTK -> cooler hue (up to 240deg).
+    const hue = Math.min(240, Math.max(0, (ttkValue / 5) * 240));
+    return {
+      backgroundColor: `hsla(${hue},50%,50%,.3)`,
+    };
+  };
+
+  const headStyle = getPartStyle(combatStats.ttkForParts[0]);
+  const torsoStyle = getPartStyle(combatStats.ttkForParts[1]);
+  const armStyle = getPartStyle(combatStats.ttkForParts[2]);
+  const legStyle = getPartStyle(combatStats.ttkForParts[3]);
+
   return (
     <div className="human-status">
       <div className="humans">
         <div>
           <p>{tpw("DamagePerShot", "Damage Per Shot")}</p>
           <div className="human">
-            <div className="head">{combatStats.dmgForParts[0]}</div>
-            <div className="torso">{combatStats.dmgForParts[1]}</div>
-            <div className="arm">{combatStats.dmgForParts[2]}</div>
-            <div className="arm2" />
-            <div className="leg">{combatStats.dmgForParts[3]}</div>
+            <div className="head" style={headStyle}>{combatStats.dmgForParts[0]}</div>
+            <div className="torso" style={torsoStyle}>{combatStats.dmgForParts[1]}</div>
+            <div className="arm" style={armStyle}>{combatStats.dmgForParts[2]}</div>
+            <div className="arm2" style={armStyle} />
+            <div className="leg" style={legStyle}>{combatStats.dmgForParts[3]}</div>
           </div>
         </div>
         <div>
           <p>{tpw("ShotsToKill", "Shots To Kill")}</p>
           <div className="human">
-            <div className="head">{combatStats.stkForParts[0]}</div>
-            <div className="torso">{combatStats.stkForParts[1]}</div>
-            <div className="arm">{combatStats.stkForParts[2]}</div>
-            <div className="arm2" />
-            <div className="leg">{combatStats.stkForParts[3]}</div>
+            <div className="head" style={headStyle}>{combatStats.stkForParts[0]}</div>
+            <div className="torso" style={torsoStyle}>{combatStats.stkForParts[1]}</div>
+            <div className="arm" style={armStyle}>{combatStats.stkForParts[2]}</div>
+            <div className="arm2" style={armStyle} />
+            <div className="leg" style={legStyle}>{combatStats.stkForParts[3]}</div>
           </div>
         </div>
         <div>
           <p>{tpw("TimeToKill", "Time To Kill")}</p>
           <div className="human">
-            <div className="head">{combatStats.ttkForParts[0]}</div>
-            <div className="torso">{combatStats.ttkForParts[1]}</div>
-            <div className="arm">{combatStats.ttkForParts[2]}</div>
-            <div className="arm2" />
-            <div className="leg">{combatStats.ttkForParts[3]}</div>
+            <div className="head" style={headStyle}>{combatStats.ttkForParts[0]}</div>
+            <div className="torso" style={torsoStyle}>{combatStats.ttkForParts[1]}</div>
+            <div className="arm" style={armStyle}>{combatStats.ttkForParts[2]}</div>
+            <div className="arm2" style={armStyle} />
+            <div className="leg" style={legStyle}>{combatStats.ttkForParts[3]}</div>
           </div>
         </div>
       </div>

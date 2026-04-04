@@ -63,6 +63,7 @@ declare global {
     Firing: WeaponFiringMode[];
     Ammunition: WeaponAmmunition;
     Ports: WeaponPortGroup;
+    DefaultMagazineCapacity: number;
   }
 
   interface WeaponAttachment {

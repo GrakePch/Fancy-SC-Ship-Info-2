@@ -11,7 +11,6 @@ import {
 } from "@mdi/js";
 import Icon from "@mdi/react";
 import listPersonalWeaponRaw from "../../data/fps-weapon-personal-list.json";
-import listAttachmentRaw from "../../data/fps-weapon-attachment-list.json";
 import dmgTypeToColor from "../../assets/damageTypeToColor";
 import personalWeaponsImg from "../../assets/personal_weapons_side/1080p/personal_weapons_img";
 import PortEditable from "./PortEditable/PortEditable";
@@ -22,8 +21,6 @@ import HumanStatus from "./HumanStatus";
 import icons from "../../assets/icons";
 
 const listPersonalWeapon = listPersonalWeaponRaw as unknown as WeaponPersonalList;
-const listAttachment = listAttachmentRaw as unknown as WeaponAttachmentList;
-const attachmentByClassName = new Map(listAttachment.map((item) => [item.ClassName, item]));
 
 const iconPathByFiringMode: Partial<Record<WeaponFiringLocalisedName, string>> = {
   "[AUTO]": icons.pw_fire_type_auto,
@@ -33,6 +30,7 @@ const iconPathByFiringMode: Partial<Record<WeaponFiringLocalisedName, string>> =
   "[SHOTGUN]": icons.pw_fire_type_auto,
   "@LOC_PLACEHOLDER": icons.beam,
 };
+const INFINITY_SYMBOL = "∞";
 
 export default function PersonalWeaponInfo() {
   const navigate = useNavigate();
@@ -77,7 +75,7 @@ export default function PersonalWeaponInfo() {
     if (!activeFiringMode) {
       return {
         baseDps: 0,
-        baseTtk: "N/A",
+        baseTtk: INFINITY_SYMBOL,
       };
     }
 
@@ -89,7 +87,11 @@ export default function PersonalWeaponInfo() {
       (activeFiringMode.DamagePerSecond.Physical ?? 0) + (activeFiringMode.DamagePerSecond.Energy ?? 0),
     );
     const baseStk = Math.ceil(100 / Math.max(damagePerShot, 0.0001));
-    const baseTtk = Number.isFinite(interval) ? ((baseStk - 1) * interval).toFixed(2) : "N/A";
+    const baseTtk = baseDps === 0
+      ? INFINITY_SYMBOL
+      : Number.isFinite(interval)
+        ? ((baseStk - 1) * interval).toFixed(2)
+        : (100 / baseDps).toFixed(2);
 
     return {
       baseDps,
@@ -101,10 +103,8 @@ export default function PersonalWeaponInfo() {
 
   const ammunition = weapon.Ammunition;
   const imageSrc = personalWeaponsImg[weapon.ClassName as keyof typeof personalWeaponsImg] ?? "";
-  const magazineAttachmentName =
-    attachmentByClassName.get(weapon.Ports.Magazine.DefaultInstalled)?.Name ?? weapon.Ports.Magazine.DefaultInstalled;
-  const magazineCapMatch = magazineAttachmentName.match(/\((\d+)\s*cap\)/i);
-  const magazineSize = magazineCapMatch?.[1] ?? "-";
+
+  console.log(weapon);
 
   return (
     <div className="Personal-Weapon-Info-container">
@@ -145,7 +145,7 @@ export default function PersonalWeaponInfo() {
                 </div>
                 <div className="important-data">
                   <p>{tpw("MagSize", "Magazine Size")}</p>
-                  <p>{magazineSize}</p>
+                  <p>{weapon.DefaultMagazineCapacity}</p>
                 </div>
               </div>
               <div className="fire-rate-tabs">

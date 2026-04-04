@@ -99,6 +99,39 @@ def extract_ports(std_item: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return result
 
 
+def extract_default_magazine_capacity(std_item: dict[str, Any]) -> float:
+    ports = std_item.get("Ports")
+    if not isinstance(ports, list):
+        return 0.0
+
+    # Prefer the configured default magazine port.
+    for port in ports:
+        if not isinstance(port, dict):
+            continue
+        if to_string(port.get("PortName")) != "magazine_attach":
+            continue
+        installed_item = port.get("InstalledItem")
+        if isinstance(installed_item, dict):
+            magazine = installed_item.get("Magazine")
+            if isinstance(magazine, dict):
+                return to_number(magazine.get("Capacity"))
+
+    # Fallback: any installed magazine attachment that exposes capacity.
+    for port in ports:
+        if not isinstance(port, dict):
+            continue
+        installed_item = port.get("InstalledItem")
+        if not isinstance(installed_item, dict):
+            continue
+        if to_string(installed_item.get("Type")) != "WeaponAttachment.Magazine":
+            continue
+        magazine = installed_item.get("Magazine")
+        if isinstance(magazine, dict):
+            return to_number(magazine.get("Capacity"))
+
+    return 0.0
+
+
 def extract_firing(std_item: dict[str, Any]) -> list[dict[str, Any]]:
     weapon = std_item.get("Weapon") if isinstance(std_item.get("Weapon"), dict) else {}
     firing_modes = weapon.get("Firing") if isinstance(weapon.get("Firing"), list) else []
@@ -145,9 +178,14 @@ def extract_ammunition(std_item: dict[str, Any]) -> dict[str, Any]:
 
     damage_stats: dict[str, dict[str, float]] = {}
     for damage_type in sorted(damage_types):
+        impact_damage_value = to_number(impact_damage.get(damage_type))
+        if damage_type in min_damage:
+            min_damage_value = to_number(min_damage.get(damage_type))
+        else:
+            min_damage_value = impact_damage_value
         damage_stats[damage_type] = {
-            "ImpactDamage": to_number(impact_damage.get(damage_type)),
-            "MinDamage": to_number(min_damage.get(damage_type)),
+            "ImpactDamage": impact_damage_value,
+            "MinDamage": min_damage_value,
             "DistanceStartDrop": to_number(min_distance.get(damage_type)),
             "DropPerMeter": to_number(drop_per_meter.get(damage_type)),
         }
@@ -196,6 +234,7 @@ def build_personal_row(item: dict[str, Any]) -> dict[str, Any] | None:
         "Firing": firing,
         "Ammunition": extract_ammunition(std_item),
         "Ports": extract_ports(std_item),
+        "DefaultMagazineCapacity": extract_default_magazine_capacity(std_item),
     }
 
 
