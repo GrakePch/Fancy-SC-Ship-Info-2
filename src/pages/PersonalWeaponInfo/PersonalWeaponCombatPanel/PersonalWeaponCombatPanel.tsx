@@ -49,7 +49,7 @@ export default function PersonalWeaponCombatPanel({
     const baseStk = Math.ceil(100 / Math.max(damagePerShot, 0.0001));
     const baseTtk = baseDps === 0
       ? INFINITY_SYMBOL
-      : Number.isFinite(interval)
+      : Number.isFinite(interval) && damagePerShot > 0
         ? ((baseStk - 1) * interval).toFixed(2)
         : (100 / baseDps).toFixed(2);
 

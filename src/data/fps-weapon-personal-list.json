@@ -2481,14 +2481,34 @@
     "Volume": 13000.0,
     "ManufacturerCode": "",
     "ManufacturerName": "@LOC_PLACEHOLDER",
-    "MaxDps": 0.0,
+    "MaxDps": 210.0,
     "Firing": [
       {
         "Name": "RapidBeam",
         "LocalisedName": "@LOC_PLACEHOLDER",
-        "RoundsPerMinute": 0.0,
+        "RoundsPerMinute": 600.0,
         "DamagePerShot": {},
-        "DamagePerSecond": {}
+        "DamagePerSecond": {
+          "Energy": 210.0,
+          "Distortion": 50.0
+        },
+        "DefaultWeaponAction": {
+          "Name": "Rapid",
+          "LocalisedName": "[AUTO]",
+          "RoundsPerMinute": 600.0,
+          "DamagePerShot": {},
+          "DamagePerSecond": {}
+        },
+        "ConditionalWeaponActions": {
+          "Name": "Beam",
+          "LocalisedName": "@LOC_PLACEHOLDER",
+          "RoundsPerMinute": 0.0,
+          "DamagePerShot": {},
+          "DamagePerSecond": {
+            "Energy": 210.0,
+            "Distortion": 50.0
+          }
+        }
       }
     ],
     "Ammunition": {
@@ -2556,14 +2576,23 @@
     "Volume": 16000.0,
     "ManufacturerCode": "",
     "ManufacturerName": "@LOC_PLACEHOLDER",
-    "MaxDps": 0.0,
+    "MaxDps": 36.895833333333336,
     "Firing": [
       {
         "Name": "RapidBeam",
         "LocalisedName": "@LOC_PLACEHOLDER",
-        "RoundsPerMinute": 0.0,
+        "RoundsPerMinute": 385.0,
         "DamagePerShot": {},
-        "DamagePerSecond": {}
+        "DamagePerSecond": {
+          "Energy": 36.895833333333336
+        },
+        "DefaultWeaponAction": {
+          "Name": "Single",
+          "LocalisedName": "[SEMI]",
+          "RoundsPerMinute": 385.0,
+          "DamagePerShot": {},
+          "DamagePerSecond": {}
+        }
       }
     ],
     "Ammunition": {

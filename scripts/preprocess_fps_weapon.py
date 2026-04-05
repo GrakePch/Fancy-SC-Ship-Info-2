@@ -63,6 +63,36 @@ def build_damage_summary(damage_map: Any) -> dict[str, float]:
     return result
 
 
+def is_empty_damage_summary(summary: Any) -> bool:
+    return not isinstance(summary, dict) or len(summary) == 0
+
+
+def extract_weapon_action(action: Any) -> dict[str, Any] | None:
+    if not isinstance(action, dict):
+        return None
+
+    parsed: dict[str, Any] = {
+        "Name": to_string(action.get("Name")),
+        "LocalisedName": to_string(action.get("LocalisedName")),
+        "RoundsPerMinute": to_number(action.get("RoundsPerMinute")),
+        "DamagePerShot": build_damage_summary(action.get("DamagePerShot")),
+        "DamagePerSecond": build_damage_summary(action.get("DamagePerSecond")),
+    }
+
+    default_weapon_action = extract_weapon_action(action.get("DefaultWeaponAction"))
+    if default_weapon_action:
+        parsed["DefaultWeaponAction"] = default_weapon_action
+
+    conditional_weapon_actions = extract_weapon_action(action.get("ConditionalWeaponActions"))
+    if not conditional_weapon_actions:
+        # Backward-compat: some upstream variants may still use singular key.
+        conditional_weapon_actions = extract_weapon_action(action.get("ConditionalWeaponAction"))
+    if conditional_weapon_actions:
+        parsed["ConditionalWeaponActions"] = conditional_weapon_actions
+
+    return parsed
+
+
 def default_port_info() -> dict[str, Any]:
     return {
         "MinSize": 0,
@@ -136,20 +166,50 @@ def extract_default_magazine_capacity(std_item: dict[str, Any]) -> float:
 def extract_firing(std_item: dict[str, Any]) -> list[dict[str, Any]]:
     weapon = std_item.get("Weapon") if isinstance(std_item.get("Weapon"), dict) else {}
     firing_modes = weapon.get("Firing") if isinstance(weapon.get("Firing"), list) else []
+    ammunition = extract_ammunition(std_item)
+    damage_stats = ammunition.get("DamageStats") if isinstance(ammunition, dict) else {}
 
     result: list[dict[str, Any]] = []
     for mode in firing_modes:
-        if not isinstance(mode, dict):
+        parsed_mode = extract_weapon_action(mode)
+        if not parsed_mode:
             continue
-        result.append(
-            {
-                "Name": to_string(mode.get("Name")),
-                "LocalisedName": to_string(mode.get("LocalisedName")),
-                "RoundsPerMinute": to_number(mode.get("RoundsPerMinute")),
-                "DamagePerShot": build_damage_summary(mode.get("DamagePerShot")),
-                "DamagePerSecond": build_damage_summary(mode.get("DamagePerSecond")),
-            }
-        )
+
+        default_weapon_action = parsed_mode.get("DefaultWeaponAction")
+        if parsed_mode["RoundsPerMinute"] == 0 and isinstance(default_weapon_action, dict):
+            parsed_mode["RoundsPerMinute"] = to_number(default_weapon_action.get("RoundsPerMinute"))
+
+        if is_empty_damage_summary(parsed_mode["DamagePerShot"]) and isinstance(default_weapon_action, dict):
+            fallback_damage_per_shot = default_weapon_action.get("DamagePerShot")
+            if isinstance(fallback_damage_per_shot, dict) and len(fallback_damage_per_shot) > 0:
+                parsed_mode["DamagePerShot"] = dict(fallback_damage_per_shot)
+
+        if is_empty_damage_summary(parsed_mode["DamagePerSecond"]):
+            if isinstance(default_weapon_action, dict):
+                fallback_damage_per_second = default_weapon_action.get("DamagePerSecond")
+                if isinstance(fallback_damage_per_second, dict) and len(fallback_damage_per_second) > 0:
+                    parsed_mode["DamagePerSecond"] = dict(fallback_damage_per_second)
+            if is_empty_damage_summary(parsed_mode["DamagePerSecond"]):
+                conditional_weapon_actions = parsed_mode.get("ConditionalWeaponActions")
+                if isinstance(conditional_weapon_actions, dict):
+                    fallback_damage_per_second = conditional_weapon_actions.get("DamagePerSecond")
+                    if isinstance(fallback_damage_per_second, dict) and len(fallback_damage_per_second) > 0:
+                        parsed_mode["DamagePerSecond"] = dict(fallback_damage_per_second)
+        if is_empty_damage_summary(parsed_mode["DamagePerSecond"]):
+            rounds_per_second = to_number(parsed_mode["RoundsPerMinute"]) / 60.0
+            if rounds_per_second > 0 and isinstance(damage_stats, dict):
+                computed_damage_per_second: dict[str, float] = {}
+                for damage_type, damage_stat in damage_stats.items():
+                    if not isinstance(damage_type, str) or not isinstance(damage_stat, dict):
+                        continue
+                    impact_damage = to_number(damage_stat.get("ImpactDamage"))
+                    if impact_damage == 0:
+                        continue
+                    computed_damage_per_second[damage_type] = impact_damage * rounds_per_second
+                if len(computed_damage_per_second) > 0:
+                    parsed_mode["DamagePerSecond"] = computed_damage_per_second
+
+        result.append(parsed_mode)
     return result
 
 

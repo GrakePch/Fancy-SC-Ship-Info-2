@@ -33,6 +33,8 @@ declare global {
     RoundsPerMinute: number;
     DamagePerShot: WeaponDamageSummary;
     DamagePerSecond: WeaponDamageSummary;
+    DefaultWeaponAction?: WeaponFiringMode;
+    ConditionalWeaponActions?: WeaponFiringMode;
   }
 
   interface WeaponDamageStat {

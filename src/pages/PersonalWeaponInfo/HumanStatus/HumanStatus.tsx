@@ -39,6 +39,8 @@ export default function HumanStatus({ activeFiringMode }: HumanStatusProps) {
 
     const damagePerShot =
       (activeFiringMode.DamagePerShot?.Physical ?? 0) + (activeFiringMode.DamagePerShot?.Energy ?? 0);
+    const damagePerSecond =
+      (activeFiringMode.DamagePerSecond?.Physical ?? 0) + (activeFiringMode.DamagePerSecond?.Energy ?? 0);
     const rpm = Number(activeFiringMode.RoundsPerMinute ?? 0);
     const interval = rpm > 0 ? 60 / rpm : Number.POSITIVE_INFINITY;
 
@@ -46,18 +48,21 @@ export default function HumanStatus({ activeFiringMode }: HumanStatusProps) {
     const stkForParts: Array<number | string> = [0, 0, 0, 0];
     const ttkForParts = ["0.0", "0.0", "0.0", "0.0"];
 
-    if (damagePerShot === 0) {
-      return {
-        dmgForParts,
-        stkForParts: [INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL],
-        ttkForParts: [INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL, INFINITY_SYMBOL],
-      };
-    }
-
     for (let i = 0; i < 4; i += 1) {
+      if (damagePerShot === 0) {
+        if (damagePerSecond === 0) {
+          stkForParts[i] = INFINITY_SYMBOL;
+          ttkForParts[i] = INFINITY_SYMBOL;
+        } else {
+          const dps = damagePerSecond * bodyPartMod[i] * targetArmorsMod[targetArmor][i];
+          stkForParts[i] = INFINITY_SYMBOL;
+          ttkForParts[i] = dps > 0 ? (100 / dps).toFixed(1) : INFINITY_SYMBOL;
+        }
+        continue;
+      }
       const dmg = damagePerShot * bodyPartMod[i] * targetArmorsMod[targetArmor][i];
       const stk = Math.ceil(100 / Math.max(dmg, 0.0001));
-      const ttk = Number.isFinite(interval) ? ((stk - 1) * interval).toFixed(1) : "N/A";
+      const ttk = Number.isFinite(interval) ? ((stk - 1) * interval).toFixed(1) : INFINITY_SYMBOL;
       dmgForParts[i] = Math.round(dmg);
       stkForParts[i] = Number.isFinite(stk) ? stk : 0;
       ttkForParts[i] = ttk;
