@@ -1235,6 +1235,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": true,
+      "ShipOfTheMonth": "April 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20977-April-2026-Subscriber-Promotions",
       "Buy": 100.0
     },
     "PU": {
@@ -3310,6 +3313,9 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
+      "IsShipOfTheMonth": true,
+      "ShipOfTheMonth": "April 2026",
+      "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20977-April-2026-Subscriber-Promotions",
       "Buy": 175.0
     },
     "PU": {
@@ -4352,6 +4358,39 @@
     }
   },
   {
+    "ClassName": "GRIN_UTV",
+    "Name": "Greycat UTV",
+    "Manufacturer": "Greycat Industrial",
+    "Career": "Ground",
+    "Role": "Ground",
+    "Size": 1,
+    "Cargo": 0,
+    "Type": "Vehicle",
+    "CommLink": {
+      "HasCommLink": false,
+      "Date": null,
+      "Url": null
+    },
+    "ProgressTracker": {
+      "Status": "Released",
+      "IsOnPT": false,
+      "ID": null
+    },
+    "Store": {
+      "Url": null,
+      "IsPromotionOnly": false,
+      "IsLimitedSale": false,
+      "Buy": 40.0
+    },
+    "PU": {
+      "Patch": "4.7.1",
+      "Date": "2026-04-08",
+      "HasPerf": true,
+      "IsPTUOnly": false,
+      "Buy": null
+    }
+  },
+  {
     "ClassName": "KRIG_L21_Wolf",
     "Name": "Kruger L-21 Wolf",
     "Manufacturer": "Kruger Intergalactic",
@@ -4848,7 +4887,7 @@
       "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "April 2024",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/comm-link/transmission/19853-April-2024-Subscriber-Promotions",
-      "Buy": 90.0
+      "Buy": 100.0
     },
     "PU": {
       "Patch": "3.17.0",
@@ -4862,10 +4901,10 @@
     "ClassName": "MISC_Hull_B",
     "Name": "MISC Hull B",
     "Manufacturer": "Musashi Industrial and Starflight Concern",
-    "Career": "Transporter",
-    "Role": "Heavy Freight",
-    "Size": 3,
-    "Cargo": 384,
+    "Career": "Industrial",
+    "Role": "Medium Freight",
+    "Size": 4,
+    "Cargo": 512,
     "Type": "Ship",
     "CommLink": {
       "HasCommLink": true,
@@ -4873,7 +4912,7 @@
       "Url": "https://robertsspaceindustries.com/comm-link/transmission/18751-Roadmap-Roundup-June-22-2022"
     },
     "ProgressTracker": {
-      "Status": "InProd",
+      "Status": "Released",
       "IsOnPT": false,
       "ID": null
     },
@@ -4881,10 +4920,12 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "Buy": 140.0
+      "Buy": 280.0
     },
     "PU": {
-      "HasPerf": false,
+      "Patch": "4.7.1",
+      "Date": "2026-04-08",
+      "HasPerf": true,
       "IsPTUOnly": false,
       "Buy": null
     }
@@ -6257,7 +6298,7 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "March 2026",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20962-March-2026-Subscriber-Promotions",
       "Buy": 290.0
@@ -7097,7 +7138,7 @@
       "Url": null,
       "IsPromotionOnly": false,
       "IsLimitedSale": false,
-      "IsShipOfTheMonth": true,
+      "IsShipOfTheMonth": false,
       "ShipOfTheMonth": "March 2026",
       "ShipOfTheMonthUrl": "https://robertsspaceindustries.com/en/comm-link/transmission/20962-March-2026-Subscriber-Promotions",
       "Buy": 60

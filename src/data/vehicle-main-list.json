@@ -24456,6 +24456,126 @@
     }
   },
   {
+    "ClassName": "GRIN_UTV",
+    "Name": "Greycat UTV",
+    "Description": "The Greycat UTV is a durable, utility buggy designed to transport light cargo loads across rugged terrain. Whether you’re coordinating freight storage or making a supply run to a neighboring outpost, the straightforward design of the UTV allows operators to focus on tackling the job at hand.",
+    "Career": "Ground",
+    "Role": "Ground",
+    "Size": 1,
+    "Cargo": {
+      "CargoGrid": 1.0,
+      "CargoContainers": 0.0,
+      "Storage": 0.6
+    },
+    "Crew": 2,
+    "WeaponCrew": 0,
+    "OperationsCrew": 0,
+    "Mass": 3570.0,
+    "ComponentsMass": 128.0,
+    "Dimensions": {
+      "Length": 4.0,
+      "Width": 2.6,
+      "Height": 2.2
+    },
+    "IsSpaceship": false,
+    "IsVehicle": true,
+    "Armor": {
+      "Durability": {
+        "Health": 1463.0,
+        "DamageMultipliers": {
+          "Physical": 0.77,
+          "Energy": 1.22,
+          "Distortion": 1.0,
+          "Thermal": 1.0,
+          "Biochemical": 1.0,
+          "Stun": 1.0
+        }
+      },
+      "DamageDeflection": {
+        "Physical": 5.0,
+        "Energy": 4.0,
+        "Distortion": 0.0
+      },
+      "DamageMultipliers": {
+        "Physical": 0.6,
+        "Energy": 0.4,
+        "Distortion": 1.0
+      },
+      "SignalMultipliers": {
+        "Electromagnetic": 0.4,
+        "Infrared": 0.4,
+        "CrossSection": 1.0
+      }
+    },
+    "Hull": {
+      "PenetrationDamageMultiplier": {
+        "Fuse": 2.727273,
+        "Component": 1.0
+      },
+      "StructureHealthPoints": {
+        "VitalParts": {
+          "geo_body": 2450.0
+        },
+        "Parts": {
+          "AAsus_wheel_FL": 1500.0,
+          "AAsus_wheel_RL": 1500.0,
+          "AAsus_wheel_RR": 1500.0,
+          "AAsus_wheel_FR": 1500.0,
+          "geo_door_comp_rear": 1.0,
+          "geo_grile_door": 1.0,
+          "geo_bonnet": 250.0,
+          "geo_footpad_rear": 250.0,
+          "geo_body_door_right": 250.0,
+          "geo_fender_rear_right": 250.0,
+          "RTT_Serial": 250.0,
+          "geo_fender_rear_left": 250.0,
+          "geo_fender_fr": 250.0,
+          "geo_fender_fl": 250.0,
+          "geo_body_door_left": 250.0
+        }
+      }
+    },
+    "SteerCharacteristics": {
+      "V0SteerSpeed": 140.0,
+      "VMaxSteerSpeed": 15.0,
+      "V0SteerMaxAngle": 50.0,
+      "SteerSubtractV": 40.0,
+      "SteerSubtractAngle": 0.0,
+      "SteerRelaxationSpeed": 105.0
+    },
+    "Emissions": {
+      "Electromagnetic": {
+        "SCMIdle": 0.0,
+        "SCMActive": 0.0,
+        "NAV": 0.0
+      },
+      "Infrared": {
+        "Start": 0.0
+      },
+      "CrossSection": {
+        "Front": 321.0,
+        "Side": 569.0,
+        "Top": 903.0
+      }
+    },
+    "ResourceNetwork": {
+      "ItemPools": {
+        "WeaponPoolSize": 4.0
+      }
+    },
+    "BaseLoadout": {
+      "TotalShieldHP": 0.0,
+      "PilotBurstDPS": 0.0,
+      "TurretsBurstDPS": 0.0,
+      "TotalMissilesDmg": 0.0
+    },
+    "Insurance": {
+      "StandardClaimTime": 2.17,
+      "ExpeditedClaimTime": 0.54,
+      "ExpeditedCost": 540.0
+    }
+  },
+  {
     "ClassName": "KRIG_L21_Wolf",
     "Name": "Kruger L-21 Wolf",
     "Description": "Meet a ship almost 400 years in the making, and well worth the wait. Kruger Intergalactic is excited to present their first independently manufactured ship, the Wolf. Combining speed, style, and an impeccably precise design, the L-21 Wolf is not only a showcase for Kruger but is battle-ready to hunt alone or in packs with a powerful array of armaments, including two bespoke S4 ballistic gatlings.",
@@ -27453,6 +27573,353 @@
     },
     "Buy": {
       "New Deal, Lorville": 1701000.0
+    }
+  },
+  {
+    "ClassName": "MISC_Hull_B",
+    "Name": "MISC Hull B",
+    "Description": "The MISC Hull B is a rugged option for pilots seeking a dedicated cargo transport. While not as large as some of the other Hull-series models, the Hull B's smaller profile provides greater flexibility and more access options.",
+    "Career": "Industrial",
+    "Role": "Medium Freight",
+    "Size": 4,
+    "Cargo": {
+      "CargoGrid": 512.0,
+      "CargoContainers": 0.0,
+      "Storage": 0.0
+    },
+    "Crew": 2,
+    "WeaponCrew": 1,
+    "OperationsCrew": 0,
+    "Mass": 472368.0,
+    "ComponentsMass": 35982.0,
+    "Dimensions": {
+      "Length": 71.0,
+      "Width": 17.0,
+      "Height": 9.0
+    },
+    "IsSpaceship": true,
+    "Armor": {
+      "Durability": {
+        "Health": 9075.0,
+        "DamageMultipliers": {
+          "Physical": 0.9,
+          "Energy": 1.22,
+          "Distortion": 1.0,
+          "Thermal": 1.0,
+          "Biochemical": 1.0,
+          "Stun": 1.0
+        }
+      },
+      "DamageDeflection": {
+        "Physical": 63.0,
+        "Energy": 67.0,
+        "Distortion": 0.0
+      },
+      "DamageMultipliers": {
+        "Physical": 0.75,
+        "Energy": 0.6,
+        "Distortion": 1.0
+      },
+      "SignalMultipliers": {
+        "Electromagnetic": 1.0,
+        "Infrared": 1.0,
+        "CrossSection": 1.0
+      }
+    },
+    "Hull": {
+      "PenetrationDamageMultiplier": {
+        "Fuse": 0.7,
+        "Component": 1.0
+      },
+      "StructureHealthPoints": {
+        "VitalParts": {
+          "body": 40000.0
+        },
+        "Parts": {
+          "dbr_spoiler": 100.0,
+          "dbr_front_wings_left": 100.0,
+          "dbr_front_wings_right": 100.0,
+          "dbr_middle_top_wing_large_left": 100.0,
+          "dbr_middle_top_wing_large_right": 100.0,
+          "dbr_middle_bottom_wing_large_right": 100.0,
+          "dbr_middle_bottom_wing_large_left": 100.0,
+          "spindle": 5000.0,
+          "dbr_spindle_mainbar_00": 10000.0,
+          "geo_spindle_mainbar_02": 1.0,
+          "geo_spindle_plate_slider_base_rear_left": 1.0,
+          "dbr_geo_hinge_04_rear_top_left": 1050.0,
+          "anim_spindle_plate_top_04_rear_top_left": 1.0,
+          "anim_plate_arms_03_rear_top_left": 1.0,
+          "anim_spindle_plate_03_rear_top_left": 1.0,
+          "geo_spindle_plate_03_rear_top_left": 1.0,
+          "geo_spindle_plate_04_rear_top_left": 1.0,
+          "dbr_geo_hinge_02_rear_top_left": 1050.0,
+          "anim_spindle_plate_top_02_rear_top_left": 1.0,
+          "anim_plate_arms_01_rear_top_left": 1.0,
+          "anim_spindle_plate_01_rear_top_left": 1.0,
+          "geo_spindle_plate_01_rear_top_left": 1.0,
+          "geo_spindle_plate_02_rear_top_left": 1.0,
+          "dbr_geo_hinge_04_rear_bottom_left": 1050.0,
+          "anim_spindle_plate_bottom_04_rear_bottom_left": 1.0,
+          "geo_spindle_plate_04_rear_bottom_left": 1.0,
+          "anim_plate_arms_03_rear_bottom_left": 1.0,
+          "anim_spindle_plate_03_rear_bottom_left": 1.0,
+          "geo_spindle_plate_03_rear_bottom_left": 1.0,
+          "dbr_geo_hinge_02_rear_bottom_left": 1050.0,
+          "anim_spindle_plate_bottom_02_rear_bottom_left": 1.0,
+          "geo_spindle_plate_02_rear_bottom_left": 1.0,
+          "anim_plate_arms_01_rear_bottom_left": 1.0,
+          "anim_spindle_plate_01_rear_bottom_left": 1.0,
+          "geo_spindle_plate_01_rear_bottom_left": 1.0,
+          "dbr_geo_hinge_04_front_top_left": 1050.0,
+          "anim_spindle_plate_top_04_front_top_left": 1.0,
+          "geo_spindle_plate_04_front_top_left": 1.0,
+          "anim_plate_arms_03_front_top_left": 1.0,
+          "anim_spindle_plate_03_front_top_left": 1.0,
+          "geo_spindle_plate_03_front_top_left": 1.0,
+          "dbr_geo_hinge_02_front_top_left": 1050.0,
+          "anim_spindle_plate_top_02_front_top_left": 1.0,
+          "geo_spindle_plate_02_front_top_left": 1.0,
+          "anim_plate_arms_01_front_top_left": 1.0,
+          "anim_spindle_plate_01_front_top_left": 1.0,
+          "geo_spindle_plate_01_front_top_left": 1.0,
+          "dbr_geo_hinge_04_front_bottom_left": 1050.0,
+          "anim_spindle_plate_bottom_04_front_bottom_left": 1.0,
+          "anim_plate_arms_03_front_bottom_left": 1.0,
+          "anim_spindle_plate_03_front_bottom_left": 1.0,
+          "geo_spindle_plate_03_front_bottom_left": 1.0,
+          "geo_spindle_plate_04_front_bottom_left": 1.0,
+          "dbr_geo_hinge_02_front_bottom_left": 1050.0,
+          "anim_spindle_plate_bottom_02_front_bottom_left": 1.0,
+          "anim_plate_arms_01_front_bottom_left": 1.0,
+          "anim_spindle_plate_01_front_bottom_left": 1.0,
+          "geo_spindle_plate_01_front_bottom_left": 1.0,
+          "geo_spindle_plate_02_front_bottom_left": 1.0,
+          "dbr_geo_hinge_04_front_bottom_right": 1050.0,
+          "anim_spindle_plate_bottom_04_front_bottom_right": 1.0,
+          "geo_spindle_plate_04_front_bottom_right": 1.0,
+          "anim_plate_arms_03_front_bottom_right": 1.0,
+          "anim_spindle_plate_03_front_bottom_right": 1.0,
+          "geo_spindle_plate_03_front_bottom_right": 1.0,
+          "dbr_geo_hinge_02_front_bottom_right": 1050.0,
+          "anim_spindle_plate_bottom_02_front_bottom_right": 1.0,
+          "geo_spindle_plate_02_front_bottom_right": 1.0,
+          "anim_plate_arms_01_front_bottom_right": 1.0,
+          "anim_spindle_plate_01_front_bottom_right": 1.0,
+          "geo_spindle_plate_01_front_bottom_right": 1.0,
+          "dbr_geo_hinge_04_front_top_right": 1050.0,
+          "anim_spindle_plate_top_04_front_top_right": 1.0,
+          "anim_plate_arms_03_front_top_right": 1.0,
+          "anim_spindle_plate_03_front_top_right": 1.0,
+          "geo_spindle_plate_03_front_top_right": 1.0,
+          "geo_spindle_plate_04_front_top_right": 1.0,
+          "dbr_geo_hinge_02_front_top_right": 1050.0,
+          "anim_spindle_plate_top_02_front_top_right": 1.0,
+          "anim_plate_arms_01_front_top_right": 1.0,
+          "anim_spindle_plate_01_front_top_right": 1.0,
+          "geo_spindle_plate_01_front_top_right": 1.0,
+          "geo_spindle_plate_02_front_top_right": 1.0,
+          "dbr_geo_hinge_04_rear_bottom_right": 1050.0,
+          "anim_spindle_plate_bottom_04_rear_bottom_right": 1.0,
+          "anim_plate_arms_03_rear_bottom_right": 1.0,
+          "anim_spindle_plate_03_rear_bottom_right": 1.0,
+          "geo_spindle_plate_03_rear_bottom_right": 1.0,
+          "geo_spindle_plate_04_rear_bottom_right": 1.0,
+          "dbr_geo_hinge_02_rear_bottom_right": 1050.0,
+          "anim_spindle_plate_bottom_02_rear_bottom_right": 1.0,
+          "anim_plate_arms_01_rear_bottom_right": 1.0,
+          "anim_spindle_plate_01_rear_bottom_right": 1.0,
+          "geo_spindle_plate_01_rear_bottom_right": 1.0,
+          "geo_spindle_plate_02_rear_bottom_right": 1.0,
+          "dbr_geo_hinge_04_rear_top_right": 1050.0,
+          "anim_spindle_plate_top_04_rear_top_right": 1.0,
+          "geo_spindle_plate_04_rear_top_right": 1.0,
+          "anim_plate_arms_03_rear_top_right": 1.0,
+          "anim_spindle_plate_03_rear_top_right": 1.0,
+          "geo_spindle_plate_03_rear_top_right": 1.0,
+          "dbr_geo_hinge_02_rear_top_right": 1050.0,
+          "anim_spindle_plate_top_02_rear_top_right": 1.0,
+          "geo_spindle_plate_02_rear_top_right": 1.0,
+          "anim_plate_arms_01_rear_top_right": 1.0,
+          "anim_spindle_plate_01_rear_top_right": 1.0,
+          "geo_spindle_plate_01_rear_top_right": 1.0,
+          "geo_spindle_plate_slider_base_rear_right": 1.0,
+          "geo_spindle_mainbar_03": 1.0,
+          "geo_spindle_mainbar_04": 1.0,
+          "geo_spindle_mainbar_05": 1.0,
+          "geo_spindle_mainbar_06": 1.0,
+          "geo_spindle_mainbar_07": 1.0,
+          "rear": 1.0,
+          "dbr_rear_lower_wings_right": 100.0,
+          "dbr_rear_lower_wings_left": 100.0
+        }
+      },
+      "ThrustersHealthPoints": {
+        "Main": {
+          "thruster_main_right_upper": 10500.0,
+          "thruster_main_right": 12000.0,
+          "thruster_main_left_upper": 10500.0,
+          "thruster_main_left": 12000.0,
+          "thruster_main_right_lower": 10500.0,
+          "thruster_main_left_lower": 10500.0
+        },
+        "Retro": {
+          "thruster_retro_top_right": 10500.0,
+          "thruster_retro_top_left": 10500.0,
+          "thruster_retro_front_right": 10500.0,
+          "thruster_retro_front_left": 10500.0
+        },
+        "Vtol": {
+          "vtol_front_left_outer": 9000.0,
+          "vtol_front_right_outer": 9000.0,
+          "vtol_rear_right": 9000.0,
+          "vtol_rear_left": 9000.0
+        },
+        "Maneuvering": {
+          "thruster_side_rear_right_lower": 10500.0,
+          "thruster_side_front_right": 10500.0,
+          "thruster_side_rear_left_lower": 10500.0,
+          "thruster_front_bottom_right_chin": 10500.0,
+          "thruster_front_bottom_left_chin": 10500.0,
+          "thruster_front_top_right": 10500.0,
+          "thruster_front_top_left": 10500.0,
+          "thruster_side_front_left": 10500.0,
+          "thruster_rear_top_left": 10500.0,
+          "thruster_rear_top_right": 10500.0,
+          "thruster_rear_bottom_left_front": 10500.0,
+          "thruster_rear_bottom_right_front": 10500.0,
+          "thruster_rear_bottom_left": 10500.0,
+          "thruster_rear_bottom_right": 10500.0,
+          "thruster_rear_left_upper": 10500.0,
+          "thruster_rear_right_upper": 10500.0
+        }
+      },
+      "DoorsHealthPoints": {
+        "docking_door_outer": 12000.0,
+        "elevator": 8000.0
+      }
+    },
+    "FlightCharacteristics": {
+      "ScmSpeed": 145.0,
+      "MaxSpeed": 960.0,
+      "Pitch": 33.0,
+      "Yaw": 33.0,
+      "Roll": 90.0,
+      "IsVtolAssisted": false,
+      "ThrustCapacity": {
+        "Main": 28509712.0,
+        "Retro": 17476064.0,
+        "Vtol": 6240000.0,
+        "Maneuvering": 66974694.0
+      },
+      "AccelerationG": {
+        "IsValidated": true,
+        "Main": 5.6,
+        "Retro": 3.4,
+        "Strafe": 3.5,
+        "Up": 3.5,
+        "Down": 2.4,
+        "CheckDate": "2026-04-09"
+      },
+      "MasterModes": {
+        "BaseSpoolTime": 1.0,
+        "QuantumDriveSpoolTime": 6.0,
+        "ScmMode": {
+          "BoostSpeedForward": 340.0,
+          "BoostSpeedBackward": 180.0
+        }
+      },
+      "Boost": {
+        "PreDelay": 0.0,
+        "RampUp": 2.0,
+        "RampDown": 0.7,
+        "AccelerationMultiplier": {
+          "PositiveAxis": {
+            "X": 1.3,
+            "Y": 1.4,
+            "Z": 1.4
+          },
+          "NegativeAxis": {
+            "X": 1.3,
+            "Y": 1.4,
+            "Z": 1.3
+          }
+        },
+        "AngularAccelerationMultiplier": {
+          "Pitch": 1.2,
+          "Yaw": 1.2,
+          "Roll": 1.2
+        },
+        "AngularVelocityMultiplier": {
+          "Pitch": 1.2,
+          "Yaw": 1.2,
+          "Roll": 1.2
+        }
+      },
+      "Capacitors": {
+        "ThrusterCapacitorSize": 20.0,
+        "CapacitorRegenPerSec": 0.75,
+        "CapacitorIdleCost": 1.0,
+        "CapacitorLinearCost": 0.0,
+        "CapacitorUsageModifier": 1.0,
+        "CapacitorRegenDelay": 1.1,
+        "RegenerationTime": 26.7
+      }
+    },
+    "FuelManagement": {
+      "FuelCapacity": 210000000.0,
+      "FuelIntakeRate": 15.0,
+      "QuantumFuelCapacity": 5700000.0,
+      "FuelBurnRatePer10KNewton": {
+        "Main": 7.5,
+        "Retro": 5.0,
+        "Vtol": 5.0,
+        "Maneuvering": 20.0
+      },
+      "FuelUsagePerSecond": {
+        "Main": 3563.714,
+        "Retro": 2184.508,
+        "Vtol": 780.0,
+        "Maneuvering": 8371.837
+      },
+      "IntakeToMainFuelRatio": 0.42,
+      "TimeForIntakesToFillTank": 14000000.0
+    },
+    "Emissions": {
+      "Electromagnetic": {
+        "SCMIdle": 0.0,
+        "SCMActive": 0.0,
+        "NAV": 0.0
+      },
+      "Infrared": {
+        "Start": 0.0
+      },
+      "CrossSection": {
+        "Front": 0.0,
+        "Side": 0.0,
+        "Top": 0.0
+      }
+    },
+    "ResourceNetwork": {
+      "ItemPools": {
+        "WeaponPoolSize": 4.0
+      }
+    },
+    "BaseLoadout": {
+      "TotalShieldHP": 36000.0,
+      "PilotBurstDPS": 1091.0,
+      "TurretsBurstDPS": 1091.0,
+      "TotalMissilesDmg": 23200.0
+    },
+    "Insurance": {
+      "StandardClaimTime": 11.66,
+      "ExpeditedClaimTime": 2.85,
+      "ExpeditedCost": 8970.0
+    },
+    "Dimensions2": {
+      "Length": 46.0,
+      "Width": 17.0,
+      "Height": 8.0
     }
   },
   {
