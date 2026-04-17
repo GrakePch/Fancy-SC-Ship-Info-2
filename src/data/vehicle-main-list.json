@@ -27895,9 +27895,9 @@
         "Start": 0.0
       },
       "CrossSection": {
-        "Front": 0.0,
-        "Side": 0.0,
-        "Top": 0.0
+        "Front": 1133.0,
+        "Side": 2774.0,
+        "Top": 6211.0
       }
     },
     "ResourceNetwork": {
