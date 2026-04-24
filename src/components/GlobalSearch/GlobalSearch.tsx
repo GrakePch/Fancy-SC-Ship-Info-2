@@ -55,7 +55,7 @@ export default function GlobalSearch() {
       }
       const matched = vehicleBasicList.filter((s) => {
         const enName = s.Name.toLowerCase();
-        const localName = tv(s.Name, { defaultValue: s.Name }).toLowerCase();
+        const localName = tv(s.ClassName, { defaultValue: s.Name }).toLowerCase();
         return enName.includes(q) || localName.includes(q);
       });
       setResults(matched.slice(0, 20));
@@ -99,7 +99,7 @@ export default function GlobalSearch() {
         {results.length > 0 && (
           <ul className={styles.resultList}>
             {results.map((s, i) => {
-              const localName = tv(s.Name, { defaultValue: s.Name });
+              const localName = tv(s.ClassName, { defaultValue: s.Name });
               const showLocal = localName !== s.Name;
               return (
                 <li

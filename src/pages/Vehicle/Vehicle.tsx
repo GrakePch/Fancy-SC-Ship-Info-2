@@ -63,7 +63,9 @@ export default function Vehicle() {
 
   /*//// NAME & MANUFACTURER ////*/
 
-  const vehicleShortNameI18n = shorten(tv(vInfoBasic.Name, { defaultValue: vInfoBasic.Name }));
+  const vehicleShortNameI18n = shorten(
+    tv(vInfoBasic.ClassName, { defaultValue: vInfoBasic.Name }),
+  );
   const vehicleFullNameOriginal = vInfoBasic.Name;
   const manufacturerEn = vInfoBasic.Manufacturer;
   const manufacturerCn = tm(manufacturerEn, { defaultValue: manufacturerEn });

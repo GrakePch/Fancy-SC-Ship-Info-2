@@ -53,7 +53,9 @@ export default function Home() {
                   onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <Link to={`/vehicle/${encodeURIComponent(s.ClassName)}`} className={styles.link}>
-                  <div className={styles.name}>{shorten(tv(s.Name, { defaultValue: s.Name }))}</div>
+                  <div className={styles.name}>
+                    {shorten(tv(s.ClassName, { defaultValue: s.Name }))}
+                  </div>
                   <div className={styles.nameOriginal}>{shorten(s.Name)}</div>
                   {s.Store.Buy ?
                     <div className={styles.priceRSI}>{s.Store.Buy} <span>USD</span></div>
