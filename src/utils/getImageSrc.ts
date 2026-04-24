@@ -7,6 +7,7 @@ const nameFix: Record<string, string> = {
   ANVL_Hornet_F7C_Mk2: "f7c-mkii",
   AEGS_Retaliator: "retaliator-bomber",
   AEGS_Gladius_PIR: "pirate-gladius",
+  RSI_Aurora_MK2: "aurora-mk-ii",
   RSI_Zeus_CL: "zeus-mkii-cl",
   RSI_Zeus_ES: "zeus-mkii-es",
   RSI_Zeus_MR: "zeus-mkii-mr",
