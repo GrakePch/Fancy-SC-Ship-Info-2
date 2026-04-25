@@ -26,7 +26,9 @@ jobs:
 
       - name: Download Game1.zip
         run: |
-          curl -fL "https://www.spviewer.eu/api/Game1.zip" -o Game1.zip
+          curl -fL \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36" \
+            "https://www.spviewer.eu/api/Game1.zip" -o Game1.zip
 
       - name: Unzip Game1.zip to Game1 (password protected)
         env:
