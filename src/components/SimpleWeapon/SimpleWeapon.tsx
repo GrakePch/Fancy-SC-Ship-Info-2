@@ -5,7 +5,6 @@ import Icon from "@mdi/react";
 import vehicleItemListRaw from "../../data/vehicle-item-list.json";
 import icons from "../../assets/icons";
 import { useTranslation } from "react-i18next";
-import type { TFunction } from "i18next";
 
 const vehicleItemList = vehicleItemListRaw as unknown as any[];
 
@@ -37,51 +36,14 @@ const getItemInfo: any = (className: string) => {
   return vehicleItemList.find((s) => s.className === className);
 };
 
-const getZhName = (name: string | undefined, translator: TFunction<"vehicle_item">) => {
-  if (!name) return "";
-
-  const variants = new Set<string>();
-  const rawName = name;
-  const trimmedName = rawName.trim();
-  const segments = trimmedName.split(/\s+/).filter(Boolean);
-
-  const addVariant = (variant?: string) => {
-    if (variant) {
-      variants.add(variant);
-    }
-  };
-
-  addVariant(rawName);
-  addVariant(trimmedName);
-  addVariant(trimmedName.toLowerCase()); // handle case mismatches from data
-
-  if (segments.length > 1) {
-    const withoutLast = segments.slice(0, -1).join(" ");
-    addVariant(withoutLast); // try without suffix like "Laser"
-    addVariant(withoutLast.toLowerCase());
-  }
-
-  if (segments.length > 2) {
-    const withoutLastTwo = segments.slice(0, -2).join(" ");
-    addVariant(withoutLastTwo); // try removing more descriptors
-    addVariant(withoutLastTwo.toLowerCase());
-  }
-
-  for (const variant of variants) {
-    const translated = translator(variant, { defaultValue: "" }).trim(); // stops once any variant resolves
-    if (!translated) continue;
-
-    const idx = translated.lastIndexOf("(");
-    const pure = (idx >= 0 ? translated.slice(0, idx) : translated).trim();
-    if (pure) return pure;
-  }
-
-  return "";
-};
-
 type SimpleWeaponProps = {
   item: SpvPort;
   num?: number;
+};
+
+type SimpleWeaponGroupEntry = {
+  item: SpvPort;
+  count: number;
 };
 
 const SimpleWeapon = ({ item, num = 1 }: SimpleWeaponProps) => {
@@ -91,9 +53,8 @@ const SimpleWeapon = ({ item, num = 1 }: SimpleWeaponProps) => {
 
   if (baseLoadout == null) return;
 
-  const translatedName = getZhName(baseLoadout.Name, tvi);
-
   const itemInfo = getItemInfo(baseLoadout?.ClassName);
+  const translatedName = tvi(baseLoadout.ClassName, { defaultValue: baseLoadout.Name || "未知" });
 
   const bulletDmgRaw = itemInfo?.stdItem?.Weapon?.Ammunition?.ImpactDamage;
 
@@ -110,9 +71,9 @@ const SimpleWeapon = ({ item, num = 1 }: SimpleWeaponProps) => {
 
   const hasSubItems = item.Ports && item.Ports.length > 0;
 
-  const [rootCounting, setRootCounting] = useState<Record<string, number>>({});
+  const [rootCounting, setRootCounting] = useState<Record<string, SimpleWeaponGroupEntry>>({});
   useEffect(() => {
-    const _rootCounting: Record<string, number> = {};
+    const _rootCounting: Record<string, SimpleWeaponGroupEntry> = {};
     const subList = item.Ports;
 
     subList?.forEach((item) => {
@@ -121,11 +82,18 @@ const SimpleWeapon = ({ item, num = 1 }: SimpleWeaponProps) => {
       /* PortName may differ. e.g. wing_left & wing_right */
       const itemNoPortName = JSON.parse(JSON.stringify(item));
       delete itemNoPortName.PortName;
+      delete itemNoPortName.Loadout;
+      delete itemNoPortName.Flags;
+      delete itemNoPortName.BaseLoadout?.ClassName;
 
-      if (!_rootCounting[JSON.stringify(itemNoPortName)]) {
-        _rootCounting[JSON.stringify(itemNoPortName)] = Number(itemNoPortName._Quantity) || 1;
+      const groupKey = JSON.stringify(itemNoPortName);
+      if (!_rootCounting[groupKey]) {
+        _rootCounting[groupKey] = {
+          item,
+          count: Number(item._Quantity) || 1,
+        };
       } else {
-        _rootCounting[JSON.stringify(itemNoPortName)] += Number(itemNoPortName._Quantity) || 1;
+        _rootCounting[groupKey].count += Number(item._Quantity) || 1;
       }
     });
 
@@ -173,13 +141,12 @@ const SimpleWeapon = ({ item, num = 1 }: SimpleWeaponProps) => {
         </div>
       </div>
       <div className="SimpleWeapon-subWeapon-container">
-        {Object.keys(rootCounting).map((subItem, idx) => {
-          const subItemObj = JSON.parse(subItem) as SpvPort;
+        {Object.entries(rootCounting).map(([groupKey, entry], idx) => {
           return (
             <SimpleWeapon
-              item={subItemObj}
-              key={subItemObj.BaseLoadout.Name + idx}
-              num={rootCounting[subItem]}
+              item={entry.item}
+              key={groupKey + idx}
+              num={entry.count}
             />
           );
         })}

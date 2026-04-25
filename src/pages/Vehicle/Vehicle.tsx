@@ -431,6 +431,7 @@ function VehicleComponentsByType({ type, data, icon }: VehicleComponentsByTypePr
   const obj = data.InstalledItems?.at(0);
   const baseLoadout = obj?.BaseLoadout;
   const name = baseLoadout ? baseLoadout.Name || "未知" : "无";
+  const nameKey = baseLoadout?.ClassName;
   const gradePrimary = baseLoadout?.Class || "?";
   const gradeSecondary =
     baseLoadout && baseLoadout.Grade ? String.fromCharCode(64 + baseLoadout.Grade) : "?";
@@ -455,7 +456,7 @@ function VehicleComponentsByType({ type, data, icon }: VehicleComponentsByTypePr
         <div>{type}</div>
       </div>
       <HardpointSizes components={data.InstalledItems} />
-      <div className={styles.name}>{tvi(name)}</div>
+      <div className={styles.name}>{nameKey ? tvi(nameKey, { defaultValue: name }) : name}</div>
       <div className={styles.nameOriginal}>{name}</div>
       {baseLoadout && (
         <div

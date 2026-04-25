@@ -13,6 +13,7 @@ const RadarInfo = ({ radarPort, vItem }: RadarInfoProps) => {
   const { t: tvi } = useTranslation("vehicle_item");
 
   const name = vItem?.stdItem?.Name || radarPort?.BaseLoadout?.Name || t("Radar.Unknown");
+  const nameKey = vItem?.stdItem?.ClassName || radarPort?.BaseLoadout?.ClassName || radarPort?.Loadout;
   const size = vItem?.stdItem?.Size ?? radarPort?.Size ?? radarPort?.MaxSize;
   const gradePrimary = vItem?.stdItem?.Class || radarPort?.BaseLoadout?.Class || "?";
   const gradeNumeric = vItem?.stdItem?.Grade || radarPort?.BaseLoadout?.Grade;
@@ -36,7 +37,7 @@ const RadarInfo = ({ radarPort, vItem }: RadarInfoProps) => {
     <div className={styles.container}>
       <div className={styles.sectionInstalledInfo}>
         <Icon path={icons.radar} size="1.5rem" />
-        <div className={styles.name}>{tvi(name, { defaultValue: name })}</div>
+        <div className={styles.name}>{tvi(nameKey, { defaultValue: name })}</div>
         <div
           className={styles.grade}
           style={{

@@ -48,6 +48,7 @@ const QuantumTravel = ({ fuelCapacity, vItem }: QuantumTravelProps) => {
   // console.log(vItem);
 
   const name = vItem.stdItem.Name;
+  const nameKey = vItem.stdItem.ClassName;
   const size = vItem.stdItem.Size;
   const gradePrimary = vItem.stdItem.Class || "?";
   const gradeSecondary = vItem.stdItem.Grade ? String.fromCharCode(64 + vItem.stdItem.Grade) : "?";
@@ -110,7 +111,7 @@ const QuantumTravel = ({ fuelCapacity, vItem }: QuantumTravelProps) => {
     <div className={styles.container}>
       <div className={styles.sectionInstalledInfo}>
         <Icon path={icons.quantum_drive} size="1.5rem" />
-        <div className={styles.name}>{tvi(name)}</div>
+        <div className={styles.name}>{tvi(nameKey, { defaultValue: name })}</div>
         <div
           className={styles.grade}
           style={{

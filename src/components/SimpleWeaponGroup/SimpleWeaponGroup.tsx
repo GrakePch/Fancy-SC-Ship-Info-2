@@ -11,12 +11,17 @@ type SimpleWeaponGroupProps = {
   weaponGroupObj: SpvHardpoints | undefined;
 };
 
+type SimpleWeaponGroupEntry = {
+  item: SpvPort;
+  count: number;
+};
+
 const SimpleWeaponGroup = ({ groupName, icon, weaponGroupObj }: SimpleWeaponGroupProps) => {
-  const [rootCounting, setRootCounting] = useState<Record<string, number>>({});
+  const [rootCounting, setRootCounting] = useState<Record<string, SimpleWeaponGroupEntry>>({});
   const { t } = useTranslation();
 
   useEffect(() => {
-    const _rootCounting: Record<string, number> = {};
+    const _rootCounting: Record<string, SimpleWeaponGroupEntry> = {};
     if (weaponGroupObj?.InstalledItems == undefined) {
       setRootCounting({});
       return;
@@ -31,10 +36,14 @@ const SimpleWeaponGroup = ({ groupName, icon, weaponGroupObj }: SimpleWeaponGrou
       delete itemNoPortName.Flags;
       delete itemNoPortName.BaseLoadout?.ClassName;
 
-      if (!_rootCounting[JSON.stringify(itemNoPortName)]) {
-        _rootCounting[JSON.stringify(itemNoPortName)] = Number(itemNoPortName._Quantity) || 1;
+      const groupKey = JSON.stringify(itemNoPortName);
+      if (!_rootCounting[groupKey]) {
+        _rootCounting[groupKey] = {
+          item,
+          count: Number(item._Quantity) || 1,
+        };
       } else {
-        _rootCounting[JSON.stringify(itemNoPortName)] += Number(itemNoPortName._Quantity) || 1;
+        _rootCounting[groupKey].count += Number(item._Quantity) || 1;
       }
     });
 
@@ -61,9 +70,10 @@ const SimpleWeaponGroup = ({ groupName, icon, weaponGroupObj }: SimpleWeaponGrou
         {isShowLegendDamageType && <LegendDamageType />}
         {isShowLegendEmissionType && <LegendEmissionType />}
       </div>
-      {Object.keys(rootCounting).map((item, idx) => {
-        const itemObj = JSON.parse(item) as SpvPort;
-        return item && <SimpleWeapon item={itemObj} key={item + idx} num={rootCounting[item]} />;
+      {Object.entries(rootCounting).map(([groupKey, entry], idx) => {
+        return (
+          <SimpleWeapon item={entry.item} key={groupKey + idx} num={entry.count} />
+        );
       })}
     </div>
   );
