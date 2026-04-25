@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import vehicleBasicListRaw from "../../data/vehicle-basic-list.json";
 import styles from "./Home.module.css";
-import { getImageSrc } from "../../utils/getImageSrc";
+import VehicleImage from "../../components/VehicleImage";
 
 const vehicleBasicList = vehicleBasicListRaw as unknown as SpvVehicleBasic[];
 
@@ -45,9 +45,11 @@ export default function Home() {
                 key={s.ClassName}
                 className={styles.item}
               >
-                <img
+                <VehicleImage
                   className={styles.thumbnail}
-                  src={getImageSrc(s.ClassName, "top")}
+                  vehicleClassName={s.ClassName}
+                  angle="top"
+                  size="xs"
                   loading="lazy"
                   alt=""
                   onError={(e) => { e.currentTarget.style.display = "none"; }}

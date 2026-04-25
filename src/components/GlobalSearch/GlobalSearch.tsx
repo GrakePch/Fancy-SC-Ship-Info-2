@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import vehicleBasicListRaw from "../../data/vehicle-basic-list.json";
-import { getImageSrc } from "../../utils/getImageSrc";
+import VehicleImage from "../VehicleImage";
 import styles from "./GlobalSearch.module.css";
 
 const vehicleBasicList = vehicleBasicListRaw as unknown as SpvVehicleBasic[];
@@ -108,9 +108,11 @@ export default function GlobalSearch() {
                   onMouseEnter={() => setActiveIndex(i)}
                   onMouseDown={() => handleSelect(s)}
                 >
-                  <img
+                  <VehicleImage
                     className={styles.thumb}
-                    src={getImageSrc(s.ClassName, "top")}
+                    vehicleClassName={s.ClassName}
+                    angle="top"
+                    size="xs"
                     alt=""
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />

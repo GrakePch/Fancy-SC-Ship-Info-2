@@ -1,6 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
 import styles from "./Vehicle.module.css";
-import { getImageSrc } from "../../utils/getImageSrc";
 import vehicleBasicListRaw from "../../data/vehicle-basic-list.json";
 import vehicleMainListRaw from "../../data/vehicle-main-list.json";
 import vehicleHardpointsListRaw from "../../data/vehicle-hardpoints-list.json";
@@ -26,6 +25,7 @@ import formatTime from "../../utils/formatTime";
 import formatLongNumber from "../../utils/formatLongNumber";
 import icons from "../../assets/icons";
 import iconsManufacturerSmall from "../../assets/iconsManufacturerSmall";
+import VehicleImage from "../../components/VehicleImage";
 
 const vehicleBasicList = vehicleBasicListRaw as unknown as SpvVehicleBasic[];
 const vehicleMainList = vehicleMainListRaw as unknown as SpvVehicleMain[];
@@ -34,7 +34,6 @@ const vehicleItemList = vehicleItemListRaw as unknown as any[];
 
 export default function Vehicle() {
   const { id } = useParams() as { id?: string };
-  const heroImageSrc = id ? getImageSrc(id, "iso") : null;
   const [showHeroImage, setShowHeroImage] = useState(false);
 
   const vInfoBasic = vehicleBasicList.find(
@@ -103,10 +102,12 @@ export default function Vehicle() {
         {showHeroImage && (
           <div className={styles.manuIcon}>{iconsManufacturerSmall[manufacturerEn]}</div>
         )}
-        {heroImageSrc && (
-          <img
+        {id && (
+          <VehicleImage
             className={styles.shipImage}
-            src={heroImageSrc}
+            vehicleClassName={id}
+            angle="iso"
+            size="l"
             alt={vehicleFullNameOriginal}
             style={{ display: showHeroImage ? undefined : "none" }}
             onLoad={() => {
