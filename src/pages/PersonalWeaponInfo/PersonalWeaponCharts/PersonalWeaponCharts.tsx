@@ -76,9 +76,10 @@ function VerticalReferenceLabel({ value, fill = "var(--color-text-1)", viewBox }
 
 type PersonalWeaponChartsProps = {
   ammunition?: WeaponAmmunition;
+  noAnimation?: boolean;
 };
 
-export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChartsProps) {
+export default function PersonalWeaponCharts({ ammunition, noAnimation = false }: PersonalWeaponChartsProps) {
   const { t: tUi } = useTranslation("ui");
   const damageStats = ammunition?.DamageStats ?? {};
   const damageTypes = DAMAGE_TYPE_ORDER.filter(
@@ -210,8 +211,8 @@ export default function PersonalWeaponCharts({ ammunition }: PersonalWeaponChart
                 fill={`url(#fillGradient_${dmgType})`}
                 baseValue={0}
                 dot={false}
-                isAnimationActive
-                animationDuration={900}
+                isAnimationActive={!noAnimation}
+                animationDuration={noAnimation ? 0 : 900}
                 animationEasing="ease-out"
               />
             ))}

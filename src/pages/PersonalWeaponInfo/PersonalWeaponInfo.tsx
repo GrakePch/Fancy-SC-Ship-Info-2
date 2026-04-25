@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   mdiDatabaseOutline,
@@ -23,9 +23,11 @@ const listPersonalWeapon = listPersonalWeaponRaw as unknown as WeaponPersonalLis
 export default function PersonalWeaponInfo() {
   const navigate = useNavigate();
   const { className } = useParams();
+  const [searchParams] = useSearchParams();
   const { t: tPw } = useTranslation("pw");
   const { t: tItem } = useTranslation("vehicle_item");
   const { t: tManufacturer } = useTranslation("manufacturer");
+  const noAnimation = searchParams.get("no_animation") === "1";
 
   const weapon = useMemo(() => listPersonalWeapon.find((item) => item.ClassName === className), [className]);
 
@@ -93,7 +95,7 @@ export default function PersonalWeaponInfo() {
 
       <div className={styles.dataDetail}>
         <div className={styles.charts}>
-          <PersonalWeaponCharts ammunition={ammunition} />
+          <PersonalWeaponCharts ammunition={ammunition} noAnimation={noAnimation} />
           <HumanStatus activeFiringMode={activeFiringMode} />
         </div>
         <div className={styles.mainData}>

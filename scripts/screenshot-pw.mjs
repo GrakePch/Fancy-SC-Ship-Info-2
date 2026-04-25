@@ -38,7 +38,7 @@ let successCount = 0;
 let failCount = 0;
 
 for (const className of classNames) {
-  const url = `${BASE_URL}/PW/${className}`;
+  const url = `${BASE_URL}/PW/${className}?no_animation=1`;
   console.log(`Screenshotting: ${url}`);
 
   try {
