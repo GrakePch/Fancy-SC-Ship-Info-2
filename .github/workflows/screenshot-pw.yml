@@ -1,4 +1,4 @@
-name: Screenshot Vehicle Pages
+name: Screenshot Personal Weapon Pages
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - data-updated
 
 jobs:
-  screenshot:
+  screenshot-pw:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -46,7 +46,7 @@ jobs:
           echo "Server is up."
 
       - name: Take screenshots
-        run: node scripts/screenshot.mjs
+        run: node scripts/screenshot-pw.mjs
         env:
           BASE_URL: "http://localhost:4173"
 
@@ -55,8 +55,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: screenshots
-          publish_dir: ./screenshots/vehicle
-          destination_dir: vehicle
-          commit_message: "chore: update vehicle screenshots [skip ci]"
+          publish_dir: ./screenshots/personal_weapon
+          destination_dir: personal_weapon
+          commit_message: "chore: update personal weapon screenshots [skip ci]"
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
