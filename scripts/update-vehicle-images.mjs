@@ -37,6 +37,7 @@ const SLUG_OVERRIDES = {
   DRAK_Dragonfly: "dragonfly-black",
   KRIG_L22_AlphaWolf: "l22-alphawolf",
   KRIG_P72_Archimedes: "p72-archimedes",
+  ORIG_600i: "600i-explorer",
   ORIG_85X: "85x",
   ORIG_m50: "m50",
   ORIG_x1: "x1-base",
