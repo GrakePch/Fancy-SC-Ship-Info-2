@@ -16,6 +16,8 @@ const DEFAULT_VIEWS = ["iso", "top"];
 const WEBP_QUALITY = Number(process.env.VEHICLE_IMAGE_WEBP_QUALITY || 88);
 const DOWNLOAD_CONCURRENCY = Number(process.env.VEHICLE_IMAGE_DOWNLOAD_CONCURRENCY || 3);
 const DOWNLOAD_DELAY_MS = Number(process.env.VEHICLE_IMAGE_DOWNLOAD_DELAY_MS || 250);
+const IMAGE_PIPELINE_VERSION = 2;
+const TRIM_ALPHA_THRESHOLD = Number(process.env.VEHICLE_IMAGE_TRIM_ALPHA_THRESHOLD || 0);
 
 const SLUG_OVERRIDES = {
   ANVL_C8R_Pisces: "c8r",
@@ -70,8 +72,7 @@ async function main() {
   await rm(outDir, { recursive: true, force: true });
   await mkdir(outDir, { recursive: true });
 
-  const shipsAssetPath = await discoverShipsAssetPath();
-  const shipsJsonUrl = `${HANGAR_ORIGIN}/assets/${shipsAssetPath}`;
+  const { mainJsUrl, shipsAssetPath, shipsJsonUrl } = await discoverShipsAsset();
   const ships = await fetchJson(shipsJsonUrl);
   const shipsVersion = shipsAssetPath.match(/ships(\d+)\.json/)?.[1] ?? null;
   const shipsBySlug = new Map(ships.map((ship) => [ship.slug, ship]));
@@ -84,7 +85,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     baseUrl: process.env.R2_PUBLIC_BASE_URL || "",
     source: {
-      mainJsUrl: MAIN_JS_URL,
+      mainJsUrl,
       shipsJsonUrl,
       shipsVersion,
       cdnBaseUrl: CDN_BASE_URL,
@@ -94,6 +95,9 @@ async function main() {
       sourceSizePriority: SOURCE_SIZE_PRIORITY,
       outputSizePriority: OUTPUT_SIZE_PRIORITY,
       webpQuality: WEBP_QUALITY,
+      imagePipelineVersion: IMAGE_PIPELINE_VERSION,
+      trimTransparentPadding: true,
+      trimAlphaThreshold: TRIM_ALPHA_THRESHOLD,
     },
     byClassName: {},
     vehicles: {},
@@ -165,7 +169,12 @@ async function main() {
       };
 
       const previousHash = previousManifest?.vehicles?.[ship.slug]?.views?.[view]?.source?.hash;
-      if (!force && previousHash === source.hash) {
+      const previousPipelineVersion = previousManifest?.options?.imagePipelineVersion;
+      if (
+        !force &&
+        previousHash === source.hash &&
+        previousPipelineVersion === IMAGE_PIPELINE_VERSION
+      ) {
         continue;
       }
 
@@ -203,6 +212,15 @@ async function main() {
 async function processImageTask(task) {
   const imageUrl = buildSourceImageUrl(task);
   const imageBuffer = await fetchBuffer(imageUrl);
+  const { buffer: trimmedBuffer, trim } = await trimTransparentPadding(imageBuffer);
+
+  if (trim.wasTrimmed) {
+    console.log(
+      `trimmed ${task.shipSlug}/${task.view}: ` +
+        `${trim.originalWidth}x${trim.originalHeight} -> ${trim.width}x${trim.height} ` +
+        `(left ${trim.left}, top ${trim.top})`,
+    );
+  }
 
   for (const target of task.targets) {
     const outputPath = join(
@@ -212,18 +230,105 @@ async function processImageTask(task) {
       `${target.size}_${task.source.hash}.webp`,
     );
     await mkdir(dirname(outputPath), { recursive: true });
-    await sharp(imageBuffer)
-      .resize({
-        width: target.width,
-        height: target.height,
-        fit: "contain",
-        background: { r: 0, g: 0, b: 0, alpha: 0 },
-      })
+    await sharp(trimmedBuffer)
+      .resize(buildResizeOptions(target, trim.wasTrimmed))
       .webp({ quality: WEBP_QUALITY })
       .toFile(outputPath);
   }
 
   return task;
+}
+
+function buildResizeOptions(target, wasTrimmed) {
+  if (wasTrimmed) {
+    return {
+      width: target.width,
+    };
+  }
+
+  return {
+    width: target.width,
+    height: target.height,
+    fit: "contain",
+    background: { r: 0, g: 0, b: 0, alpha: 0 },
+  };
+}
+
+async function trimTransparentPadding(imageBuffer) {
+  const image = sharp(imageBuffer).ensureAlpha();
+  const { data, info } = await image.raw().toBuffer({ resolveWithObject: true });
+  const channels = info.channels;
+  const alphaChannel = channels - 1;
+
+  let minX = info.width;
+  let minY = info.height;
+  let maxX = -1;
+  let maxY = -1;
+
+  for (let y = 0; y < info.height; y += 1) {
+    const rowOffset = y * info.width * channels;
+
+    for (let x = 0; x < info.width; x += 1) {
+      const alpha = data[rowOffset + x * channels + alphaChannel];
+
+      if (alpha > TRIM_ALPHA_THRESHOLD) {
+        minX = Math.min(minX, x);
+        minY = Math.min(minY, y);
+        maxX = Math.max(maxX, x);
+        maxY = Math.max(maxY, y);
+      }
+    }
+  }
+
+  if (maxX === -1) {
+    return {
+      buffer: imageBuffer,
+      trim: {
+        wasTrimmed: false,
+        originalWidth: info.width,
+        originalHeight: info.height,
+        left: 0,
+        top: 0,
+        width: info.width,
+        height: info.height,
+      },
+    };
+  }
+
+  const width = maxX - minX + 1;
+  const height = maxY - minY + 1;
+  const wasTrimmed = minX > 0 || minY > 0 || width < info.width || height < info.height;
+
+  if (!wasTrimmed) {
+    return {
+      buffer: imageBuffer,
+      trim: {
+        wasTrimmed,
+        originalWidth: info.width,
+        originalHeight: info.height,
+        left: 0,
+        top: 0,
+        width: info.width,
+        height: info.height,
+      },
+    };
+  }
+
+  return {
+    buffer: await sharp(imageBuffer)
+      .extract({ left: minX, top: minY, width, height })
+      .png()
+      .toBuffer(),
+    trim: {
+      wasTrimmed,
+      originalWidth: info.width,
+      originalHeight: info.height,
+      left: minX,
+      top: minY,
+      width,
+      height,
+    },
+  };
 }
 
 function buildSourceImageUrl(task) {
@@ -308,16 +413,61 @@ function slugFromVehicleName(name) {
     .trim();
 }
 
-async function discoverShipsAssetPath() {
-  const mainJs = await fetchText(MAIN_JS_URL);
+async function discoverShipsAsset() {
+  const mainJsUrls = [MAIN_JS_URL];
+  const currentMainJsUrl = await discoverCurrentMainJsUrl();
+
+  if (currentMainJsUrl) {
+    mainJsUrls.push(currentMainJsUrl);
+  }
+
+  for (const mainJsUrl of [...new Set(mainJsUrls)]) {
+    const mainJs = await fetchText(mainJsUrl);
+    const shipsAssetPath = findLatestShipsAssetPath(mainJs);
+
+    if (shipsAssetPath) {
+      return {
+        mainJsUrl,
+        shipsAssetPath,
+        shipsJsonUrl: buildFlutterAssetUrl(mainJsUrl, shipsAssetPath),
+      };
+    }
+  }
+
+  throw new Error(`Could not find assets/ships*.json from ${mainJsUrls.join(", ")}`);
+}
+
+async function discoverCurrentMainJsUrl() {
+  const html = await fetchText(HANGAR_ORIGIN);
+  const bootstrapSrc = html.match(/<script[^>]+src="([^"]*flutter_bootstrap\.js)"/)?.[1];
+
+  if (!bootstrapSrc) {
+    return null;
+  }
+
+  const bootstrapUrl = new URL(bootstrapSrc, HANGAR_ORIGIN).toString();
+  const bootstrap = await fetchText(bootstrapUrl);
+
+  if (!bootstrap.includes("main.dart.js")) {
+    return null;
+  }
+
+  return new URL("main.dart.js", bootstrapUrl).toString();
+}
+
+function findLatestShipsAssetPath(mainJs) {
   const matches = [...mainJs.matchAll(/assets\/ships(\d+)\.json/g)];
 
   if (matches.length === 0) {
-    throw new Error(`Could not find assets/ships*.json in ${MAIN_JS_URL}`);
+    return null;
   }
 
   matches.sort((a, b) => Number(b[1]) - Number(a[1]));
   return matches[0][0];
+}
+
+function buildFlutterAssetUrl(mainJsUrl, assetPath) {
+  return new URL(`assets/${assetPath}`, mainJsUrl).toString();
 }
 
 async function readPreviousManifest(path) {
